@@ -1,5 +1,7 @@
 {
   "name": "mdn-compat-data-explorer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mdn-browser-compat-data": "^0.0.30"
+  }
 }
