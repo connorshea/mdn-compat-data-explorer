@@ -8,4 +8,3 @@ Some ideas:
 
 - See a list of features supported per-browser.
 - Pie charts showing the status of features per browser, e.g. "40% of features are listed as supported in Chrome, 40% are listed as unsupported, and 20% are unknown".
-- 
