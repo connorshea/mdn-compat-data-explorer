@@ -24,6 +24,22 @@ def get_browser_keys(browsers)
   end
 end
 
+# Currently, this method sucks.
+# What it does:
+# - Takes the JSON data
+# - Parses the data based on what's described in the top_level_schema
+# - Drills down a few layers until it can access the "__compat" item
+# - Manually prints information about the browser support for a given feature.
+#
+# The problem with this is that the number of layers is hardcoded.
+# For various cases, the number of layers differs, so recursion would make
+# for far better code.
+#
+# What it should do:
+# - Takes the JSON data
+# - Parses the schema data on what's described in the top_level_schema
+# - Recursively goes through each child until it finds an item named "__compat"
+# - The object it has will then have browser info, feature info, etc.
 def parse_browser_data_schema(data_object)
   get_browser_keys(data_object["browsers"])
 
@@ -54,6 +70,8 @@ def parse_browser_data_schema(data_object)
         # puts "FEATURE"
         # puts key3.to_s
         # puts data_object[key.to_s][key2.to_s][key3.to_s]["__compat"]["support"]
+        puts "KEYS"
+        puts data_object[key.to_s][key2.to_s][key3.to_s]["__compat"].keys
 
         @browser_keys.each do |browser_key|
           if data_object[key.to_s][key2.to_s][key3.to_s]["__compat"]["support"].key?(browser_key)
