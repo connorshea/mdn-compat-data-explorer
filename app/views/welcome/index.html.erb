@@ -1,2 +1,31 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Browsers</h1>
+
+<% @browsers.each do |browser| %>
+  <table class="matches-table width-full">
+    <thead>
+      <tr>
+        <%= browser.name %>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <th>Status</th>
+        <th>Release date</th>
+        <th>Release notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% browser.releases.each do |release| %>
+        <tr>
+          <td><%= release['version'] %></td>
+          <td><%= release['status'] %></td>
+          <td><%= release['release_date'] %></td>
+          <td>
+            <% unless release['release_notes'].blank? %>
+              <%= link_to release['release_notes'], release['release_notes'] %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

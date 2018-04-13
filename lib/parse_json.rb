@@ -4,9 +4,9 @@
 
 require 'json'
 
-data = File.read('public/data.json')
+@data = File.read('public/data.json')
 
-data = JSON.parse(data)
+@data = JSON.parse(@data)
 
 # Full version:
 # @top_level_schema = {
@@ -49,9 +49,19 @@ end
 
 def seed_browser_data()
   @browser_keys.each do |key, value|
+    puts key.to_s
+    releases = []
+    @data['browsers'][key.to_s]['releases'].each_pair do |version, info|
+      puts "VERSION: #{version}, INFO: #{info}"
+      version_hash = { version: version.to_s }
+      info = info.merge(version_hash)
+      puts info
+      releases << info
+    end
     Browser.create(
       browser_id: key.to_s,
-      name: @browser_names.fetch(key.to_sym).to_s
+      name: @browser_names.fetch(key.to_sym).to_s,
+      releases: releases
     )
   end
 end
@@ -163,6 +173,6 @@ def browser_versions_supported(data_object, feature_name)
   end
 end
 
-get_browser_keys(data["browsers"])
+get_browser_keys(@data["browsers"])
 seed_browser_data()
 # recursive_parse_browser_data_schema(data, 0)
