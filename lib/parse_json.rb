@@ -50,7 +50,7 @@ end
 def seed_browser_data()
   @browser_keys.each do |key, value|
     Browser.create(
-      id: key.to_s,
+      browser_id: key.to_s,
       name: @browser_names.fetch(key.to_sym).to_s
     )
   end
