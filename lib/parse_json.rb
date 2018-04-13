@@ -9,12 +9,21 @@ data = File.read('public/data.json')
 
 data = JSON.parse(data)
 
-css = data[:css]
-html = data["html"]
+# Full version:
+# @top_level_schema = {
+#   css: ["at-rules", "properties", "selectors", "types"],
+#   html: ["elements", "global_attributes"],
+#   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+# }
+@top_level_schema = {
+  css: ["at-rules", "properties", "selectors", "types"]
+}
 
+# Gets info about each browser
 def get_browser_keys(browsers)
   @browser_keys = []
 
+  # Iterates through every browser and adds the key to an array of browsers.
   browsers.each do |key, browser|
     5.times { puts " " }
     puts key
@@ -34,7 +43,7 @@ end
 # The problem with this is that the number of layers is hardcoded.
 # For various cases, the number of layers differs, so recursion would make
 # for far better code.
-#
+# 
 # What it should do:
 # - Takes the JSON data
 # - Parses the schema data on what's described in the top_level_schema
@@ -43,17 +52,7 @@ end
 def parse_browser_data_schema(data_object)
   get_browser_keys(data_object["browsers"])
 
-  # Full version:
-  # top_level_schema = {
-  #   css: ["at-rules", "properties", "selectors", "types"],
-  #   html: ["elements", "global_attributes"],
-  #   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
-  # }
-  top_level_schema = {
-    css: ["at-rules", "properties", "selectors", "types"]
-  }
-
-  top_level_schema.each_with_index do |(key, value), index|
+  @top_level_schema.each_with_index do |(key, value), index|
     puts "Key: #{key}"
     puts "Value: #{value}"
     puts "Index: #{index}"
@@ -87,7 +86,7 @@ def parse_browser_data_schema(data_object)
                 # puts info["version_added"]
                 # puts "key: #{info}"
                 info.keys.each do |k, v|
-                  puts "#{k.to_s}: #{info[k.to_s]} "
+                  puts "#{k}: #{info[k.to_s]} "
                 end
                 # puts "===== test ====="
               end
