@@ -20,6 +20,23 @@ data = JSON.parse(data)
   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
 }
 
+@browser_names = {
+  chrome: "Chrome",
+  edge: "Edge",
+  edge_mobile: "Edge Mobile",
+  firefox: "Firefox",
+  firefox_android: "Firefox Android",
+  ie: "Internet Explorer",
+  nodejs: "NodeJS",
+  opera: "Opera",
+  qq_android: "QQ Android",
+  safari: "Safari",
+  safari_ios: "Safari Mobile",
+  samsunginternet_android: "Samsung Internet for Android",
+  uc_android: "UC Browser for Android",
+  uc_chinese_android: "Chinese UC Browser for Android"
+}
+
 # Gets info about each browser
 def get_browser_keys(browsers)
   @browser_keys = []
@@ -27,6 +44,15 @@ def get_browser_keys(browsers)
   # Iterates through every browser and adds the key to an array of browsers.
   browsers.each do |key, browser|
     @browser_keys.push(key)
+  end
+end
+
+def seed_browser_data()
+  @browser_keys.each do |key, value|
+    Browser.create(
+      id: key.to_s,
+      name: @browser_names.fetch(key.to_sym).to_s
+    )
   end
 end
 
@@ -65,6 +91,7 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature = nil)
   # won't recurse again.
   if iteration.zero?
     get_browser_keys(data_object["browsers"])
+    seed_browser_data()
     @top_level_schema.each_with_index do |(key, value), index|
       # puts "Key: #{key}"
       # puts "Value: #{value}"
@@ -136,4 +163,6 @@ def browser_versions_supported(data_object, feature_name)
   end
 end
 
-recursive_parse_browser_data_schema(data, 0)
+get_browser_keys(data["browsers"])
+seed_browser_data()
+# recursive_parse_browser_data_schema(data, 0)
