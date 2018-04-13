@@ -14,7 +14,8 @@
       </tr>
     </thead>
     <tbody>
-      <% browser.releases.each do |release| %>
+      <% browser_releases = browser.releases.sort { |a,b| a["release_date"] && b["release_date"] ? a["release_date"] <=> b["release_date"] : a["release_date"] ? -1 : 1 } %>
+      <% browser_releases.each do |release| %>
         <tr>
           <td><%= release['version'] %></td>
           <td><%= release['status'] %></td>
