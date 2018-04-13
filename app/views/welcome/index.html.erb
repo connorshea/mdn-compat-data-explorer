@@ -18,7 +18,11 @@
         <tr>
           <td><%= release['version'] %></td>
           <td><%= release['status'] %></td>
-          <td><%= release['release_date'] %></td>
+          <td>
+            <% unless release['release_date'].blank? %>
+              <%= Date.parse(release['release_date']).to_formatted_s(:long) %>
+            <% end %>
+          </td>
           <td>
             <% unless release['release_notes'].blank? %>
               <%= link_to release['release_notes'], release['release_notes'] %>
