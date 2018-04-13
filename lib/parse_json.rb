@@ -15,7 +15,9 @@ data = JSON.parse(data)
 #   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
 # }
 @top_level_schema = {
-  css: ["at-rules", "properties", "selectors", "types"]
+  css: ["at-rules", "properties", "selectors", "types"],
+  html: ["elements", "global_attributes"],
+  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
 }
 
 # Gets info about each browser
@@ -24,22 +26,43 @@ def get_browser_keys(browsers)
 
   # Iterates through every browser and adds the key to an array of browsers.
   browsers.each do |key, browser|
-    # 5.times { puts " " }
-    # puts key
-    # browser["releases"].each { |key, release| puts "#{key}: #{release['release_date']}" }
-
     @browser_keys.push(key)
   end
 end
 
+# This method is intended to provide a means of parsing the browser
+# compatibility data schema so data from the schema can be used to
+# fill a database. The database will subsequently be used to generate
+# graphs with the data. Unfortunately due to the lack of easy diffing,
+# the database will need to be regenerated whenever the compatibility
+# data JSON is updated.
+# 
 # This method does the following:
 # - Takes the JSON data
 # - Parses the schema data on what's described in the top_level_schema
 # - Recursively goes through each child until it finds an item named "__compat"
 # - The object it has will then have browser info, feature info, etc.
+#
+# Limitations:
+# - It doesn't currently support nested items, e.g. it support css.types.angle
+#   but not css.types.angle.deg, it just goes by whatever __compat item it
+#   finds first. It's also worth noting that nested items aren't necessarily
+#   unique, e.g. html.elements.applet.width and html.elements.canvas.width
+#   both exist.
+# - It may be useful to generate a list of all the paths for compat data
+#   objects, e.g. ["css.properties.background", "css.properties.background-size", ...]
+# - It doesn't currently support top-level schema with only one layer. It
+#   works with css.at-rules, css.properties, etc. but not with api because the
+#   data objects are direct ancestors of the api object, e.g. api.AbortController
+#   or api.AbortSignal.
+# - It should probably be updated to either use the manual top-level schema
+#   (this is useful for testing so the script doesn't need to run through the
+#   full set of data) or just run through the entire file until it finds every
+#   compat object, depending on the value of a "debug" boolean.
 def recursive_parse_browser_data_schema(data_object, iteration, feature = nil)
-  puts "Iteration: #{iteration}"
-  # puts data_object.to_s.slice(0,200)
+  # If this is the first iteration it'll run through each item in the
+  # top-level schema, once everything has been run-through the method
+  # won't recurse again.
   if iteration.zero?
     get_browser_keys(data_object["browsers"])
     @top_level_schema.each_with_index do |(key, value), index|
@@ -70,9 +93,8 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature = nil)
       # If the hash has a '__compat' key the key of the data object will
       # be the feature name, we pass that forward so it can be used by
       # the browser_versions_supported method later on.
-      # Alternatively it may be a better idea to use the description property
-      # of "__compat".
       if value.to_h.has_key?("__compat")
+        puts "KEYS: #{value.to_h['__compat'].keys}"
         feature_name = key
       end
 
@@ -89,8 +111,6 @@ def browser_versions_supported(data_object, feature_name)
       puts "Support for #{feature_name} in #{browser_key}"
 
       # This can either be a Hash or an Array, depending on the specific case.
-      # puts data_object[key.to_s][key2.to_s][key3.to_s]["__compat"]["support"][browser_key.to_s]
-      # 
       # If it's an Array.
       if data_object[browser_key.to_s].kind_of?(Array)
         puts "Data: #{data_object[browser_key.to_s]}"
