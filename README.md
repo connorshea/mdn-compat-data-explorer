@@ -35,6 +35,8 @@ You can update `public/data.json` with new data from the npm package using `node
 
 ## Notes
 
+### Resources
+
 - [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
 
 ### Dependencies
