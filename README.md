@@ -36,3 +36,14 @@ You can update `public/data.json` with new data from the npm package using `node
 ## Notes
 
 - [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
+
+## TODO
+
+- Add [Normalize](https://necolas.github.io/normalize.css/)
+- Style the site, some options:
+  - Bootstrap
+  - [Bourbon](https://www.bourbon.io/), [Neat](https://neat.bourbon.io/), and [Bitters](http://bitters.bourbon.io/)
+  - Something custom?
+- Figure out how to use the [version_sorter](https://github.com/github/version_sorter) gem for determing browser support, and possibly for sorting the browser version tables.
+- Remove ActionCable (and ActiveStorage?) since they're unnecessary for the project.
+- 
