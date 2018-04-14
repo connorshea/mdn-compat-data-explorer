@@ -9,7 +9,8 @@ Some ideas:
 - See a list of features supported per-browser.
 - Pie charts showing the status of features per browser, e.g. "40% of features are listed as supported in Chrome, 40% are listed as unsupported, and 20% are unknown".
 
-## Running the application locally
+## Development
+### Running the application locally
 
 You'll need:
 
@@ -27,14 +28,14 @@ Run the following commands:
 
 With that, the site should be up at `localhost:3000`.
 
-## Updating the data.json
+### Updating the data.json
 
 You can update the `mdn-browser-compat-data` package with `yarn upgrade`.
 
 You can update `public/data.json` with new data from the npm package using
 `node lib/build.js`.
 
-## Updating the database
+### Updating the database
 
 You can update the database (where all the data is stored) by running
 `rake db:seed`. Note that this will delete the database and fill it with
@@ -44,11 +45,16 @@ The application essentially uses a static data set. It uses a database
 simply because I wanted to learn more about databases and wanted an easier
 means of querying the data.
 
-## Notes
+### Deployment
 
-### Resources
+The live site currently uses Heroku, and is available at [mdn-compat-data-explorer.herokuapp.com](https://mdn-compat-data-explorer.herokuapp.com/).
 
-- [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
+Deployment involves the following:
+
+- Deploy the current version of the `master` branch.
+- Run `bundle exec db:migrate` and `bundle exec db:seed` from the [Heroku Web Console](https://devcenter.heroku.com/articles/heroku-dashboard#web-console) or with the Heroku CLI.
+
+This should update the site to the current codebase and recreate the database from the `db/seeds.rb` file.
 
 ### Dependencies
 
@@ -60,6 +66,12 @@ This project uses:
 - [Mozilla Developer Network Browser Compatability Data](https://github.com/mdn/browser-compat-data)
 
 To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
+
+## Notes
+
+### Resources
+
+- [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
 
 ### TODO
 
