@@ -16,7 +16,7 @@ You'll need:
 - Postgres 9.6
 - Ruby 2.5.x
 
-Do the following:
+Run the following commands:
 
 1. `gem install bundler`
 1. `bundle install`
@@ -27,11 +27,22 @@ Do the following:
 
 With that, the site should be up at `localhost:3000`.
 
-## Updating the data set
+## Updating the data.json
 
 You can update the `mdn-browser-compat-data` package with `yarn upgrade`.
 
-You can update `public/data.json` with new data from the npm package using `node lib/build.js`.
+You can update `public/data.json` with new data from the npm package using
+`node lib/build.js`.
+
+## Updating the database
+
+You can update the database (where all the data is stored) by running
+`rake db:seed`. Note that this will delete the database and fill it with
+whatever data is in `public/data.json` based on `db/seeds.rb`.
+
+The application essentially uses a static data set. It uses a database
+simply because I wanted to learn more about databases and wanted an easier
+means of querying the data.
 
 ## Notes
 
@@ -54,3 +65,6 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 - Figure out how to use the [version_sorter](https://github.com/github/version_sorter) gem for determing browser support, and possibly for sorting the browser version tables.
 - Remove ActionCable (and ActiveStorage?) since they're unnecessary for the project.
+- Add a header and footer.
+- Seed the database with more data, specifically data about CSS, HTML, and JS features.
+- Determine whether or not the project should use Bootstrap (or another framework) instead of the minimal setup we have right now.
