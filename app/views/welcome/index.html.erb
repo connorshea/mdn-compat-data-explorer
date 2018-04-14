@@ -1,35 +1,37 @@
-<h1>Browsers</h1>
+<div class="wrapper">
+  <h1>Browsers</h1>
 
-<% @browsers.each do |browser| %>
-  <table class="matches-table width-full">
-    <thead>
-      <tr>
-        <%= browser.name %>
-      </tr>
-      <tr>
-        <th>Version</th>
-        <th>Status</th>
-        <th>Release date</th>
-        <th>Release notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% browser.releases.each do |release| %>
+  <% @browsers.each do |browser| %>
+    <table class="matches-table width-full">
+      <thead>
         <tr>
-          <td><%= release['version'] %></td>
-          <td><%= release['status'] %></td>
-          <td>
-            <% unless release['release_date'].blank? %>
-              <%= Date.parse(release['release_date']).to_formatted_s(:long) %>
-            <% end %>
-          </td>
-          <td>
-            <% unless release['release_notes'].blank? %>
-              <%= link_to release['release_notes'], release['release_notes'] %>
-            <% end %>
-          </td>
+          <th colspan="4"><%= browser.name %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+        <tr>
+          <th>Version</th>
+          <th>Status</th>
+          <th>Release date</th>
+          <th>Release notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% browser.releases.each do |release| %>
+          <tr>
+            <td><%= release['version'] %></td>
+            <td><%= release['status'] %></td>
+            <td>
+              <% unless release['release_date'].blank? %>
+                <%= Date.parse(release['release_date']).to_formatted_s(:long) %>
+              <% end %>
+            </td>
+            <td>
+              <% unless release['release_notes'].blank? %>
+                <%= link_to release['release_notes'], release['release_notes'] %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

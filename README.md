@@ -1,4 +1,4 @@
-# MDN Browser Compat Data Explorer
+# MDN Browser Compatability Data Explorer
 
 This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `mdn-browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
@@ -37,13 +37,18 @@ You can update `public/data.json` with new data from the npm package using `node
 
 - [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
 
-## TODO
+### Dependencies
 
-- Add [Normalize](https://necolas.github.io/normalize.css/)
-- Style the site, some options:
-  - Bootstrap
-  - [Bourbon](https://www.bourbon.io/), [Neat](https://neat.bourbon.io/), and [Bitters](http://bitters.bourbon.io/)
-  - Something custom?
+This project uses:
+
+- [Ruby on Rails](http://rubyonrails.org/)
+- [Bourbon](https://www.bourbon.io/)
+- [Bitters](https://bitters.bourbon.io/)
+- [Mozilla Developer Network Browser Compatability Data](https://github.com/mdn/browser-compat-data)
+
+To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
+
+### TODO
+
 - Figure out how to use the [version_sorter](https://github.com/github/version_sorter) gem for determing browser support, and possibly for sorting the browser version tables.
 - Remove ActionCable (and ActiveStorage?) since they're unnecessary for the project.
-- 

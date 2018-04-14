@@ -4,3 +4,10 @@
 *, *::after, *::before {
   box-sizing: border-box;
 }
+
+.wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 25px;
+}
