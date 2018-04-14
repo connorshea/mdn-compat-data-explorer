@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'chartkick', '~> 2.3'
 gem 'database_cleaner', '~> 1.6'
 
+gem 'bourbon', '~> 5.0'
+gem 'bitters', '~> 1.8'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
