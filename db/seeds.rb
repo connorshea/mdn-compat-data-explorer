@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'json'
+require 'database_cleaner'
+
+# Make sure the DB is cleaned before seeding.
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
 @data = File.read('public/data.json')
 

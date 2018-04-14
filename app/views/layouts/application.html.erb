@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MdnCompatDataExplorer</title>
+    <title>MDN Compatability Data Explorer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,8 +10,7 @@
   </head>
 
   <body>
-    <div id="data-json-location" data-json-location="<%= asset_path '/data.json' %>">
-    </div>
+    <div id="data-json-location" data-json-location="<%= asset_path '/data.json' %>"></div>
     <%= yield %>
   </body>
 </html>

@@ -16,7 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-gem "chartkick", '~> 2.3'
+gem 'chartkick', '~> 2.3'
+gem 'database_cleaner', '~> 1.6'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
