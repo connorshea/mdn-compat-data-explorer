@@ -13,17 +13,12 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
 
 gem 'chartkick', '~> 2.3'
 gem 'database_cleaner', '~> 1.6'
 
 gem 'bourbon', '~> 5.0'
 gem 'bitters', '~> 1.8'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
