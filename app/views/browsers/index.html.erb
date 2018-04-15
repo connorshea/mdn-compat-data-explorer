@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <h1>Browsers</h1>
+
+  <% @browsers.each do |browser| %>
+    <table class="matches-table width-full">
+      <thead>
+        <tr>
+          <th colspan="4"><%= browser.name %></th>
+        </tr>
+        <tr>
+          <th>Version</th>
+          <th>Status</th>
+          <th>Release date</th>
+          <th>Release notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% browser.releases.each do |release| %>
+          <tr>
+            <td><%= release['version'] %></td>
+            <td><%= release['status'] %></td>
+            <td>
+              <% unless release['release_date'].blank? %>
+                <%= Date.parse(release['release_date']).to_formatted_s(:long) %>
+              <% end %>
+            </td>
+            <td>
+              <% unless release['release_notes'].blank? %>
+                <%= link_to "📰", release['release_notes'] %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

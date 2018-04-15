@@ -11,6 +11,9 @@
 
   <body>
     <div id="data-json-location" data-json-location="<%= asset_path '/data.json' %>"></div>
+
+    <%= render "shared/header" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
