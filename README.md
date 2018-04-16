@@ -75,8 +75,5 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 ### TODO
 
-- Figure out how to use the [version_sorter](https://github.com/github/version_sorter) gem for determing browser support, and possibly for sorting the browser version tables.
-- Remove ActionCable (and ActiveStorage?) since they're unnecessary for the project.
-- Add a header and footer.
 - Seed the database with more data, specifically data about CSS, HTML, and JS features.
 - Determine whether or not the project should use Bootstrap (or another framework) instead of the minimal setup we have right now.
