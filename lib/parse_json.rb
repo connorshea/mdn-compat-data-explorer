@@ -15,9 +15,7 @@ require 'json'
 #   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
 # }
 @top_level_schema = {
-  css: ["at-rules", "properties", "selectors", "types"],
-  html: ["elements", "global_attributes"],
-  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+  css: ["at-rules", "properties"]
 }
 
 @browser_names = {
@@ -49,20 +47,19 @@ end
 
 def seed_browser_data()
   @browser_keys.each do |key, value|
-    puts key.to_s
+    # puts key.to_s
     releases = []
     @data['browsers'][key.to_s]['releases'].each_pair do |version, info|
-      puts "VERSION: #{version}, INFO: #{info}"
       version_hash = { version: version.to_s }
       info = info.merge(version_hash)
-      puts info
-      releases << info
+      releases.push(info)
     end
-    Browser.create(
-      browser_id: key.to_s,
-      name: @browser_names.fetch(key.to_sym).to_s,
-      releases: releases
-    )
+    # puts releases
+    # Browser.create(
+    #   browser_id: key.to_s,
+    #   name: @browser_names.fetch(key.to_sym).to_s,
+    #   releases: releases
+    # )
   end
 end
 
@@ -95,84 +92,136 @@ end
 #   (this is useful for testing so the script doesn't need to run through the
 #   full set of data) or just run through the entire file until it finds every
 #   compat object, depending on the value of a "debug" boolean.
-def recursive_parse_browser_data_schema(data_object, iteration, feature = nil)
+def recursive_parse_browser_data_schema(data_object, iteration, feature_path = nil, feature = nil)
   # If this is the first iteration it'll run through each item in the
   # top-level schema, once everything has been run-through the method
   # won't recurse again.
   if iteration.zero?
+    puts " "
+    puts "branch iteration.zero?"
     get_browser_keys(data_object["browsers"])
     seed_browser_data()
     @top_level_schema.each_with_index do |(key, value), index|
-      # puts "Key: #{key}"
-      # puts "Value: #{value}"
-      # puts "Index: #{index}"
+      puts " "
+      puts "top level schema"
+      puts "Key: #{key}"
+      puts "Value: #{value}"
+      puts "Index: #{index}"
       iteration += 1
-      recursive_parse_browser_data_schema(data_object[key.to_s], iteration)
+      feature_path = [key.to_s]
+      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
     end
   # If the data object has the __compat key that means it's time to parse
   # the browser support.
   elsif data_object.has_key?("__compat")
-    # data_object["__compat"]["support"].each_with_index do |(key, value), index|
-    #   puts "Key: #{key}"
-    #   puts "Value: #{value.to_s.slice(0,100)}"
-    #   puts "Index: #{index}"
-    # end
+    puts " "
+    puts "branch data_object.has_key?('compat')"
+    data_object["__compat"]["support"].each_with_index do |(key, value), index|
+      puts "Key: #{key}"
+      puts "Value: #{value.to_s.slice(0,100)}"
+      puts "Index: #{index}"
+    end
 
+    puts "FEATURE PATH: #{feature_path}"
+
+    create_feature(
+      "fuck.you.fuck", #name
+      data_object["__compat"]["description"], # description
+      data_object["__compat"]["mdn_url"], # mdn_url
+      data_object["__compat"]["status"], #status
+      data_object["__compat"]["support"] #support object
+    )
     # Send the data to the browser_versions_supported method.
-    browser_versions_supported(data_object["__compat"]["support"], feature)
+    # browser_versions_supported(data_object["__compat"]["support"], feature)
   else
+    puts " "
+    puts "branch else"
     iteration += 1
     data_object.each_with_index do |(key, value), index|
-      # puts "Key: #{key}"
-      # puts "Value: #{value.to_s.slice(0,100)}"
-      # puts "Index: #{index}"
+      puts "Key: #{key}"
+      puts "Value: #{value.to_s.slice(0,100)}"
+      puts "Index: #{index}"
 
       # If the hash has a '__compat' key the key of the data object will
       # be the feature name, we pass that forward so it can be used by
       # the browser_versions_supported method later on.
       if value.to_h.has_key?("__compat")
         puts "KEYS: #{value.to_h['__compat'].keys}"
-        feature_name = key
+        puts "KEYS2: #{value.keys}"
+        parent_name = key
       end
 
-      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_name)
+      if value.keys.length > 1
+        recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
+      end
+
+      puts "FEATURE PATH: #{feature_path}"
+
+      feature_path.push(key)
+
+      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
     end
   end
 end
 
 # This method prints the browser support info from the JSON.
 def browser_versions_supported(data_object, feature_name)
-  @browser_keys.each do |browser_key|
-    if data_object.key?(browser_key)
-      puts " "
-      puts "Support for #{feature_name} in #{browser_key}"
+  puts " "
+  puts "DATA OBJECT"
+  puts data_object
 
-      # This can either be a Hash or an Array, depending on the specific case.
-      # If it's an Array.
-      if data_object[browser_key.to_s].kind_of?(Array)
-        puts "Data: #{data_object[browser_key.to_s]}"
-        data_object[browser_key.to_s].each_with_index do |info, index|
-          info.keys.each do |key, value|
-            # This should handle `version_added = nil` somehow.
-            # Right now it just outputs a blank value, it should instead
-            # say "unknown".
-            puts "#{key}: #{info[key.to_s]}"
-          end
-          unless index + 1 == data_object[browser_key.to_s].size
-            puts "--------"
-          end
-        end
-      # If it's a Hash.
-      elsif data_object[browser_key.to_s].kind_of?(Hash)
-        puts "Data: #{data_object[browser_key.to_s]}"
-        data_object[browser_key.to_s].keys.each do |key, value|
-          puts "#{key.to_s}: #{data_object[browser_key.to_s][key.to_s]}"
-        end
-      end
-    end
+  # @browser_keys.each do |browser_key|
+  #   if data_object.key?(browser_key)
+  #     puts " "
+  #     puts "Support for #{feature_name} in #{browser_key}"
+
+  #     # This can either be a Hash or an Array, depending on the specific case.
+  #     # If it's an Array.
+  #     if data_object[browser_key.to_s].kind_of?(Array)
+  #       puts "Data: #{data_object[browser_key.to_s]}"
+  #       data_object[browser_key.to_s].each_with_index do |info, index|
+  #         info.keys.each do |key, value|
+  #           # This should handle `version_added = nil` somehow.
+  #           # Right now it just outputs a blank value, it should instead
+  #           # say "unknown".
+  #           puts "#{key}: #{info[key.to_s]}"
+  #         end
+  #         unless index + 1 == data_object[browser_key.to_s].size
+  #           puts "--------"
+  #         end
+  #       end
+  #     # If it's a Hash.
+  #     elsif data_object[browser_key.to_s].kind_of?(Hash)
+  #       puts "Data: #{data_object[browser_key.to_s]}"
+  #       data_object[browser_key.to_s].keys.each do |key, value|
+  #         puts "#{key.to_s}: #{data_object[browser_key.to_s][key.to_s]}"
+  #       end
+  #     end
+  #   end
+  # end
+end
+
+def create_feature(name, description=nil, mdn_url=nil, status=nil, support_object)
+  puts "CREATE FEATURE"
+  puts "support_object: #{support_object}"
+  puts "name: #{name}"
+  puts "Description: #{description}"
+  puts "mdn_url: #{mdn_url}"
+  puts "Status: #{status}"
+
+  if false
+    Feature.create(
+      name: "",
+      description: description,
+      mdn_url: mdn_url,
+      deprecated: status["deprecated"],
+      experimental: status["experimental"],
+      standard_track: status["standard_track"],
+      support: support_object
+    )
   end
 end
 
 get_browser_keys(@data["browsers"])
 seed_browser_data()
-# recursive_parse_browser_data_schema(data, 0)
+recursive_parse_browser_data_schema(@data, 0)
