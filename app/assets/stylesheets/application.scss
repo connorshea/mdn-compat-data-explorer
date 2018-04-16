@@ -1,6 +1,9 @@
 @import "bourbon";
 @import "base/base";
 
+$site-header: 65px;
+$site-footer: 65px;
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -10,4 +13,63 @@
   margin-left: auto;
   margin-right: auto;
   padding: 10px 25px;
+  min-height: calc(100% - #{$site-footer} -  #{$site-header});
+}
+
+.site-header {
+  height: $site-header;
+  padding: 20px 25px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    margin: 0 20px;
+
+    &.active {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.site-footer {
+  height: $site-header;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #ddd;
+
+  ul {
+    text-align: center;
+    margin: auto;
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    margin: 0 20px;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
