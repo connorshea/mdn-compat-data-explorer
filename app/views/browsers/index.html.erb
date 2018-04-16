@@ -1,10 +1,17 @@
 <div class="wrapper">
   <h1>Browsers</h1>
+  
+  <p>Jump to</p>
+  <ul>
+  <% @browsers.each do |browser| %>
+    <li><%= link_to browser.name, "##{browser.name.downcase.gsub(' ', '_')}" %></li>
+  <% end %>
+  </ul>
 
   <% @browsers.each do |browser| %>
-    <table class="matches-table width-full">
+    <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="browser-table width-full">
       <thead>
-        <tr>
+        <tr class="browser-table-name-row">
           <th colspan="4"><%= browser.name %></th>
         </tr>
         <tr>
@@ -25,7 +32,7 @@
                 <%= Date.parse(release['release_date']).strftime("%B %-d, %Y") %>
               <% end %>
             </td>
-            <td>
+            <td class="release-notes">
               <% unless release['release_notes'].blank? %>
                 <%= link_to "📰", release['release_notes'] %>
               <% end %>

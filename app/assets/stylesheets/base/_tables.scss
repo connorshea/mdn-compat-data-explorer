@@ -16,7 +16,7 @@ tbody {
 }
 
 tr {
-  border-bottom: $base-border;
+  border: $base-border;
 }
 
 th {
@@ -25,5 +25,5 @@ th {
 
 th,
 td {
-  padding: $small-spacing $small-spacing $small-spacing 0;
+  padding: $small-spacing;
 }
