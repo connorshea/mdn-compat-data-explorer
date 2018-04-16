@@ -21,7 +21,8 @@
             <td><%= release['status'] %></td>
             <td>
               <% unless release['release_date'].blank? %>
-                <%= Date.parse(release['release_date']).to_formatted_s(:long) %>
+                <%# Format dates like April 2, 2017, this is the same as long but without the leading 0 for days.%>
+                <%= Date.parse(release['release_date']).strftime("%B %-d, %Y") %>
               <% end %>
             </td>
             <td>
