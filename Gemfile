@@ -20,6 +20,8 @@ gem 'database_cleaner', '~> 1.6'
 gem 'bourbon', '~> 5.0'
 gem 'bitters', '~> 1.8'
 
+gem 'version_sorter', '~> 2.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
