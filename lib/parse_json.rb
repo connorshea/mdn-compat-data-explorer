@@ -92,7 +92,14 @@ end
 #   (this is useful for testing so the script doesn't need to run through the
 #   full set of data) or just run through the entire file until it finds every
 #   compat object, depending on the value of a "debug" boolean.
-def recursive_parse_browser_data_schema(data_object, iteration, feature_path = nil, feature = nil)
+def recursive_parse_browser_data_schema(data_object, iteration, feature_path=[], feature = nil)
+  puts "FUNCTION ARGUMENTS"
+  puts "data_object: #{data_object.to_s.slice(0,300)}"
+  puts "data object key: #{data_object.keys[0]}"
+  puts "iteration: #{iteration}"
+  puts "feature_path: #{feature_path.to_s.slice(0,300)}"
+  puts "feature: #{feature}"
+  puts " "
   # If this is the first iteration it'll run through each item in the
   # top-level schema, once everything has been run-through the method
   # won't recurse again.
@@ -109,37 +116,46 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature_path = n
       puts "Index: #{index}"
       iteration += 1
       feature_path = [key.to_s]
-      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
+      "pass feature_path into recursive function"
+      puts "feature_path: #{feature_path}"
+      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path, nil)
+      puts "does this ever happen"
     end
   # If the data object has the __compat key that means it's time to parse
   # the browser support.
   elsif data_object.has_key?("__compat")
     puts " "
     puts "branch data_object.has_key?('compat')"
-    data_object["__compat"]["support"].each_with_index do |(key, value), index|
-      puts "Key: #{key}"
-      puts "Value: #{value.to_s.slice(0,100)}"
-      puts "Index: #{index}"
-    end
+    # data_object["__compat"]["support"].each_with_index do |(key, value), index|
+    #   puts "Key: #{key}"
+    #   puts "Value: #{value.to_s.slice(0,100)}"
+    #   puts "Index: #{index}"
+    # end
 
     puts "FEATURE PATH: #{feature_path}"
 
     create_feature(
-      "fuck.you.fuck", #name
+      feature_path.join("."), #name
       data_object["__compat"]["description"], # description
       data_object["__compat"]["mdn_url"], # mdn_url
       data_object["__compat"]["status"], #status
       data_object["__compat"]["support"] #support object
     )
+
+    puts "we done creating FEATURE"
     # Send the data to the browser_versions_supported method.
     # browser_versions_supported(data_object["__compat"]["support"], feature)
-  else
+  elsif !data_object.has_key?("__compat")
     puts " "
-    puts "branch else"
+    puts "branch DOES NOT data_object.has_key?('compat')"
+
     iteration += 1
     data_object.each_with_index do |(key, value), index|
+      puts ""
+      puts ""
+      puts "data_object each with index #{index}"
       puts "Key: #{key}"
-      puts "Value: #{value.to_s.slice(0,100)}"
+      puts "Value: #{value.to_s.slice(0,500)}"
       puts "Index: #{index}"
 
       # If the hash has a '__compat' key the key of the data object will
@@ -151,16 +167,27 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature_path = n
         parent_name = key
       end
 
-      if value.keys.length > 1
-        recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
-      end
-
+      puts "FEATURE PATH: #{feature_path}"
+      new_feature_path = feature_path.dup
+      new_feature_path.push(key)
       puts "FEATURE PATH: #{feature_path}"
 
-      feature_path.push(key)
+      iteration += 1
 
-      recursive_parse_browser_data_schema(data_object[key.to_s], iteration, feature_path)
+      if value.keys.length > 1
+        puts "pass feature_path into recursive function"
+        puts "value keys length > 1"
+        recursive_parse_browser_data_schema(data_object[key.to_s], iteration, new_feature_path, nil)
+        puts "we done with value keys length > 1"
+      else
+        puts "pass feature_path into recursive function"
+        puts "value keys length !> 1"
+        recursive_parse_browser_data_schema(data_object[key.to_s], iteration, new_feature_path, parent_name)
+        puts "we done with value keys length !> 1"
+      end
     end
+  else
+    puts "THIS SHOULD NEVER HAPPEN"
   end
 end
 
@@ -211,7 +238,7 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
 
   if false
     Feature.create(
-      name: "",
+      name: name,
       description: description,
       mdn_url: mdn_url,
       deprecated: status["deprecated"],
