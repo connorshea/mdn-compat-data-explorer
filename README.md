@@ -52,7 +52,7 @@ The live site currently uses Heroku, and is available at [mdn-compat-data-explor
 Deployment involves the following:
 
 - Deploy the current version of the `master` branch.
-- Run `bundle exec db:migrate` and `bundle exec db:seed` from the [Heroku Web Console](https://devcenter.heroku.com/articles/heroku-dashboard#web-console) or with the Heroku CLI.
+- Run `bundle exec rake db:migrate` and `bundle exec rake db:seed` from the [Heroku Web Console](https://devcenter.heroku.com/articles/heroku-dashboard#web-console) or with the Heroku CLI.
 
 This should update the site to the current codebase and recreate the database from the `db/seeds.rb` file.
 
