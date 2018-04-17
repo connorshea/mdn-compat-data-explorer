@@ -3,7 +3,11 @@
     <li>
       <h1><%= link_to "MDN Browser Compatability Data Explorer", root_path %></h1>
     </li>
-    <li class="<%= current_class?(browsers_index_path) %>"><%= link_to "Browsers", browsers_index_path %></li>
-    <li class="<%= current_class?(features_index_path) %>"><%= link_to "Features", features_index_path %></li>
+    <li>
+      <ul>
+        <li class="<%= current_class?(browsers_index_path) %>"><%= link_to "Browsers", browsers_index_path %></li>
+        <li class="<%= current_class?(features_index_path) %>"><%= link_to "Features", features_index_path %></li>
+      </ul>
+    </li>
   </ul>
 </header>
