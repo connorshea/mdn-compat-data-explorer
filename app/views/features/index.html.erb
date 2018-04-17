@@ -19,7 +19,11 @@
         <tr>
           <td><%= feature.name %></td>
           <td><%= feature.description %></td>
-          <td><%= link_to feature.mdn_url, feature.mdn_url %></td>
+          <td>
+            <% if feature.mdn_url %>
+              <%= link_to feature.mdn_url, feature.mdn_url %>
+            <% end %>
+          </td>
           <td><%= version_added_parser(feature.chrome) %></td>
           <td><%= version_added_parser(feature.firefox) %></td>
           <td><%= version_added_parser(feature.safari) %></td>
