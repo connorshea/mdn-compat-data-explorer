@@ -1,3 +1,17 @@
 <div class="wrapper">
   <h1>Welcome!</h1>
+
+  <p>Features: <%= @feature_count %></p>
+
+  <p>Features with an MDN link: <%= @features_with_mdn_count %></p>
+
+  <p>Features with a description: <%= @features_with_description_count %></p>
+  
+  <% [:unknown, :true, :false].each do |type| %>
+    <p><%= type.to_s %>: <%= @chrome_features[type] %></p>
+  <% end %>
+
+  <p><%= @features_with_webview_android_count %></p>
+
+  <p>Features on a standards track: <%= @standard_features %></p>
 </div>

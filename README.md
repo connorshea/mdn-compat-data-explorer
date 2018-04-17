@@ -82,3 +82,5 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 - Expose the dataset version somewhere in the interface (the footer?).
 - Write some tests.
 - Display feature statuses (deprecated, experimental, standards_track) in the feature table.
+- Figure out how to handle data for the browser when there's more than one `version_added` statement, or when there are `flags` or `notes`.
+- Add pagination with [kaminari](https://github.com/kaminari/kaminari).
