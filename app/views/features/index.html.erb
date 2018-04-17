@@ -3,7 +3,7 @@
 
   <p>Features tracked: <%= @feature_count %></p>
 
-  <table class="feature-table width-full">
+  <table class="features-table width-full">
     <thead>
       <tr>
         <th>Name</th>
@@ -17,8 +17,12 @@
         <tr>
           <td><%= feature.name %></td>
           <td><%= feature.description %></td>
-          <td><%= feature.mdn_url %></td>
-          <td><%= feature.support %></td>
+          <td><%= link_to feature.mdn_url, feature.mdn_url %></td>
+          <td>
+            <%= feature.firefox %>
+            <%= feature.chrome %>
+            <%= feature.safari %>
+          </td>
         </tr>
       <% end %>
     </tbody>

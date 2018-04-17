@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_022249) do
+ActiveRecord::Schema.define(version: 2018_04_17_023133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2018_04_17_022249) do
     t.boolean "deprecated"
     t.boolean "experimental"
     t.boolean "standard_track"
-    t.jsonb "support"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "chrome", default: "{}"

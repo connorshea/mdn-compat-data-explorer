@@ -80,3 +80,10 @@ $site-footer: 65px;
     text-decoration: none;
   }
 }
+
+.features-table {
+  td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

@@ -149,7 +149,7 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
   hash = {
     name: name,
     description: description,
-    mdn_url: mdn_url,
+    mdn_url: mdn_url
   }
 
   ["deprecated", "experimental", "standard_track"].each do |status_key|
@@ -161,7 +161,7 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
   @browser_names.keys.each do |browser|
     unless browser.nil?
       puts support_object[browser.to_s]
-      hash[browser.to_s] = support_object[browser]
+      hash[browser.to_s] = support_object[browser.to_s]
     end
   end
 
