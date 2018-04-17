@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_13_212416) do
+ActiveRecord::Schema.define(version: 2018_04_17_023133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,33 @@ ActiveRecord::Schema.define(version: 2018_04_13_212416) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "releases", default: "{}"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "mdn_url"
+    t.boolean "deprecated"
+    t.boolean "experimental"
+    t.boolean "standard_track"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "chrome", default: "{}"
+    t.jsonb "chrome_android", default: "{}"
+    t.jsonb "edge", default: "{}"
+    t.jsonb "edge_mobile", default: "{}"
+    t.jsonb "firefox", default: "{}"
+    t.jsonb "firefox_android", default: "{}"
+    t.jsonb "ie", default: "{}"
+    t.jsonb "nodejs", default: "{}"
+    t.jsonb "opera", default: "{}"
+    t.jsonb "qq_android", default: "{}"
+    t.jsonb "safari", default: "{}"
+    t.jsonb "safari_ios", default: "{}"
+    t.jsonb "samsunginternet_android", default: "{}"
+    t.jsonb "uc_android", default: "{}"
+    t.jsonb "uc_chinese_android", default: "{}"
+    t.jsonb "webview_android", default: "{}"
   end
 
 end

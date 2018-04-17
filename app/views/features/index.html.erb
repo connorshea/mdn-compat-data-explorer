@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <h1>Features</h1>
+
+  <p>Features tracked: <%= @feature_count %></p>
+
+  <table class="features-table width-full">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th class="mdn-column">MDN</th>
+        <th class="browser-column">Chrome</th>
+        <th class="browser-column">Firefox</th>
+        <th class="browser-column">Safari</th>
+        <th class="browser-column">Safari iOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @features.each do |feature| %>
+        <tr>
+          <td title="<%= feature.name %>"><%= feature.name %></td>
+          <td><%= feature.description %></td>
+          <td>
+            <% if feature.mdn_url %>
+              <%= link_to "MDN", feature.mdn_url %>
+            <% end %>
+          </td>
+          <td><%= version_added_parser(feature.chrome) %></td>
+          <td><%= version_added_parser(feature.firefox) %></td>
+          <td><%= version_added_parser(feature.safari) %></td>
+          <td><%= version_added_parser(feature.safari_ios) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
