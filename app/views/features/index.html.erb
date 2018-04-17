@@ -3,34 +3,37 @@
 
   <p>Features tracked: <%= @feature_count %></p>
 
-  <table class="features-table width-full">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th class="mdn-column">MDN</th>
-        <th class="browser-column">Chrome</th>
-        <th class="browser-column">Firefox</th>
-        <th class="browser-column">Safari</th>
-        <th class="browser-column">Safari iOS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @features.each do |feature| %>
+  <% @features.each do |feature| %>
+    <p title="<%= feature.name %>"><%= feature.name %></p>
+    <p><%= feature.description %></p>
+    <% if feature.mdn_url %>
+      <%= link_to "MDN", feature.mdn_url %>
+    <% end %>
+    <table class="features-table width-full">
+      <thead>
         <tr>
-          <td title="<%= feature.name %>"><%= feature.name %></td>
-          <td><%= feature.description %></td>
-          <td>
-            <% if feature.mdn_url %>
-              <%= link_to "MDN", feature.mdn_url %>
-            <% end %>
-          </td>
-          <td><%= version_added_parser(feature.chrome) %></td>
-          <td><%= version_added_parser(feature.firefox) %></td>
-          <td><%= version_added_parser(feature.safari) %></td>
-          <td><%= version_added_parser(feature.safari_ios) %></td>
+          <th class="browser-column">Chrome</th>
+          <th class="browser-column">Chrome Android</th>
+          <th class="browser-column">Edge</th>
+          <th class="browser-column">Edge Mobile</th>
+          <th class="browser-column">Firefox</th>
+          <th class="browser-column">Firefox Android</th>
+          <th class="browser-column">Internet Explorer</th>
+          <th class="browser-column">NodeJS</th>
+          <th class="browser-column">Opera</th>
+          <th class="browser-column">Safari</th>
+          <th class="browser-column">Safari Mobile</th>
+          <th class="browser-column">Samsung Internet for Android</th>
+          <th class="browser-column">Android Webview</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <tr>
+          <% @browsers.each do |browser| %>
+            <td><%= version_added_parser(feature.public_send(browser)) %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
 </div>

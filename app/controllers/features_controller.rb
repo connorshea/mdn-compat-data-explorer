@@ -12,5 +12,21 @@ class FeaturesController < ApplicationController
     # @features_with_description_count = Feature.where.not(description: nil).count
 
     @feature_count = Feature.all.count
+
+    @browsers = [
+      "chrome",
+      "chrome_android",
+      "edge",
+      "edge_mobile",
+      "firefox",
+      "firefox_android",
+      "ie",
+      "nodejs",
+      "opera",
+      "safari",
+      "safari_ios",
+      "samsunginternet_android",
+      "webview_android"
+    ]
   end
 end
