@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <h1>Features</h1>
+
+  <table class="feature-table width-full">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>MDN Link</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @features.each do |feature| %>
+        <tr>
+          <td><%= feature.name %></td>
+          <td><%= feature.description %></td>
+          <td><%= feature.mdn_url %></td>
+          <td><%= feature.support %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
