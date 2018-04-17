@@ -8,25 +8,27 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>MDN Link</th>
-        <th>Chrome</th>
-        <th>Firefox</th>
-        <th>Safari</th>
+        <th class="mdn-column">MDN</th>
+        <th class="browser-column">Chrome</th>
+        <th class="browser-column">Firefox</th>
+        <th class="browser-column">Safari</th>
+        <th class="browser-column">Safari iOS</th>
       </tr>
     </thead>
     <tbody>
       <% @features.each do |feature| %>
         <tr>
-          <td><%= feature.name %></td>
+          <td title="<%= feature.name %>"><%= feature.name %></td>
           <td><%= feature.description %></td>
           <td>
             <% if feature.mdn_url %>
-              <%= link_to feature.mdn_url, feature.mdn_url %>
+              <%= link_to "MDN", feature.mdn_url %>
             <% end %>
           </td>
           <td><%= version_added_parser(feature.chrome) %></td>
           <td><%= version_added_parser(feature.firefox) %></td>
           <td><%= version_added_parser(feature.safari) %></td>
+          <td><%= version_added_parser(feature.safari_ios) %></td>
         </tr>
       <% end %>
     </tbody>

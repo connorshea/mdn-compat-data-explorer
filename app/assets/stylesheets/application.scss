@@ -86,4 +86,12 @@ $site-footer: 65px;
     text-overflow: ellipsis;
     overflow: hidden;
   }
+
+  th.browser-column {
+    width: 80px;
+  }
+
+  th.mdn-column {
+    width: 80px;
+  }
 }
