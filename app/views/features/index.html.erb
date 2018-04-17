@@ -9,7 +9,9 @@
         <th>Name</th>
         <th>Description</th>
         <th>MDN Link</th>
-        <th>Support</th>
+        <th>Chrome</th>
+        <th>Firefox</th>
+        <th>Safari</th>
       </tr>
     </thead>
     <tbody>
@@ -18,11 +20,9 @@
           <td><%= feature.name %></td>
           <td><%= feature.description %></td>
           <td><%= link_to feature.mdn_url, feature.mdn_url %></td>
-          <td>
-            <%= feature.firefox %>
-            <%= feature.chrome %>
-            <%= feature.safari %>
-          </td>
+          <td><%= feature.chrome %></td>
+          <td><%= feature.firefox %></td>
+          <td><%= feature.safari %></td>
         </tr>
       <% end %>
     </tbody>
