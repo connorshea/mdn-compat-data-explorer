@@ -5,7 +5,7 @@
 
   <% @features.each do |feature| %>
     <p title="<%= feature.name %>"><%= feature.name %></p>
-    <p><%= feature.description %></p>
+    <p><%= sanitize feature.description %></p>
     <% if feature.mdn_url %>
       <%= link_to "MDN", feature.mdn_url %>
     <% end %>
@@ -23,7 +23,6 @@
           <th class="browser-column">Opera</th>
           <th class="browser-column">Safari</th>
           <th class="browser-column">Safari Mobile</th>
-          <th class="browser-column">Samsung Internet for Android</th>
           <th class="browser-column">Android Webview</th>
         </tr>
       </thead>

@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
   def index
-    @features = Feature.first(100)
+    @features = Feature.where("name ~* ?", '^css.*')
 
     # ActiveRecord Query for all css items:
     # Feature.where("name ~* ?", '^css.*')
@@ -25,7 +25,6 @@ class FeaturesController < ApplicationController
       "opera",
       "safari",
       "safari_ios",
-      "samsunginternet_android",
       "webview_android"
     ]
   end
