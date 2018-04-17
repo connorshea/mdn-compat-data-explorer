@@ -42,6 +42,7 @@ DatabaseCleaner.clean
 
 @browser_names = {
   chrome: "Chrome",
+  chrome_android: "Chrome for Android",
   edge: "Edge",
   edge_mobile: "Edge Mobile",
   firefox: "Firefox",
@@ -54,7 +55,8 @@ DatabaseCleaner.clean
   safari_ios: "Safari Mobile",
   samsunginternet_android: "Samsung Internet for Android",
   uc_android: "UC Browser for Android",
-  uc_chinese_android: "Chinese UC Browser for Android"
+  uc_chinese_android: "Chinese UC Browser for Android",
+  webview_android: "Android Webview"
 }
 
 # Gets info about each browser
@@ -148,12 +150,18 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
     name: name,
     description: description,
     mdn_url: mdn_url,
-    support: support_object
   }
 
   ["deprecated", "experimental", "standard_track"].each do |status_key|
     unless status.nil?
       hash[status_key] = status[status_key]
+    end
+  end
+
+  @browser_names.keys.each do |browser|
+    unless browser.nil?
+      puts support_object[browser.to_s]
+      hash[browser.to_s] = support_object[browser]
     end
   end
 
