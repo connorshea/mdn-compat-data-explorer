@@ -20,9 +20,9 @@
           <td><%= feature.name %></td>
           <td><%= feature.description %></td>
           <td><%= link_to feature.mdn_url, feature.mdn_url %></td>
-          <td><%= feature.chrome %></td>
-          <td><%= feature.firefox %></td>
-          <td><%= feature.safari %></td>
+          <td><%= version_added_parser(feature.chrome) %></td>
+          <td><%= version_added_parser(feature.firefox) %></td>
+          <td><%= version_added_parser(feature.safari) %></td>
         </tr>
       <% end %>
     </tbody>
