@@ -71,14 +71,14 @@ end
 
 def seed_browser_data()
   @browser_keys.each do |key, value|
-    puts key.to_s
+    # puts key.to_s
     releases = []
     @data['browsers'][key.to_s]['releases'].each_pair do |version, info|
       version_hash = { version: version.to_s }
       info = info.merge(version_hash)
       releases.push(info)
     end
-    puts releases
+    # puts releases
     Browser.create(
       browser_id: key.to_s,
       name: @browser_names.fetch(key.to_sym).to_s,
@@ -139,12 +139,12 @@ end
 
 
 def create_feature(name, description=nil, mdn_url=nil, status=nil, support_object)
-  puts "CREATE FEATURE"
-  puts "support_object: #{support_object}"
-  puts "name: #{name}"
-  puts "Description: #{description}"
-  puts "mdn_url: #{mdn_url}"
-  puts "Status: #{status}"
+  # puts "CREATE FEATURE"
+  # puts "support_object: #{support_object}"
+  # puts "name: #{name}"
+  # puts "Description: #{description}"
+  # puts "mdn_url: #{mdn_url}"
+  # puts "Status: #{status}"
 
   hash = {
     name: name,
@@ -160,7 +160,7 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
 
   @browser_names.keys.each do |browser|
     unless browser.nil?
-      puts support_object[browser.to_s]
+      # puts support_object[browser.to_s]
       hash[browser.to_s] = support_object[browser.to_s]
     end
   end
