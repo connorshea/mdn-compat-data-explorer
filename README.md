@@ -75,5 +75,10 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 ### TODO
 
-- Seed the database with more data, specifically data about CSS, HTML, and JS features.
 - Determine whether or not the project should use Bootstrap (or another framework) instead of the minimal setup we have right now.
+- Implement visualizations using the dataset.
+- Implement caching, the data is static so this should be fairly easy (famous last words).
+- Improve the feature table's readability.
+- Expose the dataset version somewhere in the interface (the footer?).
+- Write some tests.
+- Display feature statuses (deprecated, experimental, standards_track) in the feature table.
