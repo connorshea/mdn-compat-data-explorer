@@ -9,6 +9,9 @@
     <% if feature.mdn_url %>
       <%= link_to "MDN", feature.mdn_url %>
     <% end %>
+    <p>Standard track: <%= feature.standard_track %></p>
+    <p>Deprecated: <%= feature.deprecated %></p>
+    <p>Experimental: <%= feature.experimental %></p>
     <table class="features-table width-full">
       <thead>
         <tr>
