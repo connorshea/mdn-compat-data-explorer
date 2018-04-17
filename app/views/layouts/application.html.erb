@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <div id="data-json-location" data-json-location="<%= asset_path '/data.json' %>"></div>
+    <% if Rails.env.development? %>
+      <div id="data-json-location" data-json-location="<%= asset_path '/data.json' %>"></div>
+    <% end %>
 
     <%= render "shared/header" %>
     <%= yield %>
