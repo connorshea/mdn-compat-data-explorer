@@ -22,6 +22,8 @@ class WelcomeController < ApplicationController
     @features_with_webview_android_count = Feature.where.not(webview_android: nil).count
 
     @standard_features = Feature.where(standard_track: true).count
+    @experimental_features = Feature.where(experimental: true).count
+    @deprecated_features = Feature.where(deprecated: true).count
 
     @feature_count = Feature.all.count
   end
