@@ -19,14 +19,25 @@ DatabaseCleaner.clean
 
 # Full version:
 # @top_level_schema = {
-#   css: ["at-rules", "properties", "selectors", "types"],
-#   html: ["elements", "global_attributes"],
-#   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+  # api: [],
+  # browsers: [],
+  # css: ["at-rules", "properties", "selectors", "types"],
+  # html: ["elements", "global_attributes"],
+  # http: [],
+  # javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+  # svg: [],
+  # webdriver: [],
+  # webextensions: []
 # }
 @top_level_schema = {
+  api: [],
   css: ["at-rules", "properties", "selectors", "types"],
   html: ["elements", "global_attributes"],
-  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+  http: [],
+  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
+  svg: [],
+  webdriver: [],
+  webextensions: []
 }
 
 @browser_names = {
@@ -133,15 +144,20 @@ def create_feature(name, description=nil, mdn_url=nil, status=nil, support_objec
   puts "mdn_url: #{mdn_url}"
   puts "Status: #{status}"
 
-  Feature.create(
+  hash = {
     name: name,
     description: description,
     mdn_url: mdn_url,
-    deprecated: status["deprecated"],
-    experimental: status["experimental"],
-    standard_track: status["standard_track"],
     support: support_object
-  )
+  }
+
+  ["deprecated", "experimental", "standard_track"].each do |status_key|
+    unless status.nil?
+      hash[status_key] = status[status_key]
+    end
+  end
+
+  Feature.create(hash)
 end
 
 get_browser_keys(@data["browsers"])
