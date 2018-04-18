@@ -9,6 +9,8 @@
 require 'json'
 require 'database_cleaner'
 
+puts "Seeding..."
+
 # Make sure the DB is cleaned before seeding.
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
@@ -171,3 +173,5 @@ end
 get_browser_keys(@data["browsers"])
 seed_browser_data()
 recursive_parse_browser_data_schema(@data, 0)
+
+puts "Finished seeding!"
