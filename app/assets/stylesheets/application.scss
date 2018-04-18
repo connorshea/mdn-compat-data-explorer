@@ -66,11 +66,6 @@ $site-footer: 65px;
 }
 
 .browser-table {
-  .browser-table-name-row {
-    background-color: #f2f2f2;
-    text-align: center;
-  }
-
   td.release-notes a {
     text-decoration: none;
   }
@@ -97,6 +92,10 @@ $site-footer: 65px;
 
 .feature-card {
   width: 100%;
+}
+
+.card {
+  overflow: hidden;
 }
 
 @include media-breakpoint-up(lg) {

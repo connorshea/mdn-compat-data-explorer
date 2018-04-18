@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-lg-4 col-12 sticky-column">
       <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header bg-light">
           Jump to...
         </div>
         <ul class="list-group list-group-flush">
@@ -20,38 +20,40 @@
 
     <div class="col-lg-8 col-12">
       <% @browsers.each do |browser| %>
-        <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="table table-bordered browser-table width-full">
-          <thead>
-            <tr class="browser-table-name-row">
-              <th colspan="4"><%= browser.name %></th>
-            </tr>
-            <tr>
-              <th>Version</th>
-              <th>Status</th>
-              <th>Release date</th>
-              <th>Release notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% browser.releases.each do |release| %>
-              <tr>
-                <td><%= release['version'] %></td>
-                <td><%= release['status'] %></td>
-                <td>
-                  <% unless release['release_date'].blank? %>
-                    <%# Format dates like April 2, 2017, this is the same as long but without the leading 0 for days.%>
-                    <%= Date.parse(release['release_date']).strftime("%B %-d, %Y") %>
-                  <% end %>
-                </td>
-                <td class="release-notes">
-                  <% unless release['release_notes'].blank? %>
-                    <%= link_to "📰", release['release_notes'] %>
-                  <% end %>
-                </td>
+        <div class="card mb-4">
+          <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="table mb-0 browser-table width-full">
+            <thead>
+              <tr class="text-center bg-light border-transparent rounded-top">
+                <th class="border-top-0" colspan="4"><%= browser.name %></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+              <tr>
+                <th>Version</th>
+                <th>Status</th>
+                <th>Release date</th>
+                <th>Release notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% browser.releases.each do |release| %>
+                <tr>
+                  <td><%= release['version'] %></td>
+                  <td><%= release['status'] %></td>
+                  <td>
+                    <% unless release['release_date'].blank? %>
+                      <%# Format dates like April 2, 2017, this is the same as long but without the leading 0 for days.%>
+                      <%= Date.parse(release['release_date']).strftime("%B %-d, %Y") %>
+                    <% end %>
+                  </td>
+                  <td class="release-notes">
+                    <% unless release['release_notes'].blank? %>
+                      <%= link_to "📰", release['release_notes'] %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       <% end %>
     </div>
   </div>
