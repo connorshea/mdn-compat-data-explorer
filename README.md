@@ -60,9 +60,8 @@ This should update the site to the current codebase and recreate the database fr
 
 This project uses:
 
-- [Ruby on Rails](http://rubyonrails.org/)
-- [Bourbon](https://www.bourbon.io/)
-- [Bitters](https://bitters.bourbon.io/)
+- [Ruby on Rails 5.2](http://rubyonrails.org/)
+- [Bootstrap 4.1](http://getbootstrap.com/)
 - [Mozilla Developer Network Browser Compatability Data](https://github.com/mdn/browser-compat-data)
 
 To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
@@ -75,7 +74,6 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 ### TODO
 
-- Determine whether or not the project should use Bootstrap (or another framework) instead of the minimal setup we have right now.
 - Implement visualizations using the dataset.
 - Implement caching, the data is static so this should be fairly easy (famous last words).
 - Improve the feature table's readability.
