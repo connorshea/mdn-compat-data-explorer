@@ -1,0 +1,20 @@
+notifications:
+  email: false
+language: ruby
+addons:
+  postgresql: '10.3'
+env:
+  - TRAVIS_NODE_VERSION="9"
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+    - node_modules
+    - $HOME/.rvm/gems
+before_script:
+  - nvm use 9
+  - psql -c 'create database travis_ci_test;' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - RAILS_ENV=test bundle exec rake db:seed
+  - RAILS_ENV=test bundle exec rake
