@@ -21,6 +21,8 @@ gem 'bootstrap', '~> 4.1.0'
 
 gem 'version_sorter', '~> 2.2'
 
+gem 'kaminari', '~> 1.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
