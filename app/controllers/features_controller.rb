@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
   def index
-    @features = Feature.where("name ~* ?", '^css.*')
+    @features = Feature.where("name ~* ?", '^css.*').page params[:page]
 
     # ActiveRecord Query for all css items:
     # Feature.where("name ~* ?", '^css.*')
