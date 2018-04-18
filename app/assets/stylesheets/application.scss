@@ -1,5 +1,4 @@
-@import "bourbon";
-@import "base/base";
+@import "bootstrap";
 
 $site-header: 65px;
 $site-footer: 65px;
@@ -9,7 +8,7 @@ $site-footer: 65px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px 25px;
-  min-height: calc(100% - #{$site-footer} -  #{$site-header});
+  min-height: calc(100vh - #{$site-footer} -  #{$site-header});
 }
 
 .site-header {

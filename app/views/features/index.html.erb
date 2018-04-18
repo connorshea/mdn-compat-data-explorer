@@ -4,38 +4,46 @@
   <p>Features tracked: <%= @feature_count %></p>
 
   <% @features.each do |feature| %>
-    <p title="<%= feature.name %>"><%= feature.name %></p>
-    <p><%= sanitize feature.description %></p>
-    <% if feature.mdn_url %>
-      <%= link_to "MDN", feature.mdn_url %>
-    <% end %>
-    <p>Standard track: <%= feature.standard_track %></p>
-    <p>Deprecated: <%= feature.deprecated %></p>
-    <p>Experimental: <%= feature.experimental %></p>
-    <table class="features-table width-full">
-      <thead>
-        <tr>
-          <th class="browser-column">Chrome</th>
-          <th class="browser-column">Chrome Android</th>
-          <th class="browser-column">Edge</th>
-          <th class="browser-column">Edge Mobile</th>
-          <th class="browser-column">Firefox</th>
-          <th class="browser-column">Firefox Android</th>
-          <th class="browser-column">Internet Explorer</th>
-          <th class="browser-column">NodeJS</th>
-          <th class="browser-column">Opera</th>
-          <th class="browser-column">Safari</th>
-          <th class="browser-column">Safari Mobile</th>
-          <th class="browser-column">Android Webview</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @browsers.each do |browser| %>
-            <td><%= version_added_parser(feature.public_send(browser)) %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card mt-3 mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= feature.name %></h5>
+        <p class="card-text"><%= sanitize feature.description %></p>
+        <% if feature.mdn_url %>
+          <%= link_to "MDN", feature.mdn_url, class: "card-link" %>
+        <% end %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Standard track: <%= feature.standard_track %></li>
+        <li class="list-group-item">Deprecated: <%= feature.deprecated %></li>
+        <li class="list-group-item">Experimental: <%= feature.experimental %></li>
+      </ul>
+      <div class="card-body p-2">
+        <table class="table table-bordered mb-0 features-table width-full">
+          <thead>
+            <tr>
+              <th class="browser-column">Chrome</th>
+              <th class="browser-column">Chrome Android</th>
+              <th class="browser-column">Edge</th>
+              <th class="browser-column">Edge Mobile</th>
+              <th class="browser-column">Firefox</th>
+              <th class="browser-column">Firefox Android</th>
+              <th class="browser-column">Internet Explorer</th>
+              <th class="browser-column">NodeJS</th>
+              <th class="browser-column">Opera</th>
+              <th class="browser-column">Safari</th>
+              <th class="browser-column">Safari Mobile</th>
+              <th class="browser-column">Android Webview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% @browsers.each do |browser| %>
+                <td><%= version_added_parser(feature.public_send(browser)) %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <% end %>
 </div>

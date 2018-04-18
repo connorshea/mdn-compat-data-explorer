@@ -1,15 +1,19 @@
 <div class="wrapper">
   <h1>Browsers</h1>
-  
-  <p>Jump to</p>
-  <ul>
-  <% @browsers.each do |browser| %>
-    <li><%= link_to browser.name, "##{browser.name.downcase.gsub(' ', '_')}" %></li>
-  <% end %>
-  </ul>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <div class="card-header">
+      Jump to...
+    </div>
+    <ul class="list-group list-group-flush">
+      <% @browsers.each do |browser| %>
+        <li class="list-group-item"><%= link_to browser.name, "##{browser.name.downcase.gsub(' ', '_')}" %></li>
+      <% end %>
+    </ul>
+  </div>
 
   <% @browsers.each do |browser| %>
-    <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="browser-table width-full">
+    <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="table table-bordered browser-table width-full">
       <thead>
         <tr class="browser-table-name-row">
           <th colspan="4"><%= browser.name %></th>
