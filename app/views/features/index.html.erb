@@ -12,13 +12,8 @@
           <%= link_to "MDN", feature.mdn_url, class: "card-link" %>
         <% end %>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Standard track: <%= feature.standard_track %></li>
-        <li class="list-group-item">Deprecated: <%= feature.deprecated %></li>
-        <li class="list-group-item">Experimental: <%= feature.experimental %></li>
-      </ul>
       <div class="card-body p-2">
-        <table class="table table-bordered mb-0 features-table width-full">
+        <table class="table table-responsive-lg mb-0 features-table width-full">
           <thead>
             <tr>
               <th class="browser-column">Chrome</th>
