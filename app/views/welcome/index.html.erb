@@ -7,20 +7,19 @@
 
   <div class="row">
     <div class="col-lg-4 col-12">
-      <ul class="list-group">
-        <li class="list-group-item">Features: <%= @feature_count %></li>
-        <li class="list-group-item">Features with an MDN link: <%= @features_with_mdn_count %></li>
-        <li class="list-group-item">Features with a description: <%= @features_with_description_count %></li>
-        
-        <% [:unknown, :true, :false].each do |type| %>
-          <li class="list-group-item"><%= type.to_s %>: <%= @chrome_features[type] %></li>
-        <% end %>
-
-        <li class="list-group-item"><%= @features_with_webview_android_count %></li>
-        <li class="list-group-item">Features on a standards track: <%= @standard_features %></li>
-        <li class="list-group-item">Experimental features: <%= @experimental_features %></li>
-        <li class="list-group-item">Deprecated features: <%= @deprecated_features %></li>
-      </ul>
+      <div class="card">
+        <div class="card-header">
+          Statistics
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Features: <%= @feature_count %></li>
+          <li class="list-group-item">Features with an MDN link: <%= @features_with_mdn_count %></li>
+          <li class="list-group-item">Features with a description: <%= @features_with_description_count %></li>
+          <li class="list-group-item">Features on a standards track: <%= @standard_features %></li>
+          <li class="list-group-item">Features marked experimental: <%= @experimental_features %></li>
+          <li class="list-group-item">Features marked deprecated: <%= @deprecated_features %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
