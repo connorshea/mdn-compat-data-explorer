@@ -10,6 +10,12 @@
   <div class="row">
     <p>Features tracked: <%= @feature_count %></p>
 
-    <%= render 'features_list', features: @features, browsers: @browsers %>
+    <% unless defined?(include_node) %>
+      <% include_node = false %>
+    <% end %>
+    <%= render 'features_list',
+        features: @features,
+        browsers: @browsers,
+        include_node: include_node %>
   </div>
 </div>

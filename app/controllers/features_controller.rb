@@ -7,6 +7,20 @@ class FeaturesController < ApplicationController
     "firefox",
     "firefox_android",
     "ie",
+    "opera",
+    "safari",
+    "safari_ios",
+    "webview_android"
+  ]
+
+  BROWSERS_PLUS_NODE = [
+    "chrome",
+    "chrome_android",
+    "edge",
+    "edge_mobile",
+    "firefox",
+    "firefox_android",
+    "ie",
     "nodejs",
     "opera",
     "safari",
@@ -26,7 +40,7 @@ class FeaturesController < ApplicationController
 
     @features = Feature.all.page params[:page]
     @feature_count = Feature.all.count
-    @browsers = BROWSERS
+    @browsers = BROWSERS_PLUS_NODE
   end
 
   def api
@@ -56,7 +70,7 @@ class FeaturesController < ApplicationController
   def javascript
     @features = Feature.where("name ~* ?", '^javascript.*').page params[:page]
     @feature_count = Feature.where("name ~* ?", '^javascript.*').count
-    @browsers = BROWSERS
+    @browsers = BROWSERS_PLUS_NODE
   end
 
   def mathml
