@@ -40,7 +40,8 @@ $site-footer: 65px;
 }
 
 .site-footer {
-  height: $site-header;
+  min-height: $site-footer;
+  height: auto;
   padding: 20px;
   background-color: #f2f2f2;
   border-top: 1px solid #ddd;
