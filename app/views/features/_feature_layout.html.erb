@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row py-4">
+    <%= render 'features_navigation' %>
+  </div>
+
+  <div class="row">
+    <h1><%= title %></h1>
+  </div>
+
+  <div class="row">
+    <p>Features tracked: <%= @feature_count %></p>
+
+    <%= render 'features_list', features: @features, browsers: @browsers %>
+  </div>
+</div>
