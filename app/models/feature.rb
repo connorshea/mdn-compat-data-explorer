@@ -68,4 +68,36 @@ class Feature < ApplicationRecord
       tsearch: { prefix: true },
       trigram: { threshold: 0.3 }
     }
+
+  def self.chrome_nil
+    where(chrome: {"version_added": nil})
+  end
+
+  def self.chrome_false
+    where(chrome: {"version_added": false})
+  end
+
+  def self.chrome_true
+    # Find all entries which are true or have a version number string.
+    where.not(
+      chrome: {"version_added": false},
+      chrome: {"version_added": nil}
+    )
+  end
+
+  def self.firefox_nil
+    where(firefox: {"version_added": nil})
+  end
+
+  def self.firefox_false
+    where(firefox: {"version_added": false})
+  end
+
+  def self.firefox_true
+    # Find all entries which are true or have a version number string.
+    where.not(
+      firefox: {"version_added": false},
+      firefox: {"version_added": nil}
+    )
+  end
 end
