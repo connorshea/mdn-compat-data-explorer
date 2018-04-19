@@ -6,19 +6,60 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-4 col-12">
-      <div class="card">
-        <div class="card-header">
-          Statistics
+    <div class="col-12">
+      <div class="card-columns">
+        <div class="card">
+          <div class="card-header">
+            Statistics
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Features: <%= @feature_count %></li>
+            <li class="list-group-item">Features with an MDN link: <%= @features_with_mdn_count %></li>
+            <li class="list-group-item">Features with a description: <%= @features_with_description_count %></li>
+            <li class="list-group-item">Features on a standards track: <%= @standard_features %></li>
+            <li class="list-group-item">Features marked experimental: <%= @experimental_features %></li>
+            <li class="list-group-item">Features marked deprecated: <%= @deprecated_features %></li>
+          </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Features: <%= @feature_count %></li>
-          <li class="list-group-item">Features with an MDN link: <%= @features_with_mdn_count %></li>
-          <li class="list-group-item">Features with a description: <%= @features_with_description_count %></li>
-          <li class="list-group-item">Features on a standards track: <%= @standard_features %></li>
-          <li class="list-group-item">Features marked experimental: <%= @experimental_features %></li>
-          <li class="list-group-item">Features marked deprecated: <%= @deprecated_features %></li>
-        </ul>
+
+        <div class="card">
+          <div class="card-body">
+            <%= pie_chart(
+              {
+                "True" => @experimental_features,
+                "False" => @feature_count - @experimental_features
+              },
+              title: "Experimental features",
+              donut: true
+            ) %>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <%= pie_chart(
+              {
+                "True" => @features_with_mdn_count,
+                "False" => @feature_count - @features_with_mdn_count
+              },
+              title: "Features with MDN Links",
+              donut: true
+            ) %>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <%= pie_chart(
+              {
+                "True" => @features_with_description_count,
+                "False" => @feature_count - @features_with_description_count
+              },
+              title: "Features with a description",
+              donut: true
+            ) %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

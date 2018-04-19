@@ -20,7 +20,7 @@
 
     <div class="col-lg-8 col-12">
       <% @browsers.each do |browser| %>
-        <div class="card mb-4">
+        <div class="card card-no-overflow mb-4">
           <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="table mb-0 browser-table width-full">
             <thead>
               <tr class="text-center bg-light border-transparent rounded-top">
