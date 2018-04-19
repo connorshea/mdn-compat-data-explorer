@@ -46,7 +46,7 @@
                   </td>
                   <td class="release-notes">
                     <% unless release['release_notes'].blank? %>
-                      <%= link_to "📰", release['release_notes'] %>
+                      <%= link_to "📰", release['release_notes'], title: "Release notes" %>
                     <% end %>
                   </td>
                 </tr>
