@@ -37,6 +37,7 @@ DatabaseCleaner.clean
   html: ["elements", "global_attributes"],
   http: [],
   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
+  mathml: [],
   svg: [],
   webdriver: [],
   webextensions: []

@@ -59,6 +59,12 @@ class FeaturesController < ApplicationController
     @browsers = BROWSERS
   end
 
+  def mathml
+    @features = Feature.where("name ~* ?", '^mathml.*').page params[:page]
+    @feature_count = Feature.where("name ~* ?", '^mathml.*').count
+    @browsers = BROWSERS
+  end
+
   def svg
     @features = Feature.where("name ~* ?", '^svg.*').page params[:page]
     @feature_count = Feature.where("name ~* ?", '^svg.*').count
