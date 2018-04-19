@@ -63,6 +63,7 @@ This project uses:
 - [Ruby on Rails 5.2](http://rubyonrails.org/)
 - [Bootstrap 4.1](http://getbootstrap.com/)
 - [Mozilla Developer Network Browser Compatability Data](https://github.com/mdn/browser-compat-data)
+- [Octicons](https://octicons.github.com/)
 
 To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
 
@@ -79,5 +80,4 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 - Improve the feature table's readability.
 - Expose the dataset version somewhere in the interface (the footer?).
 - Write some tests.
-- Display feature statuses (deprecated, experimental, standards_track) in the feature table.
 - Figure out how to handle data for the browser when there's more than one `version_added` statement, or when there are `flags` or `notes`.
