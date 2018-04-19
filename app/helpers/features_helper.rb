@@ -9,13 +9,13 @@ module FeaturesHelper
     # it would appear false values are changed to nil by Ruby at some point
     case version_added
       when true
-        return "Yes"
+        return content_tag(:td, "Yes", class: "bg-true text-center")
       when false
-        return "No"
+        return content_tag(:td, "No", class: "bg-false text-center")
       when nil
-        return "?"
+        return content_tag(:td, "?", class: "bg-unknown text-center")
       else
-        return version_added
+        return content_tag(:td, version_added, class: "bg-true text-center")
       end
   end
 end
