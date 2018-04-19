@@ -1,13 +1,16 @@
-<header class="site-header">
-  <ul>
-    <li>
-      <%= link_to "MDN Browser Compatability Data Explorer", root_path %>
-    </li>
-    <li>
-      <ul>
-        <li class="<%= current_class?(browsers_path) %>"><%= link_to "Browsers", browsers_path %></li>
-        <li class="<%= current_class?(features_path) %>"><%= link_to "Features", features_path %></li>
-      </ul>
-    </li>
-  </ul>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "MDN Browser Compatability Data Explorer", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= active_link_to "Browsers", browsers_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= active_link_to "Features", features_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
