@@ -8,7 +8,7 @@
             <%= octicon "verified", height: 16,  class: "inline right left", "aria-label": "Standard track" %>
           </abbr>
         <% end %>
-        <% if !feature.standard_track? %>
+        <% if !feature.standard_track? && !feature.standard_track.nil? %>
           <abbr class="icon" title="Non-standard. Expect poor cross-browser support.">
             <%= octicon "alert", height: 16,  class: "inline right left", "aria-label": "Non-standard" %>
           </abbr>
