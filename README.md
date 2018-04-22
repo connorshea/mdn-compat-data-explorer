@@ -75,6 +75,7 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 ### TODO
 
+- Add a timeline of browser releases.
 - Implement visualizations using the dataset.
 - Implement caching, the data is static so this should be fairly easy (famous last words).
 - Improve the feature table's readability.
