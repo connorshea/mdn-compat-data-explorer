@@ -3,12 +3,21 @@
     <%= render 'features_navigation' %>
   </div>
 
+  <% if @search %>
+    <%= form_tag("/features/search", method: "get") do %>
+      <%= text_field_tag(:query) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  <% end %>
+
   <div class="row">
     <h1><%= title %></h1>
   </div>
 
   <div class="row">
-    <p>Features tracked: <%= @feature_count %></p>
+    <% unless @search_page %>
+      <p>Features tracked: <%= @feature_count %></p>
+    <% end %>
 
     <% unless defined?(include_node) %>
       <% include_node = false %>

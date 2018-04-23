@@ -41,6 +41,8 @@ class FeaturesController < ApplicationController
     @features = Feature.all.page params[:page]
     @feature_count = Feature.all.count
     @browsers = BROWSERS_PLUS_NODE
+    
+    @search = true
   end
 
   def api
@@ -95,5 +97,18 @@ class FeaturesController < ApplicationController
     @features = Feature.where("name ~* ?", '^webextensions.*').page params[:page]
     @feature_count = Feature.where("name ~* ?", '^webextensions.*').count
     @browsers = BROWSERS
+  end
+
+  def search
+    if params[:query].present?
+      @features = Feature.search(params[:query]).page(params[:page])
+    else
+      @features = Feature.none.page(params[:page])
+    end
+
+    @browsers = BROWSERS_PLUS_NODE
+
+    @search_page = true
+    @search = true
   end
 end

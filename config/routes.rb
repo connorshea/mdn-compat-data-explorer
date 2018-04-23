@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/features/svg', to: 'features#svg'
   get '/features/webdriver', to: 'features#webdriver'
   get '/features/webextensions', to: 'features#webextensions'
+  
+  get '/features/search', to: 'features#search'
 
   root 'welcome#index'
 end
