@@ -1,19 +1,28 @@
 <div class="container">
-  <div class="row py-4">
-    <%= form_tag("/features", method: "get") do %>
-      <%= text_field_tag(:query, params['query'], placeholder: "Search") %>
+  <div class="row py-4 w-100">
+    <%= form_tag("/features", method: "get", class: "w-100") do %>
+      <%= text_field_tag(:query, 
+                         params['query'],
+                         placeholder: "Search",
+                         class: "form-control") %>
 
-      <% @categories.each do |key, value| %>
-        <%= radio_button_tag(:category, key, params[key.to_s]) %>
-        <%= label_tag("category_#{key}".to_sym, value) %>
-      <% end %>
+      <div class="py-2 w-100">
+        <% @categories.each do |key, value| %>
+          <div class="px-2 d-inline-block">
+            <%= radio_button_tag(:category, key, params[:category].eql?(key.to_s)) %>
+            <%= label_tag("category_#{key}".to_sym, value) %>
+          </div>
+        <% end %>
+      </div>
 
-      <%= submit_tag("Search", class: "btn btn-default") %>
+      <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>
     <% end %>
   </div>
 
   <div class="row">
-    <p>Features: <%= @feature_count %></p>
+    <% unless @feature_count.zero? %>
+      <p>Features: <%= @feature_count %></p>
+    <% end %>
     
     <%= render 'features_list',
         features: @features,
