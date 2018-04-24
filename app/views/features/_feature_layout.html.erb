@@ -5,7 +5,13 @@
 
   <% if @search %>
     <%= form_tag("/features/search", method: "get") do %>
-      <%= text_field_tag(:query, params['query']) %>
+      <%= text_field_tag(:query, params['query'], placeholder: "Search") %>
+
+      <% @categories.each do |key, value| %>
+        <%= check_box_tag(key, 1, params[key.to_s]) %>
+        <%= label_tag(key, value) %>
+      <% end %>
+
       <%= submit_tag("Search", class: "btn btn-default") %>
     <% end %>
   <% end %>
