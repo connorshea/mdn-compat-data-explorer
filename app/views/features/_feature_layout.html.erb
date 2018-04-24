@@ -1,21 +1,35 @@
 <div class="container">
-  <div class="row py-4">
-    <%= render 'features_navigation' %>
-  </div>
+  <div class="row py-4 w-100">
+    <%= form_tag("/features", method: "get", class: "w-100") do %>
+      <%= text_field_tag(:query, 
+                         params['query'],
+                         placeholder: "Search",
+                         class: "form-control") %>
 
-  <div class="row">
-    <h1><%= title %></h1>
-  </div>
+      <div class="py-2 w-100">
+        <div class="px-2 d-block d-md-inline-block">
+          Categories:
+        </div>
 
-  <div class="row">
-    <p>Features tracked: <%= @feature_count %></p>
+        <% @categories.each do |key, value| %>
+          <div class="px-2 d-block d-md-inline-block">
+            <%= radio_button_tag(:category, key, params[:category].eql?(key.to_s)) %>
+            <%= label_tag("category_#{key}".to_sym, value) %>
+          </div>
+        <% end %>
+      </div>
 
-    <% unless defined?(include_node) %>
-      <% include_node = false %>
+      <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>
     <% end %>
+  </div>
+
+  <div class="row">
+    <% unless @feature_count.zero? %>
+      <p>Features: <%= @feature_count %></p>
+    <% end %>
+    
     <%= render 'features_list',
         features: @features,
-        browsers: @browsers,
-        include_node: include_node %>
+        browsers: @browsers %>
   </div>
 </div>

@@ -40,9 +40,7 @@
             <th class="browser-column text-center">Firefox</th>
             <th class="browser-column text-center">Firefox Android</th>
             <th class="browser-column text-center">Internet Explorer</th>
-            <% if include_node %>
-              <th class="browser-column text-center">NodeJS</th>
-            <% end %>
+            <th class="browser-column text-center">NodeJS</th>
             <th class="browser-column text-center">Opera</th>
             <th class="browser-column text-center">Safari</th>
             <th class="browser-column text-center">Safari Mobile</th>
@@ -59,6 +57,10 @@
       </table>
     </div>
   </div>
+<% end %>
+
+<% if features.count == 0 %>
+  No features found.
 <% end %>
 
 <%= paginate features %>
