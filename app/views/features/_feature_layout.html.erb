@@ -6,7 +6,7 @@
   <% if @search %>
     <%= form_tag("/features/search", method: "get") do %>
       <%= text_field_tag(:query) %>
-      <%= submit_tag("Search") %>
+      <%= submit_tag("Search", class: "btn btn-default") %>
     <% end %>
   <% end %>
 

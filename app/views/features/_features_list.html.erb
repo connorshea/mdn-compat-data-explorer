@@ -61,4 +61,8 @@
   </div>
 <% end %>
 
+<% if features.count == 0 %>
+  No features found.
+<% end %>
+
 <%= paginate features %>

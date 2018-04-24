@@ -103,7 +103,7 @@ class FeaturesController < ApplicationController
     if params[:query].present?
       @features = Feature.search(params[:query]).page(params[:page])
     else
-      @features = Feature.none.page(params[:page])
+      @features = Feature.all.page(params[:page])
     end
 
     @browsers = BROWSERS_PLUS_NODE
