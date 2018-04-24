@@ -42,15 +42,9 @@ end
 
 if Rails.env.test?
   @top_level_schema = {
-    api: [],
-    css: ["at-rules"],
-    html: ["elements"],
-    http: [],
-    javascript: ["builtins"],
-    mathml: [],
-    svg: [],
-    webdriver: [],
-    webextensions: []
+    css: [],
+    html: [],
+    javascript: []
   }
 else
   @top_level_schema = {
@@ -66,24 +60,35 @@ else
   }
 end
 
-@browser_names = {
-  chrome: "Chrome",
-  chrome_android: "Chrome for Android",
-  edge: "Edge",
-  edge_mobile: "Edge Mobile",
-  firefox: "Firefox",
-  firefox_android: "Firefox Android",
-  ie: "Internet Explorer",
-  nodejs: "NodeJS",
-  opera: "Opera",
-  qq_android: "QQ Android",
-  safari: "Safari",
-  safari_ios: "Safari Mobile",
-  samsunginternet_android: "Samsung Internet for Android",
-  uc_android: "UC Browser for Android",
-  uc_chinese_android: "Chinese UC Browser for Android",
-  webview_android: "Android Webview"
-}
+if Rails.env.test?
+  @browser_names = {
+    chrome: "Chrome",
+    firefox: "Firefox",
+    ie: "Internet Explorer",
+    nodejs: "NodeJS",
+    safari: "Safari",
+    safari_ios: "Safari Mobile"
+  }
+else
+  @browser_names = {
+    chrome: "Chrome",
+    chrome_android: "Chrome for Android",
+    edge: "Edge",
+    edge_mobile: "Edge Mobile",
+    firefox: "Firefox",
+    firefox_android: "Firefox Android",
+    ie: "Internet Explorer",
+    nodejs: "NodeJS",
+    opera: "Opera",
+    qq_android: "QQ Android",
+    safari: "Safari",
+    safari_ios: "Safari Mobile",
+    samsunginternet_android: "Samsung Internet for Android",
+    uc_android: "UC Browser for Android",
+    uc_chinese_android: "Chinese UC Browser for Android",
+    webview_android: "Android Webview"
+  }
+end
 
 # Gets info about each browser
 def get_browser_keys(browsers)

@@ -1,19 +1,4 @@
 class FeaturesController < ApplicationController
-  BROWSERS = [
-    "chrome",
-    "chrome_android",
-    "edge",
-    "edge_mobile",
-    "firefox",
-    "firefox_android",
-    "ie",
-    "nodejs",
-    "opera",
-    "safari",
-    "safari_ios",
-    "webview_android"
-  ]
-
   def index
     if params[:query].present?
       features = Feature.search(params[:query])
@@ -21,17 +6,7 @@ class FeaturesController < ApplicationController
       features = Feature.all
     end
 
-    @categories = {
-      api: "API",
-      css: "CSS",
-      html: "HTML",
-      http: "HTTP",
-      javascript: "JavaScript",
-      mathml: "MathML",
-      svg: "SVG",
-      webdriver: "WebDriver",
-      webextensions: "WebExtensions"
-    }
+    @categories = Rails.configuration.feature_categories
 
     @categories.keys.each do |category|
       if params["category"].present? && params["category"] == category.to_s
@@ -40,9 +15,12 @@ class FeaturesController < ApplicationController
     end
 
     @feature_count = features.count
-
     @features = features.page(params[:page])
 
-    @browsers = BROWSERS
+    @browsers = Rails.configuration.browsers
+    
+    [:qq_android, :uc_android, :uc_chinese_android, :samsunginternet_android].each do |browser|
+      @browsers.delete(browser)
+    end
   end
 end

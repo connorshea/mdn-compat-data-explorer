@@ -33,23 +33,14 @@
       <table class="table table-responsive-lg mb-0 features-table width-full">
         <thead>
           <tr>
-            <th class="browser-column text-center">Chrome</th>
-            <th class="browser-column text-center">Chrome Android</th>
-            <th class="browser-column text-center">Edge</th>
-            <th class="browser-column text-center">Edge Mobile</th>
-            <th class="browser-column text-center">Firefox</th>
-            <th class="browser-column text-center">Firefox Android</th>
-            <th class="browser-column text-center">Internet Explorer</th>
-            <th class="browser-column text-center">NodeJS</th>
-            <th class="browser-column text-center">Opera</th>
-            <th class="browser-column text-center">Safari</th>
-            <th class="browser-column text-center">Safari Mobile</th>
-            <th class="browser-column text-center">Android Webview</th>
+            <% browsers.each do |browser, browser_name| %>
+              <th class="browser-column text-center"><%= browser_name %></th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <% browsers.each do |browser| %>
+            <% browsers.each do |browser, browser_name| %>
               <%= version_added_parser(feature.public_send(browser)) %>
             <% end %>
           </tr>
