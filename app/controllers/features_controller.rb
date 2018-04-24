@@ -39,6 +39,8 @@ class FeaturesController < ApplicationController
       end
     end
 
+    @feature_count = features.count
+
     @features = features.page(params[:page])
 
     @browsers = BROWSERS
