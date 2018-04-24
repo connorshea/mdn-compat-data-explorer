@@ -25,4 +25,5 @@ script:
   - RAILS_ENV=test bundle exec rake
   - node lib/build.js
   - git diff --exit-code --quiet public/data.json
+  - bundle exec rake check:check_mdn_bcd_version 
 
