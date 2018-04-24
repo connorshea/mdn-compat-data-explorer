@@ -15,33 +15,52 @@ puts "Seeding..."
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-@data = File.read('public/data.json')
+if Rails.env.test?
+  @data = File.read('public/data-test.json')
+else
+  @data = File.read('public/data.json')
+end
 
 @data = JSON.parse(@data)
 
 # Full version:
 # @top_level_schema = {
-  # api: [],
-  # browsers: [],
-  # css: ["at-rules", "properties", "selectors", "types"],
-  # html: ["elements", "global_attributes"],
-  # http: [],
-  # javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
-  # svg: [],
-  # webdriver: [],
-  # webextensions: []
+#   api: [],
+#   browsers: [],
+#   css: ["at-rules", "properties", "selectors", "types"],
+#   html: ["elements", "global_attributes"],
+#   http: [],
+#   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+#   svg: [],
+#   webdriver: [],
+#   webextensions: []
 # }
-@top_level_schema = {
-  api: [],
-  css: ["at-rules", "properties", "selectors", "types"],
-  html: ["elements", "global_attributes"],
-  http: [],
-  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
-  mathml: [],
-  svg: [],
-  webdriver: [],
-  webextensions: []
-}
+
+if Rails.env.test?
+  @top_level_schema = {
+    api: [],
+    css: ["at-rules"],
+    html: ["elements"],
+    http: [],
+    javascript: ["builtins"],
+    mathml: [],
+    svg: [],
+    webdriver: [],
+    webextensions: []
+  }
+else
+  @top_level_schema = {
+    api: [],
+    css: ["at-rules", "properties", "selectors", "types"],
+    html: ["elements", "global_attributes"],
+    http: [],
+    javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
+    mathml: [],
+    svg: [],
+    webdriver: [],
+    webextensions: []
+  }
+end
 
 @browser_names = {
   chrome: "Chrome",
