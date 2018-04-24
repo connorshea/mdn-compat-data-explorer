@@ -11,6 +11,10 @@ require 'database_cleaner'
 
 puts "Seeding..."
 
+if Rails.env.test? 
+  puts "Rails environment is test"
+end
+
 # Make sure the DB is cleaned before seeding.
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean

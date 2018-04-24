@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class FeatureTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "number of features" do
+    assert Feature.all.count == 25
+  end
 end
