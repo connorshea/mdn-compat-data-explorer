@@ -26,4 +26,5 @@ script:
   - node lib/build.js
   - git diff --exit-code --quiet public/data.json
   - bundle exec rake check:check_mdn_bcd_version 
+  - bundle exec rake check:check_json 
 
