@@ -16,6 +16,7 @@ You'll need:
 
 - Postgres 9.6
 - Ruby 2.5.x
+- Node.js 9.x
 
 Run the following commands:
 
