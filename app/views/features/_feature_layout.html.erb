@@ -7,8 +7,12 @@
                          class: "form-control") %>
 
       <div class="py-2 w-100">
+        <div class="px-2 d-block d-md-inline-block">
+          Categories:
+        </div>
+
         <% @categories.each do |key, value| %>
-          <div class="px-2 d-inline-block">
+          <div class="px-2 d-block d-md-inline-block">
             <%= radio_button_tag(:category, key, params[:category].eql?(key.to_s)) %>
             <%= label_tag("category_#{key}".to_sym, value) %>
           </div>
