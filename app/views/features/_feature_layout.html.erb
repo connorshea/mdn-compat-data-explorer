@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row py-4">
-    <% if @search %>
-      <%= form_tag("/features", method: "get") do %>
-        <%= text_field_tag(:query, params['query'], placeholder: "Search") %>
+    <%= form_tag("/features", method: "get") do %>
+      <%= text_field_tag(:query, params['query'], placeholder: "Search") %>
 
-        <% @categories.each do |key, value| %>
-          <%= radio_button_tag(:category, key, params[key.to_s]) %>
-          <%= label_tag("category_#{key}".to_sym, value) %>
-        <% end %>
-
-        <%= submit_tag("Search", class: "btn btn-default") %>
+      <% @categories.each do |key, value| %>
+        <%= radio_button_tag(:category, key, params[key.to_s]) %>
+        <%= label_tag("category_#{key}".to_sym, value) %>
       <% end %>
+
+      <%= submit_tag("Search", class: "btn btn-default") %>
     <% end %>
   </div>
 

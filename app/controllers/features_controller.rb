@@ -44,8 +44,5 @@ class FeaturesController < ApplicationController
     @features = features.page(params[:page])
 
     @browsers = BROWSERS
-
-    @search_page = true
-    @search = true
   end
 end
