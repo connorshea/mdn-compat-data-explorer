@@ -2,14 +2,6 @@
   "browsers": {
     "chrome": {
       "releases": {
-        "63": {
-          "release_date": "2017-12-06",
-          "status": "retired"
-        },
-        "64": {
-          "release_date": "2018-01-23",
-          "status": "retired"
-        },
         "65": {
           "release_date": "2018-03-06",
           "status": "retired"
@@ -42,21 +34,6 @@
           "release_date": "2018-07-03",
           "release_notes": "https://developer.mozilla.org/Firefox/Releases/61",
           "status": "planned"
-        },
-        "62": {
-          "release_date": "2018-08-28",
-          "release_notes": "https://developer.mozilla.org/Firefox/Releases/62",
-          "status": "planned"
-        },
-        "63": {
-          "release_date": "2018-10-23",
-          "release_notes": "https://developer.mozilla.org/Firefox/Releases/63",
-          "status": "planned"
-        },
-        "64": {
-          "release_date": "2018-11-27",
-          "release_notes": "https://developer.mozilla.org/Firefox/Releases/64",
-          "status": "planned"
         }
       }
     },
@@ -69,30 +46,11 @@
         "11": {
           "release_date": "2013-10-17",
           "status": "current"
-        },
-        "1.5": {
-          "status": "retired"
-        },
-        "5.5": {
-          "release_date": "2000-07-06",
-          "status": "retired"
         }
       }
     },
     "nodejs": {
       "releases": {
-        "4": {
-          "release_date": "2015-09-08",
-          "status": "current"
-        },
-        "5": {
-          "release_date": "2015-10-29",
-          "status": "retired"
-        },
-        "6": {
-          "release_date": "2016-04-26",
-          "status": "current"
-        },
         "7": {
           "release_date": "2016-10-25",
           "status": "retired"
@@ -107,55 +65,11 @@
         },
         "10": {
           "status": "planned"
-        },
-        "0.10": {
-          "release_date": "2013-03-11",
-          "status": "retired"
-        },
-        "0.12": {
-          "release_date": "2015-02-06",
-          "status": "retired"
         }
       }
     },
     "safari": {
       "releases": {
-        "1": {
-          "release_date": "2003-06-23",
-          "status": "retired"
-        },
-        "2": {
-          "release_date": "2005-04-29",
-          "status": "retired"
-        },
-        "3": {
-          "release_date": "2007-11-14",
-          "status": "retired"
-        },
-        "4": {
-          "release_date": "2009-06-08",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_4_0.html",
-          "status": "retired"
-        },
-        "5": {
-          "release_date": "2010-06-07",
-          "status": "retired"
-        },
-        "6": {
-          "release_date": "2012-07-25",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_6_0.html",
-          "status": "retired"
-        },
-        "7": {
-          "release_date": "2013-10-22",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_7_0.html",
-          "status": "retired"
-        },
-        "8": {
-          "release_date": "2014-10-16",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_8_0.html",
-          "status": "retired"
-        },
         "9": {
           "release_date": "2015-09-30",
           "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_0.html",
@@ -169,43 +83,6 @@
         "11": {
           "release_date": "2017-09-19",
           "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Safari_11_0/Safari_11_0.html",
-          "status": "retired"
-        },
-        "1.1": {
-          "release_date": "2003-10-24",
-          "status": "retired"
-        },
-        "1.2": {
-          "release_date": "2004-02-02",
-          "status": "retired"
-        },
-        "1.3": {
-          "release_date": "2005-04-15",
-          "status": "retired"
-        },
-        "3.1": {
-          "release_date": "2008-03-18",
-          "status": "retired"
-        },
-        "3.2": {
-          "release_date": "2008-11-13",
-          "status": "retired"
-        },
-        "4.1": {
-          "release_date": "2010-06-07",
-          "status": "retired"
-        },
-        "5.1": {
-          "release_date": "2011-07-20",
-          "status": "retired"
-        },
-        "6.1": {
-          "release_date": "2013-06-11",
-          "status": "retired"
-        },
-        "9.1": {
-          "release_date": "2016-03-21",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_1.html",
           "status": "retired"
         },
         "10.1": {
@@ -222,28 +99,7 @@
     },
     "safari_ios": {
       "releases": {
-        "8.1": {
-          "status": "retired"
-        },
-        "8.4": {
-          "status": "retired"
-        },
-        "9.1": {
-          "status": "retired"
-        },
-        "9.2": {
-          "status": "retired"
-        },
-        "9.3": {
-          "status": "retired"
-        },
-        "10.1": {
-          "status": "retired"
-        },
-        "10.2": {
-          "status": "retired"
-        },
-        "10.3": {
+        "11": {
           "status": "retired"
         },
         "11.1": {
