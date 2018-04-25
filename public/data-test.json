@@ -1,294 +1,149 @@
 {
   "browsers": {
-    "chrome": {
-      "releases": {
-        "65": {
-          "release_date": "2018-03-06",
-          "status": "retired"
-        },
-        "66": {
-          "release_date": "2018-04-17",
-          "status": "current"
-        },
-        "67": {
-          "status": "beta"
-        },
-        "68": {
-          "status": "nightly"
-        }
-      }
-    },
     "firefox": {
       "releases": {
-        "59": {
+        "1": {
           "release_date": "2018-03-13",
           "release_notes": "https://developer.mozilla.org/Firefox/Releases/59",
-          "status": "current"
-        },
-        "60": {
-          "release_date": "2018-05-08",
-          "release_notes": "https://developer.mozilla.org/Firefox/Releases/60",
-          "status": "nightly"
-        },
-        "61": {
-          "release_date": "2018-07-03",
-          "release_notes": "https://developer.mozilla.org/Firefox/Releases/61",
-          "status": "planned"
-        }
-      }
-    },
-    "ie": {
-      "releases": {
-        "10": {
-          "release_date": "2012-10-26",
-          "status": "retired"
-        },
-        "11": {
-          "release_date": "2013-10-17",
-          "status": "current"
-        }
-      }
-    },
-    "nodejs": {
-      "releases": {
-        "7": {
-          "release_date": "2016-10-25",
-          "status": "retired"
-        },
-        "8": {
-          "release_date": "2017-05-30",
-          "status": "current"
-        },
-        "9": {
-          "release_date": "2017-10-31",
-          "status": "current"
-        },
-        "10": {
-          "status": "planned"
-        }
-      }
-    },
-    "safari": {
-      "releases": {
-        "9": {
-          "release_date": "2015-09-30",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_0.html",
-          "status": "retired"
-        },
-        "10": {
-          "release_date": "2016-09-20",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_10_0.html",
-          "status": "retired"
-        },
-        "11": {
-          "release_date": "2017-09-19",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Safari_11_0/Safari_11_0.html",
-          "status": "retired"
-        },
-        "10.1": {
-          "release_date": "2017-03-27",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_10_1.html",
-          "status": "retired"
-        },
-        "11.1": {
-          "release_date": "2018-04-12",
-          "release_notes": "https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_11_1.html",
-          "status": "current"
-        }
-      }
-    },
-    "safari_ios": {
-      "releases": {
-        "11": {
-          "status": "retired"
-        },
-        "11.1": {
           "status": "current"
         }
       }
     }
   },
   "css": {
-    "feature_category_one": {
-      "feature_one": {
-        "__compat": {
-          "description": "<code>@charset</code>",
-          "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/@charset",
-          "support": {
-            "chrome": {
-              "version_added": "2"
-            },
-            "firefox": {
-              "version_added": "1.5",
-              "notes": "Firefox 1 supported an invalid syntax where the character encoding is not between single or double quotes."
-            },
-            "ie": {
-              "version_added": "5.5",
-              "notes": "From Internet Explorer 5.5 to IE 7 (inclusive), Internet Explorer supported an invalid syntax where the character encoding is not between single or double quotes."
-            },
-            "safari": {
-              "version_added": "4"
-            },
-            "safari_ios": {
-              "version_added": "4"
-            }
-          },
-          "status": {
-            "experimental": false,
-            "standard_track": true,
-            "deprecated": false
+    "bare_feature": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": "1"
           }
         }
       },
-      "feature_two": {
+      "bare_subfeature": {
         "__compat": {
-          "description": "<code>@counter-style</code>",
-          "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/@counter-style",
           "support": {
-            "chrome": {
-              "version_added": false
-            },
-            "firefox": {
-              "version_added": "33"
-            },
-            "ie": {
-              "version_added": false
-            },
-            "safari": {
-              "version_added": false
-            },
-            "safari_ios": {
-              "version_added": false
-            }
-          },
-          "status": {
-            "experimental": false,
-            "standard_track": true,
-            "deprecated": false
-          }
-        },
-        "subfeature_one": {
-          "__compat": {
-            "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/@counter-style/additive-symbols",
-            "description": "<code>additive-symbols</code>",
-            "support": {
-              "chrome": {
-                "version_added": false
-              },
-              "firefox": {
-                "version_added": "33"
-              },
-              "ie": {
-                "version_added": false
-              },
-              "safari": {
-                "version_added": false
-              },
-              "safari_ios": {
-                "version_added": false
-              }
-            },
-            "status": {
-              "experimental": true,
-              "standard_track": true,
-              "deprecated": false
-            }
-          }
-        }
-      }
-    }
-  },
-  "html": {
-    "feature_category_two": {
-      "feature_three": {
-        "__compat": {
-          "mdn_url": "https://developer.mozilla.org/docs/Web/HTML/Element/abbr",
-          "support": {
-            "chrome": {
-              "version_added": "2"
-            },
-            "firefox": {
-              "version_added": "1",
-              "notes": "Before Firefox 4, this element implemented the <code>HTMLSpanElement</code> interface instead of the standard <code>HTMLElement</code> interface."
-            },
-            "ie": {
-              "version_added": "7"
-            },
-            "safari": {
-              "version_added": true
-            },
-            "safari_ios": {
-              "version_added": true
-            }
-          },
-          "status": {
-            "experimental": false,
-            "standard_track": true,
-            "deprecated": false
-          }
-        }
-      }
-    }
-  },
-  "javascript": {
-    "feature_category_three": {
-      "feature_four": {
-        "__compat": {
-          "mdn_url": "https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array",
-          "support": {
-            "chrome": {
-              "version_added": true
-            },
             "firefox": {
               "version_added": "1"
-            },
-            "ie": {
-              "version_added": true
-            },
-            "nodejs": {
-              "version_added": true
-            },
-            "safari": {
-              "version_added": true
-            },
-            "safari_ios": {
-              "version_added": true
             }
-          },
-          "status": {
-            "experimental": false,
-            "standard_track": true,
-            "deprecated": false
+          }
+        }
+      }
+    },
+    "standard_feature_with_description": {
+      "__compat": {
+        "description": "This will be 'Basic support' regardless",
+        "support": {
+          "firefox": {
+            "version_added": "1"
           }
         }
       },
-      "feature_five": {
+      "subfeature_with_description": {
         "__compat": {
-          "mdn_url": "https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+          "description": "<code>Interface()</code> constructor",
           "support": {
-            "chrome": {
-              "version_added": "7"
-            },
             "firefox": {
-              "version_added": "4"
-            },
-            "ie": {
-              "version_added": "10"
-            },
-            "nodejs": {
-              "version_added": true
-            },
-            "safari": {
-              "version_added": "5.1"
-            },
-            "safari_ios": {
-              "version_added": "4.2"
+              "version_added": "1"
+            }
+          }
+        }
+      }
+    },
+    "feature_with_mdn_url": {
+      "__compat": {
+        "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy",
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        }
+      },
+      "subfeature_with_mdn_url": {
+        "__compat": {
+          "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/child-src",
+          "support": {
+            "firefox": {
+              "version_added": "1"
+            }
+          }
+        }
+      }
+    },
+    "feature_with_mdn_url_and_description": {
+      "__compat": {
+        "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy",
+        "description": "CSP",
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        }
+      },
+      "subfeature_with_mdn_url_and_description": {
+        "__compat": {
+          "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/child-src",
+          "description": "CSP: child-src",
+          "support": {
+            "firefox": {
+              "version_added": "1"
+            }
+          }
+        }
+      }
+    },
+    "experimental_feature": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        },
+        "status": {
+          "experimental": true,
+          "standard_track": true,
+          "deprecated": false
+        }
+      },
+      "experimental_nonstandard_subfeature": {
+        "__compat": {
+          "support": {
+            "firefox": {
+              "version_added": "1"
+            }
+          },
+          "status": {
+            "experimental": true,
+            "standard_track": false,
+            "deprecated": false
+          }
+        }
+      }
+    },
+    "deprecated_feature_without_description": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        },
+        "status": {
+          "experimental": false,
+          "standard_track": true,
+          "deprecated": true
+        }
+      },
+      "deprecated_subfeature_with_description": {
+        "__compat": {
+          "description": "Deprecated syntax",
+          "support": {
+            "firefox": {
+              "version_added": "1"
             }
           },
           "status": {
             "experimental": false,
             "standard_track": true,
-            "deprecated": false
+            "deprecated": true
           }
         }
       }

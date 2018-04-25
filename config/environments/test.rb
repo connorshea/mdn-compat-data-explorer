@@ -42,17 +42,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.feature_categories = {
-    css: "CSS",
-    html: "HTML",
-    javascript: "JavaScript"
+    css: "CSS"
   }
 
   config.browsers = {
-    chrome: "Chrome",
-    firefox: "Firefox",
-    ie: "Internet Explorer",
-    nodejs: "NodeJS",
-    safari: "Safari",
-    safari_ios: "Safari Mobile"
+    firefox: "Firefox"
   }
 end

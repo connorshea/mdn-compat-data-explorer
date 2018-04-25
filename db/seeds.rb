@@ -42,9 +42,7 @@ end
 
 if Rails.env.test?
   @top_level_schema = {
-    css: [],
-    html: [],
-    javascript: []
+    css: []
   }
 else
   @top_level_schema = {
@@ -62,12 +60,7 @@ end
 
 if Rails.env.test?
   @browser_names = {
-    chrome: "Chrome",
-    firefox: "Firefox",
-    ie: "Internet Explorer",
-    nodejs: "NodeJS",
-    safari: "Safari",
-    safari_ios: "Safari Mobile"
+    firefox: "Firefox"
   }
 else
   @browser_names = {
