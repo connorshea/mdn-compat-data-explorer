@@ -29,6 +29,42 @@
         }
       }
     },
+    "feature_with_firefox_true": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": true
+          }
+        }
+      }
+    },
+    "feature_with_firefox_false": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": false
+          }
+        }
+      }
+    },
+    "feature_with_firefox_nil": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": null
+          }
+        }
+      }
+    },
+    "feature_with_firefox_one": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        }
+      }
+    },
     "standard_feature_with_description": {
       "__compat": {
         "description": "This will be 'Basic support' regardless",
