@@ -79,5 +79,4 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 - Add a timeline of browser releases.
 - Implement visualizations using the dataset.
 - Implement caching, the data is static so this should be fairly easy (famous last words).
-- Write some tests.
 - Figure out how to handle data for the browser when there's more than one `version_added` statement, or when there are `flags` or `notes`.
