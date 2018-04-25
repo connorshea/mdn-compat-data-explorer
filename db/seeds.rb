@@ -11,56 +11,77 @@ require 'database_cleaner'
 
 puts "Seeding..."
 
+if Rails.env.test? 
+  puts "Rails environment is test"
+end
+
 # Make sure the DB is cleaned before seeding.
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-@data = File.read('public/data.json')
+if Rails.env.test?
+  @data = File.read('public/data-test.json')
+else
+  @data = File.read('public/data.json')
+end
 
 @data = JSON.parse(@data)
 
 # Full version:
 # @top_level_schema = {
-  # api: [],
-  # browsers: [],
-  # css: ["at-rules", "properties", "selectors", "types"],
-  # html: ["elements", "global_attributes"],
-  # http: [],
-  # javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
-  # svg: [],
-  # webdriver: [],
-  # webextensions: []
+#   api: [],
+#   browsers: [],
+#   css: ["at-rules", "properties", "selectors", "types"],
+#   html: ["elements", "global_attributes"],
+#   http: [],
+#   javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"]
+#   svg: [],
+#   webdriver: [],
+#   webextensions: []
 # }
-@top_level_schema = {
-  api: [],
-  css: ["at-rules", "properties", "selectors", "types"],
-  html: ["elements", "global_attributes"],
-  http: [],
-  javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
-  mathml: [],
-  svg: [],
-  webdriver: [],
-  webextensions: []
-}
 
-@browser_names = {
-  chrome: "Chrome",
-  chrome_android: "Chrome for Android",
-  edge: "Edge",
-  edge_mobile: "Edge Mobile",
-  firefox: "Firefox",
-  firefox_android: "Firefox Android",
-  ie: "Internet Explorer",
-  nodejs: "NodeJS",
-  opera: "Opera",
-  qq_android: "QQ Android",
-  safari: "Safari",
-  safari_ios: "Safari Mobile",
-  samsunginternet_android: "Samsung Internet for Android",
-  uc_android: "UC Browser for Android",
-  uc_chinese_android: "Chinese UC Browser for Android",
-  webview_android: "Android Webview"
-}
+if Rails.env.test?
+  @top_level_schema = {
+    css: []
+  }
+else
+  @top_level_schema = {
+    api: [],
+    css: ["at-rules", "properties", "selectors", "types"],
+    html: ["elements", "global_attributes"],
+    http: [],
+    javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
+    mathml: [],
+    svg: [],
+    webdriver: [],
+    webextensions: []
+  }
+end
+
+if Rails.env.test?
+  @browser_names = {
+    firefox: "Firefox"
+  }
+else
+  @browser_names = {
+    chrome: "Chrome",
+    chrome_android: "Chrome for Android",
+    edge: "Edge",
+    edge_mobile: "Edge Mobile",
+    firefox: "Firefox",
+    firefox_android: "Firefox Android",
+    ie: "Internet Explorer",
+    nodejs: "NodeJS",
+    opera: "Opera",
+    qq_android: "QQ Android",
+    safari: "Safari",
+    safari_ios: "Safari Mobile",
+    samsunginternet_android: "Samsung Internet for Android",
+    uc_android: "UC Browser for Android",
+    uc_chinese_android: "Chinese UC Browser for Android",
+    webview_android: "Android Webview"
+  }
+end
 
 # Gets info about each browser
 def get_browser_keys(browsers)

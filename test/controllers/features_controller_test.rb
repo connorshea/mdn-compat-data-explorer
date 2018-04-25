@@ -5,5 +5,4 @@ class FeaturesControllerTest < ActionDispatch::IntegrationTest
     get features_url
     assert_response :success
   end
-
 end
