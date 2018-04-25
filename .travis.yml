@@ -3,6 +3,7 @@ notifications:
 language: ruby
 addons:
   postgresql: '9.6'
+  chrome: stable
 env:
   - TRAVIS_NODE_VERSION="9"
 cache:
