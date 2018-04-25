@@ -36,6 +36,9 @@
           "firefox": {
             "version_added": "1"
           }
+        },
+        "status": {
+          "standard_track": true
         }
       },
       "subfeature_with_description": {
@@ -46,6 +49,19 @@
               "version_added": "1"
             }
           }
+        }
+      }
+    },
+    "nonstandard_feature_with_description": {
+      "__compat": {
+        "description": "This will be 'Basic support' regardless",
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        },
+        "status": {
+          "standard_track": false
         }
       }
     },

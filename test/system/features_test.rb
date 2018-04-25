@@ -31,13 +31,17 @@ class FeaturesTest < ApplicationSystemTestCase
     assert_selector("a.mdn-link")
   end
 
-  test "MDN URL and description do not display" do
+  test "Nothing displays for bare feature" do
     visit features_url
     fill_in "query", with: "bare_feature"
     click_on "Search"
 
     assert_no_selector("a.mdn-link")
     assert_no_selector("p.feature-description")
+    assert_no_selector("abbr.status-standard")
+    assert_no_selector("abbr.status-nonstandard")
+    assert_no_selector("abbr.status-experimental")
+    assert_no_selector("abbr.status-deprecated")
   end
 
   test "standard feature icon displays" do
@@ -45,7 +49,10 @@ class FeaturesTest < ApplicationSystemTestCase
     fill_in "query", with: "standard_feature_with_description"
     click_on "Search"
 
-    assert_selector("abbr.status-standard")
+    within(:css, '.feature-card-css-standard_feature_with_description') do
+      assert_selector("abbr.status-standard")
+      assert_no_selector("abbr.status-nonstandard")
+    end
   end
 
   test "nonstandard feature icon displays" do
@@ -53,7 +60,10 @@ class FeaturesTest < ApplicationSystemTestCase
     fill_in "query", with: "experimental_nonstandard_subfeature"
     click_on "Search"
 
-    assert_selector("abbr.status-nonstandard")
+    within(:css, '.feature-card-css-nonstandard_feature_with_description') do
+      assert_selector("abbr.status-nonstandard")
+      assert_no_selector("abbr.status-standard")
+    end
   end
 
   test "experimental feature icon displays" do

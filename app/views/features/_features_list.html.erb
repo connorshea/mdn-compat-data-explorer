@@ -1,5 +1,5 @@
 <% features.each do |feature| %>
-  <div class="card card-no-overflow my-3 feature-card">
+  <div class="card card-no-overflow my-3 feature-card feature-card-<%= feature.name.gsub('.', '-') %>">
     <div class="card-body">
       <h5 class="card-title">
         <span class="mr-1"><%= feature.name %></span>
