@@ -7,9 +7,7 @@ addons:
     packages:
       - google-chrome-stable
 env:
-  - TRAVIS_NODE_VERSION="9"
-  - CI=true
-  - RAILS_ENV=test
+  - TRAVIS_NODE_VERSION="9" CI=true RAILS_ENV=test
 cache:
   bundler: true
   directories:
