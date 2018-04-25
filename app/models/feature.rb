@@ -10,6 +10,7 @@ class Feature < ApplicationRecord
   scope :has_description,      -> { where.not(description: nil) }
   scope :is_deprecated,        -> { where(deprecated: true) }
   scope :is_on_standard_track, -> { where(standard_track: true) }
+  scope :is_not_on_standard_track, -> { where(standard_track: false) }
   scope :is_experimental,      -> { where(experimental: true) }
   
   # Feature category scopes
