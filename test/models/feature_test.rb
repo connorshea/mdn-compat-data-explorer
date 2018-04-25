@@ -19,6 +19,18 @@ class FeatureTest < ActiveSupport::TestCase
     refute_includes(Feature.is_deprecated, Feature.find_by!(deprecated: nil))
   end
 
+  test "is_not_deprecated scope returns non-deprecated features" do
+    assert_includes(Feature.is_not_deprecated, Feature.find_by!(deprecated: false))
+    refute_includes(Feature.is_not_deprecated, Feature.find_by!(deprecated: true))
+    refute_includes(Feature.is_not_deprecated, Feature.find_by!(deprecated: nil))
+  end
+
+  test "no_deprecation_info scope returns only features without deprecation data" do
+    assert_includes(Feature.no_deprecation_info, Feature.find_by!(deprecated: nil))
+    refute_includes(Feature.no_deprecation_info, Feature.find_by!(deprecated: true))
+    refute_includes(Feature.no_deprecation_info, Feature.find_by!(deprecated: false))
+  end
+
   test "is_on_standard_track scope returns only standard features" do
     assert_includes(Feature.is_on_standard_track, Feature.find_by!(standard_track: true))
     refute_includes(Feature.is_on_standard_track, Feature.find_by!(standard_track: false))
@@ -31,9 +43,27 @@ class FeatureTest < ActiveSupport::TestCase
     refute_includes(Feature.is_not_on_standard_track, Feature.find_by!(standard_track: nil))
   end
 
+  test "no_standard_track_info scope returns only features without standard track data" do
+    assert_includes(Feature.no_standard_track_info, Feature.find_by!(standard_track: nil))
+    refute_includes(Feature.no_standard_track_info, Feature.find_by!(standard_track: true))
+    refute_includes(Feature.no_standard_track_info, Feature.find_by!(standard_track: false))
+  end
+
   test "is_experimental scope returns only experimental features" do
     assert_includes(Feature.is_experimental, Feature.find_by!(experimental: true))
     refute_includes(Feature.is_experimental, Feature.find_by!(experimental: false))
     refute_includes(Feature.is_experimental, Feature.find_by!(experimental: nil))
+  end
+
+  test "is_not_experimental scope returns only non-experimental features" do
+    assert_includes(Feature.is_not_experimental, Feature.find_by!(experimental: false))
+    refute_includes(Feature.is_not_experimental, Feature.find_by!(experimental: true))
+    refute_includes(Feature.is_not_experimental, Feature.find_by!(experimental: nil))
+  end
+
+  test "no_experimental_info scope returns only features without experimental data" do
+    assert_includes(Feature.no_experimental_info, Feature.find_by!(experimental: nil))
+    refute_includes(Feature.no_experimental_info, Feature.find_by!(experimental: true))
+    refute_includes(Feature.no_experimental_info, Feature.find_by!(experimental: false))
   end
 end
