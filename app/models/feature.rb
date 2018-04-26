@@ -52,15 +52,10 @@ class Feature < ApplicationRecord
   scope :no_experimental_info,     -> { where(experimental: nil) }
   
   # Feature category scopes
-  scope :api,           -> { where("name ~* ?", '^api.*') }
-  scope :css,           -> { where("name ~* ?", '^css.*') }
-  scope :html,          -> { where("name ~* ?", '^html.*') }
-  scope :http,          -> { where("name ~* ?", '^http.*') }
-  scope :javascript,    -> { where("name ~* ?", '^javascript.*') }
-  scope :mathml,        -> { where("name ~* ?", '^mathml.*') }
-  scope :svg,           -> { where("name ~* ?", '^svg.*') }
-  scope :webdriver,     -> { where("name ~* ?", '^webdriver.*') }
-  scope :webextensions, -> { where("name ~* ?", '^webextensions.*') }
+  # Creates scopes like Feature.api, Feature.css, Feature.html, etc.
+  Rails.configuration.feature_categories.keys.each do |category|
+    scope "#{category}", -> { where("name ~* ?", "^#{category}.*") }
+  end 
 
   pg_search_scope :search,
     against: [:name],
