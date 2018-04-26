@@ -15,6 +15,11 @@ if Rails.env.test?
   puts "Rails environment is test"
 end
 
+# These safeguards are disabled because the data is static, so the DB can be
+# safely deleted. Don't do this at home, kids.
+DatabaseCleaner.allow_production = true
+DatabaseCleaner.allow_remote_database_url = true
+
 # Make sure the DB is cleaned before seeding.
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
