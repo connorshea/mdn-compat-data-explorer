@@ -64,7 +64,7 @@ class Feature < ApplicationRecord
       trigram: { threshold: 0.3 }
     }
 
-  [:firefox, :chrome].each do |browser|
+  Rails.configuration.browsers.keys.each do |browser|
     scope "#{browser}_false", -> { where( "#{browser}": {"version_added": false} ) }
 
     scope "#{browser}_nil", -> { where( "#{browser}": {"version_added": nil} ) }
@@ -77,7 +77,7 @@ class Feature < ApplicationRecord
     scope "#{browser}_true", -> {
       where("#{browser} ->> :key ~ :regex",
             key: "version_added",
-            regex: '^(\d+\.)?(\d+\.)?(\*|\d+)$'
+            regex: '^(?!true|false|null)'
            )
         .or(where("#{browser}": {"version_added": true}))
     }
