@@ -12,7 +12,7 @@ module MdnCompatDataExplorer
     config.load_defaults 5.2
 
     # Set the version of the MDN BCD Package
-    config.mdn_bcd_version = '0.0.32'
+    config.mdn_bcd_version = '0.0.33'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
