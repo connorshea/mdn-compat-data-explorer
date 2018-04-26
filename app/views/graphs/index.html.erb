@@ -12,10 +12,10 @@
           <div class="card-body">
             <%= pie_chart(
               {
-                "Unknown" => @chrome_stats[:unknown],
-                "True" => @chrome_stats[:yes],
-                "False" => @chrome_stats[:no],
-                "No data" => @chrome_stats[:no_data]
+                "Unknown" => @browser_stats[:chrome][:unknown],
+                "True" => @browser_stats[:chrome][:yes],
+                "False" => @browser_stats[:chrome][:no],
+                "No data" => @browser_stats[:chrome][:no_data]
               },
               title: "Chrome",
               donut: true
@@ -26,10 +26,10 @@
           <div class="card-body">
             <%= pie_chart(
               {
-                "Unknown" => @firefox_stats[:unknown],
-                "True" => @firefox_stats[:yes],
-                "False" => @firefox_stats[:no],
-                "No data" => @firefox_stats[:no_data]
+                "Unknown" => @browser_stats[:firefox][:unknown],
+                "True" => @browser_stats[:firefox][:yes],
+                "False" => @browser_stats[:firefox][:no],
+                "No data" => @browser_stats[:firefox][:no_data]
               },
               title: "Firefox",
               donut: true

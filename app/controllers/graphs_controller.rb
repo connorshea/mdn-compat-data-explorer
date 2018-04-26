@@ -1,18 +1,17 @@
 class GraphsController < ApplicationController
   def index
-    @chrome_stats = {
-      unknown: Feature.chrome_nil.count,
-      yes: Feature.chrome_true.count,
-      no: Feature.chrome_false.count,
-      no_data: Feature.chrome_no_data.count
-    }
+    @browser_stats = Hash.new
 
-    @firefox_stats = {
-      unknown: Feature.firefox_nil.count,
-      yes: Feature.firefox_true.count,
-      no: Feature.firefox_false.count,
-      no_data: Feature.firefox_no_data.count
-    }
+    [:chrome, :firefox].each do |browser|
+      stats = {
+        unknown: Feature.public_send("#{browser}_nil").count,
+        yes: Feature.public_send("#{browser}_true").count,
+        no: Feature.public_send("#{browser}_false").count,
+        no_data: Feature.public_send("#{browser}_no_data").count
+      }
+
+      @browser_stats["#{browser}".to_sym] = stats
+    end
 
     @feature_count = Feature.all.count
   end
