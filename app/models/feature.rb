@@ -69,35 +69,22 @@ class Feature < ApplicationRecord
       trigram: { threshold: 0.3 }
     }
 
-  def self.chrome_nil
-    where(chrome: {"version_added": nil})
-  end
+  [:firefox, :chrome].each do |browser|
+    scope "#{browser}_false", -> { where( "#{browser}": {"version_added": false} ) }
 
-  def self.chrome_false
-    where(chrome: {"version_added": false})
-  end
+    scope "#{browser}_nil", -> { where( "#{browser}": {"version_added": nil} ) }
 
-  def self.chrome_true
-    # Find all entries which are true or have a version number string.
-    where.not(
-      chrome: {"version_added": false},
-      chrome: {"version_added": nil}
-    )
-  end
+    scope "#{browser}_no_data", -> { where("#{browser}": nil) }
 
-  def self.firefox_nil
-    where(firefox: {"version_added": nil})
-  end
-
-  def self.firefox_false
-    where(firefox: {"version_added": false})
-  end
-
-  def self.firefox_true
-    # Find all entries which are true or have a version number string.
-    where.not(
-      firefox: {"version_added": false},
-      firefox: {"version_added": nil}
-    )
+    # This tries to find all cases where the version_added value is either
+    # version number or true.
+    # This code is bad, but it's also probably the best you're gonna get.
+    scope "#{browser}_true", -> {
+      where("#{browser} ->> :key ~ :regex",
+            key: "version_added",
+            regex: '^(\d+\.)?(\d+\.)?(\*|\d+)$'
+           )
+        .or(where("#{browser}": {"version_added": true}))
+    }
   end
 end

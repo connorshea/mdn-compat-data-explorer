@@ -11,7 +11,7 @@ require 'database_cleaner'
 
 puts "Seeding..."
 
-if Rails.env.test? 
+if Rails.env.test?
   puts "Rails environment is test"
 end
 
@@ -24,7 +24,7 @@ DatabaseCleaner.allow_remote_database_url = true
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-if Rails.env.test?
+if Rails.env.test? || ENV['USE_TEST_DATA']
   @data = File.read('public/data-test.json')
 else
   @data = File.read('public/data.json')
@@ -45,7 +45,7 @@ end
 #   webextensions: []
 # }
 
-if Rails.env.test?
+if Rails.env.test? || ENV['USE_TEST_DATA']
   @top_level_schema = {
     css: []
   }
@@ -63,7 +63,7 @@ else
   }
 end
 
-if Rails.env.test?
+if Rails.env.test? || ENV['USE_TEST_DATA']
   @browser_names = {
     firefox: "Firefox"
   }

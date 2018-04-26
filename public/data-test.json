@@ -14,7 +14,7 @@
     "bare_feature": {
       "__compat": {
         "support": {
-          "firefox": {
+          "chrome": {
             "version_added": "1"
           }
         }

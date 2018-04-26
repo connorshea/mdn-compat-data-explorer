@@ -3,13 +3,15 @@ class GraphsController < ApplicationController
     @chrome_stats = {
       unknown: Feature.chrome_nil.count,
       yes: Feature.chrome_true.count,
-      no: Feature.chrome_false.count
+      no: Feature.chrome_false.count,
+      no_data: Feature.chrome_no_data.count
     }
 
     @firefox_stats = {
       unknown: Feature.firefox_nil.count,
       yes: Feature.firefox_true.count,
-      no: Feature.firefox_false.count
+      no: Feature.firefox_false.count,
+      no_data: Feature.firefox_no_data.count
     }
 
     @feature_count = Feature.all.count
