@@ -72,6 +72,10 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 
 ## Notes
 
+### Architecture
+
+![ERD](erd.png)
+
 ### Resources
 
 - [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
