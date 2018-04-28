@@ -2,8 +2,6 @@
 
 This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `mdn-browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
-This is a Work In Progress and may end up going nowhere, we'll see :)
-
 Some ideas:
 
 - See a list of features supported per-browser.
@@ -14,17 +12,18 @@ Some ideas:
 
 You'll need:
 
-- Postgres 9.6
+- Postgres 10 (9.6 should also work)
 - Ruby 2.5.x
 - Node.js 9.x
+- Yarn
 
 Run the following commands:
 
 1. `gem install bundler`
 1. `bundle install`
 1. `yarn install`
-1. `rake db:create`
-1. `rake db:migrate`
+1. `bundle exec rails db:create`
+1. `bundle exec rails :migrate`
 1. `bundle exec rails s`
 
 With that, the site should be up at `localhost:3000`.
