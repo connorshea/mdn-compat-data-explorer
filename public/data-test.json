@@ -14,7 +14,7 @@
     "bare_feature": {
       "__compat": {
         "support": {
-          "chrome": {
+          "firefox": {
             "version_added": "1"
           }
         }
@@ -61,6 +61,25 @@
         "support": {
           "firefox": {
             "version_added": "1"
+          }
+        }
+      }
+    },
+    "feature_with_no_firefox_data": {
+      "__compat": {
+        "support": {
+          "chrome": {
+            "version_added": "1"
+          }
+        }
+      }
+    },
+    "feature_with_alternative_name": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": false,
+            "alternative_name": "feature_with_firefox_alternative_name"
           }
         }
       }

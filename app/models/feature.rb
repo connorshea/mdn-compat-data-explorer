@@ -65,15 +65,16 @@ class Feature < ApplicationRecord
     }
 
   Rails.configuration.browsers.keys.each do |browser|
-    scope "#{browser}_false", -> { where( "#{browser}": {"version_added": false} ) }
+    scope "#{browser}_false", -> { where( "#{browser} ->> 'version_added' ~ 'false'") }
 
     scope "#{browser}_nil", -> { where( "#{browser}": {"version_added": nil} ) }
 
     scope "#{browser}_no_data", -> { where("#{browser}": nil) }
 
     # This tries to find all cases where the version_added value is either
-    # version number or true.
-    # This code is bad, but it's also probably the best you're gonna get.
+    # version number or true, since the version_added can only be true, false,
+    # null, or a version number we can use a regex to elimate all but the
+    # version numbers.
     scope "#{browser}_true", -> {
       where("#{browser} ->> :key ~ :regex",
             key: "version_added",
