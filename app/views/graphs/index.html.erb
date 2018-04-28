@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-12">
+      <h1>Graphs</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card-columns">
+        <% @browsers.keys.each do |browser| %>
+          <div class="card">
+            <div class="card-body">
+              <%= pie_chart(
+                {
+                  "Unknown" => @browser_stats[browser][:unknown],
+                  "True" => @browser_stats[browser][:yes],
+                  "False" => @browser_stats[browser][:no],
+                  "No data" => @browser_stats[browser][:no_data]
+                },
+                title: @browsers[browser],
+                donut: true
+              ) %>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Unknown: <%= @browser_stats[browser][:unknown] %>
+              </li>
+              <li class="list-group-item">
+                True: <%= @browser_stats[browser][:yes] %>
+              </li>
+              <li class="list-group-item">
+                False: <%= @browser_stats[browser][:no] %>
+              </li>
+              <li class="list-group-item">
+                No data: <%= @browser_stats[browser][:no_data] %>
+              </li>
+              <li class="list-group-item">
+                Total: <%= @browser_stats[browser][:total] %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

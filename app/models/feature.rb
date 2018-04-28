@@ -52,15 +52,10 @@ class Feature < ApplicationRecord
   scope :no_experimental_info,     -> { where(experimental: nil) }
   
   # Feature category scopes
-  scope :api,           -> { where("name ~* ?", '^api.*') }
-  scope :css,           -> { where("name ~* ?", '^css.*') }
-  scope :html,          -> { where("name ~* ?", '^html.*') }
-  scope :http,          -> { where("name ~* ?", '^http.*') }
-  scope :javascript,    -> { where("name ~* ?", '^javascript.*') }
-  scope :mathml,        -> { where("name ~* ?", '^mathml.*') }
-  scope :svg,           -> { where("name ~* ?", '^svg.*') }
-  scope :webdriver,     -> { where("name ~* ?", '^webdriver.*') }
-  scope :webextensions, -> { where("name ~* ?", '^webextensions.*') }
+  # Creates scopes like Feature.api, Feature.css, Feature.html, etc.
+  Rails.configuration.feature_categories.keys.each do |category|
+    scope "#{category}", -> { where("name ~* ?", "^#{category}.*") }
+  end 
 
   pg_search_scope :search,
     against: [:name],
@@ -68,4 +63,28 @@ class Feature < ApplicationRecord
       tsearch: { prefix: true },
       trigram: { threshold: 0.3 }
     }
+
+  Rails.configuration.browsers.keys.each do |browser|
+    # @> is an SQL operator that determines whether the left JSON value
+    # contains the right value.
+    # Does the browser hash contain version added key with the value 'false'?
+    # This doesn't properly handle support values which are arrays.
+    scope "#{browser}_false", -> { where( "#{browser} @> ?", {'version_added': false}.to_json) }
+
+    scope "#{browser}_nil", -> { where( "#{browser} @> ?", {'version_added': nil}.to_json) }
+
+    scope "#{browser}_no_data", -> { where("#{browser}": nil) }
+
+    # This tries to find all cases where the version_added value is either
+    # version number or true, since the version_added can only be true, false,
+    # null, or a version number we can use a regex to elimate all but the
+    # version numbers.
+    scope "#{browser}_true", -> {
+      where("#{browser} ->> :key ~ :regex",
+            key: "version_added",
+            regex: '^(?!true|false|null)'
+           )
+        .or(where( "#{browser} @> ?", {'version_added': true}.to_json))
+    }
+  end
 end
