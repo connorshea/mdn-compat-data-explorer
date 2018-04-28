@@ -40,12 +40,19 @@ You can update `public/data.json` with new data from the npm package using
 ### Updating the database
 
 You can update the database (where all the data is stored) by running
-`rake db:seed`. Note that this will delete the database and fill it with
+`bundle exec rake db:seed`. Note that this will delete the database and fill it with
 whatever data is in `public/data.json` based on `db/seeds.rb`.
 
 The application essentially uses a static data set. It uses a database
 simply because I wanted to learn more about databases and wanted an easier
 means of querying the data.
+
+#### Updating the database with test data
+
+You can use data from `public/data-test.json` by running 
+`USE_TEST_DATA=true bundle exec rake db:seed`. This is useful for ensuring
+accuracy, since you can manipulate the JSON and will know, e.g. how many
+features should be listed as true.
 
 ### Deployment
 
