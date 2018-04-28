@@ -1,3 +1,34 @@
+# == Schema Information
+#
+# Table name: features
+#
+#  id                      :bigint(8)        not null, primary key
+#  chrome                  :jsonb
+#  chrome_android          :jsonb
+#  deprecated              :boolean
+#  description             :string
+#  edge                    :jsonb
+#  edge_mobile             :jsonb
+#  experimental            :boolean
+#  firefox                 :jsonb
+#  firefox_android         :jsonb
+#  ie                      :jsonb
+#  mdn_url                 :string
+#  name                    :string
+#  nodejs                  :jsonb
+#  opera                   :jsonb
+#  qq_android              :jsonb
+#  safari                  :jsonb
+#  safari_ios              :jsonb
+#  samsunginternet_android :jsonb
+#  standard_track          :boolean
+#  uc_android              :jsonb
+#  uc_chinese_android      :jsonb
+#  webview_android         :jsonb
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+
 class Feature < ApplicationRecord
   include PgSearch
 
