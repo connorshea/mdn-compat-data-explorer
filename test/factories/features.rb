@@ -65,6 +65,37 @@ FactoryBot.define do
       standard_track false
     end
 
+    trait :firefox_true_simple_one do
+      firefox { { version_added: true } }
+    end
+
+    trait :firefox_true_simple_two do
+      firefox { { version_added: "1" } }
+    end
+
+    trait :firefox_true_complex_one do
+      firefox {
+        {
+          version_added: true,
+          alternative_name: "feature_with_firefox_alternative_name"
+        }
+      }
+    end
+
+    trait :firefox_true_complex_two do
+      firefox {
+        [
+          {
+            version_added: "63"
+          },
+          {
+            version_added: "60",
+            version_removed: "61"
+          }
+        ]
+      }
+    end
+
     factory :feature_with_description, traits: [:has_description]
     factory :feature_with_mdn_url, traits: [:has_mdn_url]
     
@@ -76,5 +107,10 @@ FactoryBot.define do
 
     factory :feature_experimental, traits: [:experimental_true]
     factory :feature_not_experimental, traits: [:experimental_false]
+
+    factory :feature_firefox_true_simple_one, traits: [:firefox_true_simple_one]
+    factory :feature_firefox_true_simple_two, traits: [:firefox_true_simple_two]
+    factory :feature_firefox_true_complex_one, traits: [:firefox_true_complex_one]
+    factory :feature_firefox_true_complex_two, traits: [:firefox_true_complex_two]
   end
 end

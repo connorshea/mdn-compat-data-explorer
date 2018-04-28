@@ -36,7 +36,7 @@ class FeatureTest < ActiveSupport::TestCase
     feature_with_description = create(:feature_with_description)
     feature = create(:feature)
     
-    refute_includes(Feature.has_description, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.has_description, Feature.find_by!(name: feature.name))
     assert_includes(Feature.has_description, Feature.find_by!(name: feature_with_description.name))
   end
 
@@ -44,7 +44,7 @@ class FeatureTest < ActiveSupport::TestCase
     feature_with_mdn_url = create(:feature_with_mdn_url)
     feature = create(:feature)
 
-    refute_includes(Feature.has_mdn_url, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.has_mdn_url, Feature.find_by!(name: feature.name))
     assert_includes(Feature.has_mdn_url, Feature.find_by!(name: feature_with_mdn_url.name))
   end
 
@@ -54,8 +54,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.is_deprecated, Feature.find_by!(name: feature_deprecated.name))
-    refute_includes(Feature.is_deprecated, Feature.find_by!(name: feature_not_deprecated.name))
-    refute_includes(Feature.is_deprecated, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_deprecated, Feature.find_by!(name: feature_not_deprecated.name))
+    assert_not_includes(Feature.is_deprecated, Feature.find_by!(name: feature.name))
   end
 
   test "is_not_deprecated scope returns non-deprecated features" do
@@ -64,8 +64,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.is_not_deprecated, Feature.find_by!(name: feature_not_deprecated.name))
-    refute_includes(Feature.is_not_deprecated, Feature.find_by!(name: feature_deprecated.name))
-    refute_includes(Feature.is_not_deprecated, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_not_deprecated, Feature.find_by!(name: feature_deprecated.name))
+    assert_not_includes(Feature.is_not_deprecated, Feature.find_by!(name: feature.name))
   end
 
   test "no_deprecation_info scope returns only features without deprecation data" do
@@ -74,8 +74,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.no_deprecation_info, Feature.find_by!(name: feature.name))
-    refute_includes(Feature.no_deprecation_info, Feature.find_by!(name: feature_deprecated.name))
-    refute_includes(Feature.no_deprecation_info, Feature.find_by!(name: feature_not_deprecated.name))
+    assert_not_includes(Feature.no_deprecation_info, Feature.find_by!(name: feature_deprecated.name))
+    assert_not_includes(Feature.no_deprecation_info, Feature.find_by!(name: feature_not_deprecated.name))
   end
 
   test "is_on_standard_track scope returns only standard features" do
@@ -84,8 +84,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.is_on_standard_track, Feature.find_by!(name: feature_standard_track.name))
-    refute_includes(Feature.is_on_standard_track, Feature.find_by!(name: feature_not_standard_track.name))
-    refute_includes(Feature.is_on_standard_track, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_on_standard_track, Feature.find_by!(name: feature_not_standard_track.name))
+    assert_not_includes(Feature.is_on_standard_track, Feature.find_by!(name: feature.name))
   end
 
   test "is_not_on_standard_track scope returns only non-standard features" do
@@ -94,8 +94,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.is_not_on_standard_track, Feature.find_by!(name: feature_not_standard_track.name))
-    refute_includes(Feature.is_not_on_standard_track, Feature.find_by!(name: feature_standard_track.name))
-    refute_includes(Feature.is_not_on_standard_track, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_not_on_standard_track, Feature.find_by!(name: feature_standard_track.name))
+    assert_not_includes(Feature.is_not_on_standard_track, Feature.find_by!(name: feature.name))
   end
 
   test "no_standard_track_info scope returns only features without standard track data" do
@@ -104,8 +104,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.no_standard_track_info, Feature.find_by!(name: feature.name))
-    refute_includes(Feature.no_standard_track_info, Feature.find_by!(name: feature_standard_track.name))
-    refute_includes(Feature.no_standard_track_info, Feature.find_by!(name: feature_not_standard_track.name))
+    assert_not_includes(Feature.no_standard_track_info, Feature.find_by!(name: feature_standard_track.name))
+    assert_not_includes(Feature.no_standard_track_info, Feature.find_by!(name: feature_not_standard_track.name))
   end
 
   test "is_experimental scope returns only experimental features" do
@@ -114,8 +114,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
 
     assert_includes(Feature.is_experimental, Feature.find_by!(name: feature_experimental.name))
-    refute_includes(Feature.is_experimental, Feature.find_by!(name: feature_not_experimental.name))
-    refute_includes(Feature.is_experimental, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_experimental, Feature.find_by!(name: feature_not_experimental.name))
+    assert_not_includes(Feature.is_experimental, Feature.find_by!(name: feature.name))
   end
 
   test "is_not_experimental scope returns only non-experimental features" do
@@ -124,17 +124,34 @@ class FeatureTest < ActiveSupport::TestCase
     feature = create(:feature)
     
     assert_includes(Feature.is_not_experimental, Feature.find_by!(name: feature_not_experimental.name))
-    refute_includes(Feature.is_not_experimental, Feature.find_by!(name: feature_experimental.name))
-    refute_includes(Feature.is_not_experimental, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.is_not_experimental, Feature.find_by!(name: feature_experimental.name))
+    assert_not_includes(Feature.is_not_experimental, Feature.find_by!(name: feature.name))
   end
 
   test "no_experimental_info scope returns only features without experimental data" do
     feature_experimental = create(:feature_experimental)
     feature_not_experimental = create(:feature_not_experimental)
     feature = create(:feature)
-    
+
     assert_includes(Feature.no_experimental_info, Feature.find_by!(name: feature.name))
-    refute_includes(Feature.no_experimental_info, Feature.find_by!(name: feature_experimental.name))
-    refute_includes(Feature.no_experimental_info, Feature.find_by!(name: feature_not_experimental.name))
+    assert_not_includes(Feature.no_experimental_info, Feature.find_by!(name: feature_experimental.name))
+    assert_not_includes(Feature.no_experimental_info, Feature.find_by!(name: feature_not_experimental.name))
+  end
+
+  test "firefox_true filter returns features that should be true" do
+    feature_firefox_true_simple_one = create(:feature_firefox_true_simple_one)
+    feature_firefox_true_simple_two = create(:feature_firefox_true_simple_two)
+    feature_firefox_true_complex_one = create(:feature_firefox_true_complex_one)
+    feature_firefox_true_complex_two = create(:feature_firefox_true_complex_two)
+    feature = create(:feature)
+
+    assert_includes(Feature.firefox_true, Feature.find_by!(name: feature_firefox_true_simple_one.name))
+    assert_includes(Feature.firefox_true, Feature.find_by!(name: feature_firefox_true_simple_two.name))
+    assert_includes(Feature.firefox_true, Feature.find_by!(name: feature_firefox_true_complex_one.name))
+
+    # TODO: This fails right now because the code can't handle an array of version hashes yet.
+    # assert_includes(Feature.firefox_true, Feature.find_by!(name: feature_firefox_true_complex_two.name))
+
+    assert_not_includes(Feature.firefox_true, Feature.find_by!(name: feature.name))
   end
 end
