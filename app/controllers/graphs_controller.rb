@@ -15,11 +15,8 @@ class GraphsController < ApplicationController
       @browser_stats[browser] = stats
       
       total = 0
-      puts "#{browser}"
       @browser_stats[browser].each do |key, value|
-        puts "Key: #{key}, Val: #{value}"
         total += value
-        puts "total: #{total}"
       end
 
       @browser_stats[browser][:total] = total

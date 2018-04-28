@@ -65,9 +65,13 @@ class Feature < ApplicationRecord
     }
 
   Rails.configuration.browsers.keys.each do |browser|
-    scope "#{browser}_false", -> { where( "#{browser} ->> 'version_added' ~ 'false'") }
+    # @> is an SQL operator that determines whether the left JSON value
+    # contains the right value.
+    # Does the browser hash contain version added key with the value 'false'?
+    # This doesn't properly handle support values which are arrays.
+    scope "#{browser}_false", -> { where( "#{browser} @> ?", {'version_added': false}.to_json) }
 
-    scope "#{browser}_nil", -> { where( "#{browser}": {"version_added": nil} ) }
+    scope "#{browser}_nil", -> { where( "#{browser} @> ?", {'version_added': nil}.to_json) }
 
     scope "#{browser}_no_data", -> { where("#{browser}": nil) }
 
@@ -80,7 +84,7 @@ class Feature < ApplicationRecord
             key: "version_added",
             regex: '^(?!true|false|null)'
            )
-        .or(where("#{browser}": {"version_added": true}))
+        .or(where( "#{browser} @> ?", {'version_added': true}.to_json))
     }
   end
 end
