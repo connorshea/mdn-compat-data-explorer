@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_23_232646) do
+ActiveRecord::Schema.define(version: 2018_04_26_202826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -33,22 +33,22 @@ ActiveRecord::Schema.define(version: 2018_04_23_232646) do
     t.boolean "standard_track"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "chrome", default: "{}"
-    t.jsonb "chrome_android", default: "{}"
-    t.jsonb "edge", default: "{}"
-    t.jsonb "edge_mobile", default: "{}"
-    t.jsonb "firefox", default: "{}"
-    t.jsonb "firefox_android", default: "{}"
-    t.jsonb "ie", default: "{}"
-    t.jsonb "nodejs", default: "{}"
-    t.jsonb "opera", default: "{}"
-    t.jsonb "qq_android", default: "{}"
-    t.jsonb "safari", default: "{}"
-    t.jsonb "safari_ios", default: "{}"
-    t.jsonb "samsunginternet_android", default: "{}"
-    t.jsonb "uc_android", default: "{}"
-    t.jsonb "uc_chinese_android", default: "{}"
-    t.jsonb "webview_android", default: "{}"
+    t.jsonb "chrome"
+    t.jsonb "chrome_android"
+    t.jsonb "edge"
+    t.jsonb "edge_mobile"
+    t.jsonb "firefox"
+    t.jsonb "firefox_android"
+    t.jsonb "ie"
+    t.jsonb "nodejs"
+    t.jsonb "opera"
+    t.jsonb "qq_android"
+    t.jsonb "safari"
+    t.jsonb "safari_ios"
+    t.jsonb "samsunginternet_android"
+    t.jsonb "uc_android"
+    t.jsonb "uc_chinese_android"
+    t.jsonb "webview_android"
   end
 
 end
