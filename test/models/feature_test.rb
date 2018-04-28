@@ -162,4 +162,20 @@ class FeatureTest < ActiveSupport::TestCase
     assert_includes(Feature.firefox_false, Feature.find_by!(name: feature_firefox_false.name))
     assert_not_includes(Feature.firefox_false, Feature.find_by!(name: feature.name))
   end
+
+  test "firefox_nil scope returns features that should be nil" do
+    feature_firefox_nil = create(:firefox_nil)
+    feature = create(:feature)
+
+    assert_includes(Feature.firefox_nil, Feature.find_by!(name: feature_firefox_nil.name))
+    assert_not_includes(Feature.firefox_nil, Feature.find_by!(name: feature.name))
+  end
+
+  test "firefox_no_data scope returns features that have no data" do
+    feature_firefox_nil = create(:firefox_nil)
+    feature = create(:feature)
+
+    assert_includes(Feature.firefox_no_data, Feature.find_by!(name: feature.name))
+    assert_not_includes(Feature.firefox_no_data, Feature.find_by!(name: feature_firefox_nil.name))
+  end
 end

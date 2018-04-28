@@ -99,5 +99,9 @@ FactoryBot.define do
     factory :firefox_false do
       firefox { { version_added: false } }
     end
+
+    factory :firefox_nil do
+      firefox { { version_added: nil } }
+    end
   end
 end
