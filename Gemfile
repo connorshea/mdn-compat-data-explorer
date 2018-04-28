@@ -43,7 +43,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', '~> 2.7'
-  gem 'rails-erd', '~> 1.5'
+  gem 'rails-erd', '~> 1.5', require: false
 end
 
 group :test do
