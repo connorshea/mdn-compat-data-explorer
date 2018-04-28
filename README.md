@@ -23,7 +23,7 @@ Run the following commands:
 1. `bundle install`
 1. `yarn install`
 1. `bundle exec rails db:create`
-1. `bundle exec rails :migrate`
+1. `bundle exec rails db:migrate`
 1. `bundle exec rails s`
 
 With that, the site should be up at `localhost:3000`.
@@ -69,11 +69,11 @@ This project uses:
 
 To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
 
-## Notes
-
 ### Architecture
 
 ![ERD](erd.png)
+
+## Notes
 
 ### Resources
 
