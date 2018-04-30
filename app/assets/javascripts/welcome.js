@@ -9,11 +9,11 @@ function getJsonLocation() {
     .catch(err => { throw err });
 }
 
-window.onload = function() { 
+ready(function () {
   // Only run the function if the element exists, this way there's no
   // failure in the production environment where the JSON isn't sent to the
   // client.
   if (document.getElementById('data-json-location') !== null) {
     getJsonLocation();
   }
-};
+});

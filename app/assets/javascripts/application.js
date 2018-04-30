@@ -16,5 +16,6 @@
 //= require chartkick
 //= require bootstrap/util
 //= require bootstrap/collapse
+//= require ready
 //= require_tree .
 
