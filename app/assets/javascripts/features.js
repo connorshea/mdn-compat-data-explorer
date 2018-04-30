@@ -26,6 +26,7 @@ function parseHashSupportObject(json, item) {
   jsonKeys = Object.keys(json);
   if (jsonKeys.length > 1) {
     item.dataset.toggle = "popover";
+    item.classList.add('more-info-available');
   } else {
     return;
   }
@@ -47,7 +48,7 @@ function parseHashSupportObject(json, item) {
   }
   
   if (jsonKeys.includes('alternative_name')) {
-    contentForPopover.set("Alternative Name", json.alternative_name);
+    contentForPopover.set("Alternative Name", "<code>" + json.alternative_name + "</code>");
   }
 
   if (jsonKeys.includes('prefix')) {

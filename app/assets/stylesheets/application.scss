@@ -129,4 +129,31 @@ td.bg-unknown {
   background-color: #eee;
 }
 
+td.browser-support-info {
+  position: relative;
 
+  &.more-info-available {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "?";
+      position: absolute;
+      top: 2px;
+      right: 2px;
+    }
+  }
+}
+
+.popover {
+  max-width: 500px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  p ~ p {
+    margin-top: 8px;
+  }
+}
