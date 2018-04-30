@@ -55,6 +55,14 @@ function parseHashSupportObject(json, item) {
     contentForPopover.set("Requires the vendor prefix", "<code>" + json.prefix + "</code>");
   }
 
+  if (jsonKeys.includes('flags')) {
+    contentForPopover.set("Flags", json.flags);
+  }
+
+  if (jsonKeys.includes('version_removed')) {
+    contentForPopover.set("Version removed", json.version_removed);
+  }
+
   contentForPopoverHtml = "";
   for (var [key, value] of contentForPopover.entries()) {
     contentForPopoverHtml += '<p>' + key + ': ' + value + '</p>';

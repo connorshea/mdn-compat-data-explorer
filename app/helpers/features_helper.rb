@@ -1,6 +1,5 @@
 module FeaturesHelper
   def version_added_parser(browser_info)
-    puts browser_info
     if browser_info.kind_of?(Array)
       version_added = browser_info[0]['version_added']
     elsif browser_info.kind_of?(Hash)
