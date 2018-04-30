@@ -14,8 +14,11 @@
 //= require jquery3
 //= require Chart.bundle
 //= require chartkick
+//= require popper
 //= require bootstrap/util
 //= require bootstrap/collapse
+//= require bootstrap/tooltip
+//= require bootstrap/popover
 //= require ready
 //= require_tree .
 

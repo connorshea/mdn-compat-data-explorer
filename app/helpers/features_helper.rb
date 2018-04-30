@@ -15,7 +15,8 @@ module FeaturesHelper
                 "Yes",
                 class: "bg-true text-center browser-support-info",
                 data: {
-                  support_json: browser_info
+                  support_json: browser_info,
+                  toggle: "popover"
                 }
                )
       when false
@@ -24,7 +25,8 @@ module FeaturesHelper
                 "No",
                 class: "bg-false text-center browser-support-info",
                 data: {
-                  support_json: browser_info
+                  support_json: browser_info,
+                  toggle: "popover"
                 }
               )
       when nil
@@ -33,7 +35,8 @@ module FeaturesHelper
                 "?",
                 class: "bg-unknown text-center browser-support-info",
                 data: {
-                  support_json: browser_info
+                  support_json: browser_info,
+                  toggle: "popover"
                 }
               )
       else
@@ -42,7 +45,8 @@ module FeaturesHelper
                 version_added,
                 class: "bg-true text-center browser-support-info",
                 data: {
-                  support_json: browser_info
+                  support_json: browser_info,
+                  toggle: "popover"
                 }
               )
       end

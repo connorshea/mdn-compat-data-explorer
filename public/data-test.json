@@ -84,6 +84,22 @@
         }
       }
     },
+    "feature_with_complex_firefox": {
+      "__compat": {
+        "support": {
+          "firefox": [
+            {
+              "version_added": "21"
+            },
+            {
+              "version_added": "19",
+              "version_removed": "20",
+              "prefix": "-webkit-"
+            }
+          ]
+        }
+      }
+    },
     "standard_feature_with_description": {
       "__compat": {
         "description": "Lorem ipsum",
