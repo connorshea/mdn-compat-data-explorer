@@ -16,15 +16,15 @@ function browserSupportParser() {
       // Otherwise, the JSON is a hash and can be parsed
       // relatively simply.
       } else {
-        parseHashSupportObject(parsedJson, item);
+        item.dataset.content = parseHashSupportObject(parsedJson, item);
       }
     }
   };
 }
 
-function parseHashSupportObject(json, item) {
+function parseHashSupportObject(json, item, partOfArray = false) {
   jsonKeys = Object.keys(json);
-  if (jsonKeys.length > 1) {
+  if (jsonKeys.length > 1 || partOfArray) {
     item.dataset.toggle = "popover";
     item.classList.add('more-info-available');
   } else {
@@ -34,6 +34,27 @@ function parseHashSupportObject(json, item) {
   item.dataset.title = "More details";
 
   let contentForPopover = new Map();
+
+  if (partOfArray) {
+    let versionInfo = '';
+
+    if (!json) {
+      versionInfo += getVersionString(null);
+    } else {
+      versionInfo += getVersionString(json.version_added);
+    }
+
+    if (json.version_removed) {
+      // We don't know when
+      if (typeof (json.version_removed) === 'boolean' && json.version_removed) {
+        versionInfo += '&nbsp;—?'
+      } else { // We know when
+        versionInfo += '&nbsp;— ' + json.version_removed;
+      }
+    }
+
+    contentForPopover.set("version_added", `<b>${versionInfo}</b>`);
+  }
 
   if (jsonKeys.includes('partial_implementation')) {
     contentForPopover.set("partial_implementation", "This is a partial implementation.");
@@ -111,7 +132,7 @@ function parseHashSupportObject(json, item) {
     contentForPopover.set("flags", output);
   }
 
-  if (jsonKeys.includes('version_removed')) {
+  if (!partOfArray && jsonKeys.includes('version_removed')) {
     contentForPopover.set("version_removed", `Version removed: ${json.version_removed}`);
   }
 
@@ -120,11 +141,34 @@ function parseHashSupportObject(json, item) {
     contentForPopoverHtml += `<p>${value}</p>`;
   }
 
-  item.dataset.content = contentForPopoverHtml;
+  return contentForPopoverHtml;
 }
 
-function parseArraySupportObject(json) {
-  console.log(json);
+function parseArraySupportObject(json, item) {
+  itemContent = '';
+
+  for (var i = 0; i < json.length; i++) {
+    itemContent += parseHashSupportObject(json[i], item, true);
+  }
+
+  item.dataset.content = itemContent;
+}
+
+// From https://github.com/mdn/kumascript/blob/1b392341c2835e8e73bba8471160c1349f2838dc/macros/Compat.ejs#L126-L143
+function getVersionString(versionInfo) {
+  switch (versionInfo) {
+    case null:
+      return `<span title="Unknown">Unknown</span>`;
+      break;
+    case true:
+      return `<span title="Yes">Yes</span>`;
+      break;
+    case false:
+      return `<span title="No">No</span>`;
+      break;
+    default:
+      return versionInfo;
+  }
 }
 
 ready(function () {
