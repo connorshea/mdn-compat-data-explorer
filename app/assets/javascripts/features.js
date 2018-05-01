@@ -48,7 +48,7 @@ function parseHashSupportObject(json, item) {
   }
   
   if (jsonKeys.includes('alternative_name')) {
-    contentForPopover.set("alternative_name", `<code>${json.alternative_name}</code>`);
+    contentForPopover.set("alternative_name", `Supported as: <code>${json.alternative_name}</code>`);
   }
 
   if (jsonKeys.includes('prefix')) {
