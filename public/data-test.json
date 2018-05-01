@@ -107,6 +107,16 @@
         }
       }
     },
+    "feature_false_with_notes": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": false,
+            "notes": "See Firefox <a href='https://bugzil.la/747754'>bug 747754</a>."
+          }
+        }
+      }
+    },
     "feature_with_lots_of_data": {
       "__compat": {
         "support": {
