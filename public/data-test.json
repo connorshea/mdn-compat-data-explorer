@@ -84,6 +84,98 @@
         }
       }
     },
+    "feature_with_notes": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": true,
+            "notes": "This is a note"
+          }
+        }
+      }
+    },
+    "feature_with_multiple_notes": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": true,
+            "notes": [
+              "This is a note.",
+              "This is also a note."
+            ]
+          }
+        }
+      }
+    },
+    "feature_false_with_notes": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": false,
+            "notes": "See Firefox <a href='https://bugzil.la/747754'>bug 747754</a>."
+          }
+        }
+      }
+    },
+    "feature_with_lots_of_data": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": true,
+            "notes": [
+              "This is a note.",
+              "This is also a note."
+            ],
+            "prefix": "-webkit-",
+            "alternative_name": "alternatively-named-feature",
+            "partial_implementation": true,
+            "flags": [
+              {
+                "type": "preference",
+                "name": "Enable Experimental Web Platform Features",
+                "value_to_set": "true"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "feature_with_flags": {
+      "__compat": {
+        "support": {
+          "firefox": {
+            "version_added": true,
+            "flags": [
+              {
+                "type": "preference",
+                "name": "Enable Experimental Web Platform Features",
+                "value_to_set": "true"
+              },
+              {
+                "type": "runtime_flag",
+                "name": "--js-enable-cookies"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "feature_with_complex_firefox": {
+      "__compat": {
+        "support": {
+          "firefox": [
+            {
+              "version_added": "21"
+            },
+            {
+              "version_added": "19",
+              "version_removed": "20",
+              "prefix": "-webkit-"
+            }
+          ]
+        }
+      }
+    },
     "standard_feature_with_description": {
       "__compat": {
         "description": "Lorem ipsum",

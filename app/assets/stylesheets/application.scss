@@ -119,14 +119,64 @@ abbr.icon {
 
 td.bg-true {
   background-color: #e4f8e1;
+
+  &.more-info-available:hover {
+    background-color: darken(#e4f8e1, 10%);
+  }
 }
 
 td.bg-false {
   background-color: #f8e1e1;
+
+  &.more-info-available:hover {
+    background-color: darken(#f8e1e1, 10%);
+  }
 }
 
 td.bg-unknown {
   background-color: #eee;
+
+  &.more-info-available:hover {
+    background-color: darken(#eee, 10%);
+  }
 }
 
+td.bg-partial {
+  background-color: #fff3d4;
 
+  &.more-info-available:hover {
+    background-color: darken(#fff3d4, 10%);
+  }
+}
+
+td.browser-support-info {
+  position: relative;
+
+  &.more-info-available {
+    transition: background-color 400ms;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "?";
+      font-weight: 600;
+      position: absolute;
+      top: 4px;
+      right: 6px;
+    }
+  }
+}
+
+.popover {
+  max-width: 500px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  p ~ p {
+    margin-top: 8px;
+  }
+}

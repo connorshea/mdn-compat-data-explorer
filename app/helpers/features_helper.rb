@@ -6,16 +6,59 @@ module FeaturesHelper
       version_added = browser_info['version_added']
     end
 
+    content_tag_options = {}
+
     # it would appear false values are changed to nil by Ruby at some point
     case version_added
       when true
-        return content_tag(:td, "Yes", class: "bg-true text-center")
+        content_tag_options = {
+          tag_type: :td,
+          content: "Yes",
+          class: "bg-true text-center browser-support-info",
+          data: {
+            support_json: browser_info
+          }
+        }
       when false
-        return content_tag(:td, "No", class: "bg-false text-center")
+        content_tag_options = {
+          tag_type: :td,
+          content: "No",
+          class: "bg-false text-center browser-support-info",
+          data: {
+            support_json: browser_info
+          }
+        }
       when nil
-        return content_tag(:td, "?", class: "bg-unknown text-center")
+        content_tag_options = {
+          tag_type: :td,
+          content: "?",
+          class: "bg-unknown text-center browser-support-info",
+          data: {
+            support_json: browser_info
+          }
+        }
       else
-        return content_tag(:td, version_added, class: "bg-true text-center")
+        content_tag_options = {
+          tag_type: :td,
+          content: version_added,
+          class: "bg-true text-center browser-support-info",
+          data: {
+            support_json: browser_info
+          }
+        }
       end
+
+    if browser_info.kind_of?(Array) && browser_info[0]['partial_implementation']
+      content_tag_options[:class] += " bg-partial"
+    elsif browser_info.kind_of?(Hash) && browser_info['partial_implementation']
+      content_tag_options[:class] += " bg-partial"
+    end
+
+    return content_tag(
+             content_tag_options[:tag_type],
+             content_tag_options[:content],
+             class: content_tag_options[:class],
+             data: content_tag_options[:data]
+           )
   end
 end
