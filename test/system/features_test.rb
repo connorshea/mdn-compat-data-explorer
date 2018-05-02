@@ -84,8 +84,8 @@ class FeaturesTest < ApplicationSystemTestCase
 
   test "filter to CSS should list all CSS features" do
     visit features_url
-    # Check the radio button for 'CSS'
-    choose('CSS')
+    # Check the checkbox for 'CSS'
+    check('CSS')
     click_on "Search"
 
     assert_selector(".feature-card", count: Feature.css.count)
