@@ -29,6 +29,13 @@ class FeaturesController < ApplicationController
       features = features.has_no_mdn_url
     end
 
+    # Handles filtering based on the presence of a description.
+    if params["description"] == "true"
+      features = features.has_description
+    elsif params["description"] == "false"
+      features = features.has_no_description
+    end
+
     @feature_count = features.count
     @features = features.page(params[:page])
 

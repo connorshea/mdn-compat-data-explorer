@@ -35,6 +35,15 @@
             { include_blank: true }
           ) %>
         </div>
+
+        <div class="px-2 d-block d-md-inline-block">
+          <%= label_tag("description", "Includes a description?") %>
+          <%= select_tag(
+            "description",
+            options_for_select([['Has a description', true], ['Has no description', false]], params["description"]),
+            { include_blank: true }
+          ) %>
+        </div>
       </div>
 
       <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>

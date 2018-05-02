@@ -40,6 +40,7 @@ class Feature < ApplicationRecord
   scope :has_mdn_url,              -> { where.not(mdn_url: nil) }
   scope :has_no_mdn_url,           -> { where(mdn_url: nil) }
   scope :has_description,          -> { where.not(description: nil) }
+  scope :has_no_description,       -> { where(description: nil) }
 
   # Feature status scopes
   scope :is_deprecated,            -> { where(deprecated: true) }
