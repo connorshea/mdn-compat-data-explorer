@@ -6,21 +6,19 @@ class FeaturesController < ApplicationController
       features = Feature.all
     end
 
+    # Handle categories array. Categories can be filtered down to, e.g.
+    # "css and javascript", but each feature only has one category so we have
+    # to use an OR relation when passed multiple categories.
     @categories = Rails.configuration.feature_categories
-
-    category_params = []
-
+    i = 0
     @categories.keys.each do |category|
       if params["categories"].present? && params["categories"].include?(category.to_s)
-        category_params.push(category.to_s)
-      end
-    end
-
-    category_params.each_with_index do |category, i|
-      if i == 0
-        features = features.where("name ~* ?", "^#{category}.*")
-      else
-        features = features.or(Feature.where("name ~* ?", "^#{category}.*"))
+        if i == 0
+          features = features.where("name ~* ?", "^#{category}.*")
+        else
+          features = features.or(Feature.where("name ~* ?", "^#{category}.*"))
+        end
+        i += 1
       end
     end
 
