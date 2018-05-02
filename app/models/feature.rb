@@ -55,7 +55,7 @@ class Feature < ApplicationRecord
   # Creates scopes like Feature.api, Feature.css, Feature.html, etc.
   Rails.configuration.feature_categories.keys.each do |category|
     scope "#{category}", -> { where("name ~* ?", "^#{category}.*") }
-  end 
+  end
 
   pg_search_scope :search,
     against: [:name],
