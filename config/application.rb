@@ -14,6 +14,10 @@ module MdnCompatDataExplorer
     # Set the version of the MDN BCD Package
     config.mdn_bcd_version = '0.0.33'
 
+    Rails.application.config.assets.configure do |env|
+      AutoprefixerRails.uninstall env
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
