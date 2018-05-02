@@ -192,8 +192,17 @@ td.browser-support-info {
 }
 
 .search-sidebar {
-  height: 100vh;
+  max-height: 100vh;
+  height: auto;
+  min-height: calc(100vh - #{$site-header});
   position: sticky;
   top: 0;
   border-right: 1px solid #ddd;
+  overflow: scroll;
+
+  .form-group-title {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 }
