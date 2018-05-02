@@ -36,6 +36,30 @@ class FeaturesController < ApplicationController
       features = features.has_no_description
     end
 
+    if params["deprecated"] == "true"
+      features = features.is_deprecated
+    elsif params["deprecated"] == "false"
+      features = features.is_not_deprecated
+    elsif params["deprecated"] == "no_info"
+      features = features.no_deprecation_info
+    end
+
+    if params["experimental"] == "true"
+      features = features.is_experimental
+    elsif params["experimental"] == "false"
+      features = features.is_not_experimental
+    elsif params["experimental"] == "no_info"
+      features = features.no_experimental_info
+    end
+
+    if params["standard_track"] == "true"
+      features = features.is_on_standard_track
+    elsif params["standard_track"] == "false"
+      features = features.is_not_on_standard_track
+    elsif params["standard_track"] == "no_info"
+      features = features.no_standard_track_info
+    end
+
     @feature_count = features.count
     @features = features.page(params[:page])
 

@@ -31,7 +31,13 @@
           <%= label_tag("mdn_url", "Includes an MDN URL?") %>
           <%= select_tag(
             "mdn_url",
-            options_for_select([['Has an MDN URL', true], ['Has no MDN URL', false]], params["mdn_url"]),
+            options_for_select(
+              [
+                ['Has an MDN URL', true],
+                ['Has no MDN URL', false]
+              ],
+              params["mdn_url"]
+            ),
             { include_blank: true }
           ) %>
         </div>
@@ -40,7 +46,61 @@
           <%= label_tag("description", "Includes a description?") %>
           <%= select_tag(
             "description",
-            options_for_select([['Has a description', true], ['Has no description', false]], params["description"]),
+            options_for_select(
+              [
+                ['Has a description', true],
+                ['Has no description', false]
+              ],
+              params["description"]
+            ),
+            { include_blank: true }
+          ) %>
+        </div>
+
+        <div class="px-2 d-block d-md-inline-block">
+          <%= label_tag("deprecated", "Deprecated?") %>
+          <%= select_tag(
+            "deprecated",
+            options_for_select(
+              [
+                ['Deprecated', true],
+                ['Not deprecated', false],
+                ['No deprecation info', "no_info"]
+              ],
+              params["deprecated"]
+            ),
+            { include_blank: true }
+          ) %>
+        </div>
+
+        <div class="px-2 d-block d-md-inline-block">
+          <%= label_tag("experimental", "Experimental?") %>
+          <%= select_tag(
+            "experimental",
+            options_for_select(
+              [
+                ['Experimental', true],
+                ['Not experimental', false],
+                ['No experimental info', "no_info"]
+              ],
+              params["experimental"]
+            ),
+            { include_blank: true }
+          ) %>
+        </div>
+
+        <div class="px-2 d-block d-md-inline-block">
+          <%= label_tag("standard_track", "Standard track?") %>
+          <%= select_tag(
+            "standard_track",
+            options_for_select(
+              [
+                ['On standard track', true],
+                ['Not on standard track', false],
+                ['No standard track info', "no_info"]
+              ],
+              params["standard_track"]
+            ),
             { include_blank: true }
           ) %>
         </div>
