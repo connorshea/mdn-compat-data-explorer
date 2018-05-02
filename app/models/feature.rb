@@ -38,6 +38,7 @@ class Feature < ApplicationRecord
 
   # Feature attribute scopes
   scope :has_mdn_url,              -> { where.not(mdn_url: nil) }
+  scope :has_no_mdn_url,           -> { where(mdn_url: nil) }
   scope :has_description,          -> { where.not(description: nil) }
 
   # Feature status scopes

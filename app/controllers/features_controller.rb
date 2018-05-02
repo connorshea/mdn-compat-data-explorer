@@ -22,6 +22,13 @@ class FeaturesController < ApplicationController
       end
     end
 
+    # Handles filtering based on the presence of an MDN URL.
+    if params["mdn_url"] == "true"
+      features = features.has_mdn_url
+    elsif params["mdn_url"] == "false"
+      features = features.has_no_mdn_url
+    end
+
     @feature_count = features.count
     @features = features.page(params[:page])
 

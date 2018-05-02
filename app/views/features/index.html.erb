@@ -23,6 +23,19 @@
           </div>
         <% end %>
       </div>
+      <div class="py-2 w-100">
+        <div class="px-2 d-block d-md-inline-block">
+          Filters:
+        </div>
+        <div class="px-2 d-block d-md-inline-block">
+          <%= label_tag("mdn_url", "Includes an MDN URL?") %>
+          <%= select_tag(
+            "mdn_url",
+            options_for_select([['Has an MDN URL', true], ['Has no MDN URL', false]], params["mdn_url"]),
+            { include_blank: true }
+          ) %>
+        </div>
+      </div>
 
       <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>
     <% end %>
