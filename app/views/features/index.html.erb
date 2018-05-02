@@ -1,124 +1,130 @@
-<div class="container">
-  <div class="container">
-  <div class="row py-4 w-100">
-    <%= form_tag("/features", method: "get", class: "w-100") do %>
-      <%= text_field_tag(:query, 
-                         params['query'],
-                         placeholder: "Search",
-                         class: "form-control") %>
-
-      <div class="py-2 w-100">
-        <div class="px-2 d-block d-md-inline-block">
-          Categories:
-        </div>
-        <% @categories.each do |key, value| %>
-          <div class="px-2 d-block d-md-inline-block">
-            <%= check_box_tag(
-              "categories[]",
-              key,
-              (true if params["categories"].present? && params["categories"].include?(key.to_s)),
-              {id: key}
-            ) %>
-            <%= label_tag(key, value) %>
+<div class="container search-page">
+  <div class="row no-wrap-row">
+    <div class="col-lg-3 col-12 search-sidebar">
+      <div class="row p-2">
+        <%= form_tag("/features", method: "get") do %>
+          <div class="form-group">
+            <%= text_field_tag(:query, 
+                              params['query'],
+                              placeholder: "Search",
+                              class: "form-control") %>
           </div>
+
+          <div class="form-group">
+            <div class="px-2 d-block d-md-inline-block">
+              Categories:
+            </div>
+            <% @categories.each do |key, value| %>
+              <div class="px-2 d-block d-md-inline-block">
+                <%= check_box_tag(
+                  "categories[]",
+                  key,
+                  (true if params["categories"].present? && params["categories"].include?(key.to_s)),
+                  {id: key}
+                ) %>
+                <%= label_tag(key, value) %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <div class="px-2 d-block d-md-inline-block">
+              Filters:
+            </div>
+            <div class="px-2 d-block d-md-inline-block">
+              <%= label_tag("mdn_url", "Includes an MDN URL?") %>
+              <%= select_tag(
+                "mdn_url",
+                options_for_select(
+                  [
+                    ['Has an MDN URL', true],
+                    ['Has no MDN URL', false]
+                  ],
+                  params["mdn_url"]
+                ),
+                { include_blank: true }
+              ) %>
+            </div>
+
+            <div class="px-2 d-block d-md-inline-block">
+              <%= label_tag("description", "Includes a description?") %>
+              <%= select_tag(
+                "description",
+                options_for_select(
+                  [
+                    ['Has a description', true],
+                    ['Has no description', false]
+                  ],
+                  params["description"]
+                ),
+                { include_blank: true }
+              ) %>
+            </div>
+
+            <div class="px-2 d-block d-md-inline-block">
+              <%= label_tag("deprecated", "Deprecated?") %>
+              <%= select_tag(
+                "deprecated",
+                options_for_select(
+                  [
+                    ['Deprecated', true],
+                    ['Not deprecated', false],
+                    ['No deprecation info', "no_info"]
+                  ],
+                  params["deprecated"]
+                ),
+                { include_blank: true }
+              ) %>
+            </div>
+
+            <div class="px-2 d-block d-md-inline-block">
+              <%= label_tag("experimental", "Experimental?") %>
+              <%= select_tag(
+                "experimental",
+                options_for_select(
+                  [
+                    ['Experimental', true],
+                    ['Not experimental', false],
+                    ['No experimental info', "no_info"]
+                  ],
+                  params["experimental"]
+                ),
+                { include_blank: true }
+              ) %>
+            </div>
+
+            <div class="px-2 d-block d-md-inline-block">
+              <%= label_tag("standard_track", "Standard track?") %>
+              <%= select_tag(
+                "standard_track",
+                options_for_select(
+                  [
+                    ['On standard track', true],
+                    ['Not on standard track', false],
+                    ['No standard track info', "no_info"]
+                  ],
+                  params["standard_track"]
+                ),
+                { include_blank: true }
+              ) %>
+            </div>
+          </div>
+
+          <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>
         <% end %>
       </div>
-      <div class="py-2 w-100">
-        <div class="px-2 d-block d-md-inline-block">
-          Filters:
-        </div>
-        <div class="px-2 d-block d-md-inline-block">
-          <%= label_tag("mdn_url", "Includes an MDN URL?") %>
-          <%= select_tag(
-            "mdn_url",
-            options_for_select(
-              [
-                ['Has an MDN URL', true],
-                ['Has no MDN URL', false]
-              ],
-              params["mdn_url"]
-            ),
-            { include_blank: true }
-          ) %>
-        </div>
+    </div>
 
-        <div class="px-2 d-block d-md-inline-block">
-          <%= label_tag("description", "Includes a description?") %>
-          <%= select_tag(
-            "description",
-            options_for_select(
-              [
-                ['Has a description', true],
-                ['Has no description', false]
-              ],
-              params["description"]
-            ),
-            { include_blank: true }
-          ) %>
-        </div>
-
-        <div class="px-2 d-block d-md-inline-block">
-          <%= label_tag("deprecated", "Deprecated?") %>
-          <%= select_tag(
-            "deprecated",
-            options_for_select(
-              [
-                ['Deprecated', true],
-                ['Not deprecated', false],
-                ['No deprecation info', "no_info"]
-              ],
-              params["deprecated"]
-            ),
-            { include_blank: true }
-          ) %>
-        </div>
-
-        <div class="px-2 d-block d-md-inline-block">
-          <%= label_tag("experimental", "Experimental?") %>
-          <%= select_tag(
-            "experimental",
-            options_for_select(
-              [
-                ['Experimental', true],
-                ['Not experimental', false],
-                ['No experimental info', "no_info"]
-              ],
-              params["experimental"]
-            ),
-            { include_blank: true }
-          ) %>
-        </div>
-
-        <div class="px-2 d-block d-md-inline-block">
-          <%= label_tag("standard_track", "Standard track?") %>
-          <%= select_tag(
-            "standard_track",
-            options_for_select(
-              [
-                ['On standard track', true],
-                ['Not on standard track', false],
-                ['No standard track info', "no_info"]
-              ],
-              params["standard_track"]
-            ),
-            { include_blank: true }
-          ) %>
-        </div>
+    <div class="col-lg-9 col-12">
+      <div class="row px-4 py-2">
+        <% unless @feature_count.zero? %>
+          <p>Features: <%= @feature_count %></p>
+        <% end %>
+        
+        <%= render 'features_list',
+            features: @features,
+            browsers: @browsers %>
       </div>
-
-      <%= submit_tag("Search", class: "btn btn-primary btn-lg btn-block") %>
-    <% end %>
+    </div>
   </div>
-
-  <div class="row">
-    <% unless @feature_count.zero? %>
-      <p>Features: <%= @feature_count %></p>
-    <% end %>
-    
-    <%= render 'features_list',
-        features: @features,
-        browsers: @browsers %>
-  </div>
-</div>
-
 </div>
