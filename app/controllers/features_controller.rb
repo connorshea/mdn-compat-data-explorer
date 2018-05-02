@@ -8,9 +8,19 @@ class FeaturesController < ApplicationController
 
     @categories = Rails.configuration.feature_categories
 
+    category_params = []
+
     @categories.keys.each do |category|
-      if params["category"].present? && params["category"] == category.to_s
-        features = features.public_send(category)
+      if params["categories"].present? && params["categories"].include?(category.to_s)
+        category_params.push(category.to_s)
+      end
+    end
+
+    category_params.each_with_index do |category, i|
+      if i == 0
+        features = features.where("name ~* ?", "^#{category}.*")
+      else
+        features = features.or(Feature.where("name ~* ?", "^#{category}.*"))
       end
     end
 

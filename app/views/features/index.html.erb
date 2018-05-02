@@ -11,11 +11,15 @@
         <div class="px-2 d-block d-md-inline-block">
           Categories:
         </div>
-
         <% @categories.each do |key, value| %>
           <div class="px-2 d-block d-md-inline-block">
-            <%= radio_button_tag(:category, key, params[:category].eql?(key.to_s)) %>
-            <%= label_tag("category_#{key}".to_sym, value) %>
+            <%= check_box_tag(
+              "categories[]",
+              key,
+              (true if params["categories"].present? && params["categories"].include?(key.to_s)),
+              {id: key}
+            ) %>
+            <%= label_tag(key, value) %>
           </div>
         <% end %>
       </div>
