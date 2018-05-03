@@ -28,14 +28,14 @@ Run the following commands:
 
 With that, the site should be up at `localhost:3000`.
 
-### Updating the `data.json`
+### Updating the `mdn-browser-compat-data` package
 
-You can update the `mdn-browser-compat-data` package by changing the version of `mdn-browser-compat-data` in `package.json` and then running `yarn install`.
+You can update the `mdn-browser-compat-data` package by doing the following:
 
-You'll also need to update the compat data version in `config/application.rb` to match the npm package version, otherwise tests will fail.
-
-You can update `public/data.json` with new data from the npm package using
-`node lib/build.js`.
+1. Edit the `mdn-browser-compat-data` package version in `package.json` and run `yarn install`.
+1. Update the `config.mdn_bcd_version` variable in `config/application.rb` to the current version.
+1. Run `node lib/build.js` to regenerate the `public/data.json` file.
+1. Commit these changes and open a pull request.
 
 ### Updating the database
 
