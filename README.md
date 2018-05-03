@@ -85,10 +85,3 @@ To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and
 ### Resources
 
 - [Using PostgreSQL and jsonb with Ruby on Rails](https://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails) is a really useful article for understanding jsonb usage with Postgres and Rails (this is used in this app). 
-
-### TODO
-
-- Add a timeline of browser releases.
-- Implement visualizations using the dataset.
-- Implement caching, the data is static so this should be fairly easy (famous last words).
-- Figure out how to handle data for the browser when there's more than one `version_added` statement, or when there are `flags` or `notes`.
