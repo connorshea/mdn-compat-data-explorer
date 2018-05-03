@@ -1,5 +1,7 @@
 class FeaturesController < ApplicationController
   def index
+    @sticky_header = true
+
     if params[:query].present?
       features = Feature.search(params[:query])
     else
