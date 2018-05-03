@@ -52,10 +52,10 @@ if Rails.env.test? || ENV['USE_TEST_DATA']
 else
   @top_level_schema = {
     api: [],
-    css: ["at-rules", "properties", "selectors", "types"],
-    html: ["elements", "global_attributes"],
+    css: [],
+    html: [],
     http: [],
-    javascript: ["builtins", "classes", "functions", "grammar", "operators", "statements"],
+    javascript: [],
     mathml: [],
     svg: [],
     webdriver: [],
