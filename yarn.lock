@@ -34,9 +34,9 @@ extend@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-mdn-browser-compat-data@^0.0.33:
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.33.tgz#927a010121ba561ea10d79c0222330fecf159b6d"
+mdn-browser-compat-data@0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.34.tgz#6f3f38dc5b4d5e8aa1b9cfe12efb5fd2d312d1b4"
   dependencies:
     extend "3.0.1"
 
