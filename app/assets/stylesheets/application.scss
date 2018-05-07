@@ -60,6 +60,18 @@ $zindex-header: 1080; // This ensures the header will be above popovers/tooltips
   td.release-notes a {
     text-decoration: none;
   }
+
+  th.features-column,
+  td.features-column {
+    width: 600px;
+    max-width: 600px;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
 }
 
 .features-table {

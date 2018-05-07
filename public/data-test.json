@@ -6,6 +6,16 @@
           "release_date": "2018-03-13",
           "release_notes": "https://developer.mozilla.org/Firefox/Releases/59",
           "status": "current"
+        },
+        "2": {
+          "release_date": "2018-03-14",
+          "release_notes": "https://developer.mozilla.org/Firefox/Releases/59",
+          "status": "current"
+        },
+        "10": {
+          "release_date": "2018-03-15",
+          "release_notes": "https://developer.mozilla.org/Firefox/Releases/59",
+          "status": "current"
         }
       }
     }
@@ -78,7 +88,7 @@
       "__compat": {
         "support": {
           "firefox": {
-            "version_added": true,
+            "version_added": "10",
             "alternative_name": "feature_with_firefox_alternative_name"
           }
         }
@@ -88,7 +98,7 @@
       "__compat": {
         "support": {
           "firefox": {
-            "version_added": true,
+            "version_added": "1",
             "notes": "This is a note"
           }
         }

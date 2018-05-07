@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-12">
+      <h1><%= @browser.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+      <div class="card card-no-overflow mb-4">
+        <table id="<%= "#{@browser.name.downcase.gsub(' ', '_')}" %>" class="table mb-0 browser-table width-full">
+          <thead>
+            <tr class="text-center bg-light border-transparent rounded-top">
+              <th class="border-top-0" colspan="5"><%= @browser.name %></th>
+            </tr>
+            <tr>
+              <th>Version</th>
+              <th>Status</th>
+              <th>Release date</th>
+              <th>Release notes</th>
+              <th class="features-column">Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @browser.releases.each_with_index do |release, i| %>
+              <tr>
+                <td><%= release['version'] %></td>
+                <td><%= release['status'] %></td>
+                <td>
+                  <% unless release['release_date'].blank? %>
+                    <%# Format dates like April 2, 2017, this is the same as long but without the leading 0 for days.%>
+                    <%= Date.parse(release['release_date']).strftime("%B %-d, %Y") %>
+                  <% end %>
+                </td>
+                <td class="release-notes">
+                  <% unless release['release_notes'].blank? %>
+                    <%= link_to "📰", release['release_notes'], title: "Release notes" %>
+                  <% end %>
+                </td>
+                <td class="features-column">
+                  <p>Features added (<%= browser_release_features(@browser.browser_id, release['version']).count %>):</p>
+
+                  <a class="btn btn-primary" data-toggle="collapse" href='<%= "#collapseReleaseFeatures#{i}" %>' role="button" aria-expanded="false" aria-controls='<%= "collapseReleaseFeatures#{i}" %>'>
+                    Toggle features
+                  </a>
+
+                  <div class="collapse" id='<%= "collapseReleaseFeatures#{i}" %>'>
+                    <% browser_release_features(@browser.browser_id, release['version']).each do |feature| %>
+                      <p><%= feature.name %></p>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
