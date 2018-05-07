@@ -61,4 +61,8 @@ module FeaturesHelper
              data: content_tag_options[:data]
            )
   end
+
+  def browser_release_features(browser, version)
+    return Feature.where("#{browser} @> ?", {'version_added': "#{version}"}.to_json).select("name")
+  end
 end

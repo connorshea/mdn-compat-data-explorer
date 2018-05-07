@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   match 'browsers', to: 'browsers#index', via: :get
   match 'graphs', to: 'graphs#index', via: :get
 
+  resources :browsers, only: [:show]
+
   root 'welcome#index'
 end
