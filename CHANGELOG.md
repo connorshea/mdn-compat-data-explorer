@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [0.3.1] - 2018-05-04
 ### Added
-- Google Analytics tracking.
+- Google Analytics tracking. ([#40])
 
 ### Fixed
 - Minor README cleanups.
@@ -76,6 +76,7 @@ First tagged release, includes some basic functionality.
 [#28]: https://github.com/connorshea/mdn-compat-data-explorer/pull/28
 [#29]: https://github.com/connorshea/mdn-compat-data-explorer/pull/29
 [#31]: https://github.com/connorshea/mdn-compat-data-explorer/pull/31
+[#40]: https://github.com/connorshea/mdn-compat-data-explorer/pull/40
 [#41]: https://github.com/connorshea/mdn-compat-data-explorer/pull/41
 [#42]: https://github.com/connorshea/mdn-compat-data-explorer/pull/42
 [#43]: https://github.com/connorshea/mdn-compat-data-explorer/pull/43
