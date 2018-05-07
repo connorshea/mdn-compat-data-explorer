@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Create a page for each browser, list all new features for each release. ([#41])
 - Random sorting option for the features page. ([#42])
 - Keep a `CHANGELOG.md`. ([#45])
+- Display Travis CI badge in `README.md`. ([#47])
 
 ### Fixed
 - Correctly handle `version_removed` property for the browser support tables. ([#43])
@@ -81,6 +82,7 @@ First tagged release, includes some basic functionality.
 [#42]: https://github.com/connorshea/mdn-compat-data-explorer/pull/42
 [#43]: https://github.com/connorshea/mdn-compat-data-explorer/pull/43
 [#45]: https://github.com/connorshea/mdn-compat-data-explorer/pull/45
+[#47]: https://github.com/connorshea/mdn-compat-data-explorer/pull/47
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.3.1...HEAD
 [0.3.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.0...v0.3.1
