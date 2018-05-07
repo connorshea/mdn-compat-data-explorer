@@ -63,6 +63,11 @@ class FeaturesController < ApplicationController
     end
 
     @feature_count = features.count
+
+    if params["random"] == "true"
+      features = features.order(Arel.sql('random()'))
+    end
+
     @features = features.page(params[:page])
 
     @browsers = Rails.configuration.browsers
