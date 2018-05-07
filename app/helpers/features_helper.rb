@@ -1,9 +1,14 @@
 module FeaturesHelper
   def version_added_parser(browser_info)
-    if browser_info.kind_of?(Array)
+    # Simply the parser by converting hashes to an Array of length one.
+    if (browser_info.kind_of?(Hash) || browser_info.nil?)
+      array = Array.new(1)
+      array[0] = browser_info
+      browser_info = array
+    end
+
+    unless browser_info[0].nil?
       version_added = browser_info[0]['version_added']
-    elsif browser_info.kind_of?(Hash)
-      version_added = browser_info['version_added']
     end
 
     content_tag_options = {}
@@ -48,10 +53,15 @@ module FeaturesHelper
         }
       end
 
-    if browser_info.kind_of?(Array) && browser_info[0]['partial_implementation']
+    # If the support object has partial_implementation set to true, add a
+    # CSS class to make the background yellow.
+    if !browser_info[0].nil? && browser_info[0]['partial_implementation']
       content_tag_options[:class] += " bg-partial"
-    elsif browser_info.kind_of?(Hash) && browser_info['partial_implementation']
-      content_tag_options[:class] += " bg-partial"
+    end
+
+    if !browser_info[0].nil? && browser_info[0]['version_removed'].present?
+      content_tag_options[:class] += " bg-false"
+      content_tag_options[:content] = "No"
     end
 
     return content_tag(

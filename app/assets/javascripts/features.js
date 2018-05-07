@@ -9,20 +9,23 @@ function browserSupportParser() {
     if (json !== undefined) {
       parsedJson = JSON.parse(json);
 
-      // If the JSON is an array, there are multiple
+      // If the JSON is an array of length > 1, there are multiple
       // support objects that need to be parsed.
-      if (Array.isArray(parsedJson)) {
+      if (Array.isArray(parsedJson) && parsedJson.length > 1) {
         parseArraySupportObject(parsedJson, item);
       // Otherwise, the JSON is a hash and can be parsed
       // relatively simply.
       } else {
-        item.dataset.content = parseHashSupportObject(parsedJson, item);
+        item.dataset.content = parseHashSupportObject(parsedJson[0], item);
       }
     }
   };
 }
 
 function parseHashSupportObject(json, item, partOfArray = false) {
+  // Return early if JSON is null.
+  if (json == null) { return; }
+
   jsonKeys = Object.keys(json);
   if (jsonKeys.length > 1 || partOfArray) {
     item.dataset.toggle = "popover";
@@ -35,26 +38,24 @@ function parseHashSupportObject(json, item, partOfArray = false) {
 
   let contentForPopover = new Map();
 
-  if (partOfArray) {
-    let versionInfo = '';
+  let versionInfo = '';
 
-    if (!json) {
-      versionInfo += getVersionString(null);
-    } else {
-      versionInfo += getVersionString(json.version_added);
-    }
-
-    if (json.version_removed) {
-      // We don't know when
-      if (typeof (json.version_removed) === 'boolean' && json.version_removed) {
-        versionInfo += '&nbsp;—?'
-      } else { // We know when
-        versionInfo += '&nbsp;— ' + json.version_removed;
-      }
-    }
-
-    contentForPopover.set("version_added", `<b>${versionInfo}</b>`);
+  if (!json) {
+    versionInfo += getVersionString(null);
+  } else {
+    versionInfo += getVersionString(json.version_added);
   }
+
+  if (json.version_removed) {
+    // We don't know when
+    if (typeof (json.version_removed) === 'boolean' && json.version_removed) {
+      versionInfo += '&nbsp;—?'
+    } else { // We know when
+      versionInfo += '&nbsp;— ' + json.version_removed;
+    }
+  }
+
+  contentForPopover.set("version_added", `<b>${versionInfo}</b>`);
 
   if (jsonKeys.includes('partial_implementation')) {
     contentForPopover.set("partial_implementation", "This is a partial implementation.");
