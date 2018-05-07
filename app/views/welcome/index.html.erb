@@ -1,25 +1,21 @@
 <div class="container">
   <div class="row py-4">
     <div class="col-12">
-      <h1>Welcome!</h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-12 col-md-4">
-      <div class="card">
-        <div class="card-header">
-          Statistics
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Features: <%= @feature_count %></li>
-          <li class="list-group-item">Features with an MDN link: <%= @features_with_mdn_count %></li>
-          <li class="list-group-item">Features with a description: <%= @features_with_description_count %></li>
-          <li class="list-group-item">Features on a standards track: <%= @standard_features %></li>
-          <li class="list-group-item">Features marked experimental: <%= @experimental_features %></li>
-          <li class="list-group-item">Features marked deprecated: <%= @deprecated_features %></li>
-        </ul>
-      </div>
+      <h1 class="text-center my-4">MDN Browser Compatability Data Explorer</h1>
+      <p class="text-center">
+        The purpose of this site is to use data from
+        <%= link_to "the MDN Browser Compatibility Data repository", "https://github.com/mdn/browser-compat-data" %>
+        in order to display information about the state of web features across
+        browsers and platforms. The hope is that this application will also be
+        useful to people who contribute to the MDN dataset, helping them
+        find features with incomplete or incorrect data.
+      </p>
+      <p class="text-center">
+        This site is an open source Ruby on Rails application, available
+        <%= link_to "on GitHub", "https://github.com/connorshea/mdn-compat-data-explorer" %>
+        under the MIT License and was built by
+        <%= link_to "Connor Shea", "https://twitter.com/connorjshea" %>.
+        Contributions are welcome.
     </div>
   </div>
 </div>
