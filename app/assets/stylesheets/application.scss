@@ -97,6 +97,12 @@ $zindex-header: 1080; // This ensures the header will be above popovers/tooltips
   width: 100%;
 }
 
+.feature-card-title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
 .card-no-overflow {
   overflow: hidden;
 }

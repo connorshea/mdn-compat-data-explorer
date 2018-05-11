@@ -125,6 +125,10 @@
               ) %>
             </div>
 
+            <div class="form-group-title">
+              Browsers
+            </div>
+
             <% @browsers.each do |browser_key, browser_name| %>
               <div class="form-group">
                 <%= label_tag(browser_key, "#{browser_name} status") %>
