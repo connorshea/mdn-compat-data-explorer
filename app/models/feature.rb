@@ -88,5 +88,7 @@ class Feature < ApplicationRecord
            )
         .or(where( "#{browser} @> ?", {'version_added': true}.to_json))
     }
+
+    scope "#{browser}_exactly_true", -> { where( "#{browser} @> ?", {'version_added': true}.to_json) }
   end
 end

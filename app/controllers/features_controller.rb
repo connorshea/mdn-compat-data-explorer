@@ -62,15 +62,29 @@ class FeaturesController < ApplicationController
       features = features.no_standard_track_info
     end
 
-    @feature_count = features.count
-
     if params["random"] == "true"
       features = features.order(Arel.sql('random()'))
     end
 
-    @features = features.page(params[:page])
-
     @browsers = Rails.configuration.browsers
+
+    @browsers.keys.each do |browser|
+      if params[browser] == "unknown"
+        features = features.public_send("#{browser}_nil")
+      elsif params[browser] == "true"
+        features = features.public_send("#{browser}_true")
+      elsif params[browser] == "exactly_true"
+        features = features.public_send("#{browser}_exactly_true")
+      elsif params[browser] == "false"
+        features = features.public_send("#{browser}_false")
+      elsif params[browser] == "no_data"
+        features = features.public_send("#{browser}_no_data")
+      end
+    end
+
+    @feature_count = features.count
+
+    @features = features.page(params[:page])
     
     [:qq_android, :uc_android, :uc_chinese_android, :samsunginternet_android].each do |browser|
       @browsers.delete(browser)

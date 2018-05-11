@@ -124,6 +124,26 @@
                 { include_blank: true, class: "form-control form-control-sm" }
               ) %>
             </div>
+
+            <% @browsers.each do |browser_key, browser_name| %>
+              <div class="form-group">
+                <%= label_tag(browser_key, "#{browser_name} status") %>
+                <%= select_tag(
+                  browser_key,
+                  options_for_select(
+                    [
+                      ['True', true],
+                      ['Exactly true', "exactly_true"],
+                      ['False', false],
+                      ['Unknown', "unknown"],
+                      ['No info', "no_data"]
+                    ],
+                    params[browser_key]
+                  ),
+                  { include_blank: true, class: "form-control form-control-sm" }
+                ) %>
+              </div>
+            <% end %>
           </div>
 
           <div class="search-button-container">
