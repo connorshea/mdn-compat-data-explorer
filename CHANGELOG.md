@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Display Travis CI badge in `README.md`. ([#47])
 - Add a 404 checker for MDN URLs, currently this is run manually and not saved or exposed in the application. ([#48])
 - Add filtering by browser status (e.g. filter down to features where Firefox is exactly `true` or where Chrome has no data) to the search page. ([#51])
+- Add a "Search on GitHub" link to feature cards, it searches for the feature in the `browser-compat-data` repo. ([#53])
 
 ### Fixed
 - Correctly handle `version_removed` property for the browser support tables. ([#43])
@@ -87,6 +88,7 @@ First tagged release, includes some basic functionality.
 [#47]: https://github.com/connorshea/mdn-compat-data-explorer/pull/47
 [#48]: https://github.com/connorshea/mdn-compat-data-explorer/pull/48
 [#51]: https://github.com/connorshea/mdn-compat-data-explorer/pull/51
+[#53]: https://github.com/connorshea/mdn-compat-data-explorer/pull/53
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.3.1...HEAD
 [0.3.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.0...v0.3.1

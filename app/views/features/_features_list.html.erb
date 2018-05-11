@@ -1,29 +1,38 @@
 <% features.each do |feature| %>
   <div class="card card-no-overflow my-3 feature-card feature-card-<%= feature.name.gsub('.', '-') %>">
     <div class="card-body">
-      <h5 class="card-title">
-        <span class="mr-1"><%= feature.name %></span>
-        <% if feature.standard_track? %>
-          <abbr class="icon status-standard" title="Standard. Feature is on a standard track.">
-            <%= octicon "verified", height: 16,  class: "inline right left", "aria-label": "Standard track" %>
-          </abbr>
-        <% end %>
-        <% if !feature.standard_track? && !feature.standard_track.nil? %>
-          <abbr class="icon status-nonstandard" title="Non-standard. Expect poor cross-browser support.">
-            <%= octicon "alert", height: 16,  class: "inline right left", "aria-label": "Non-standard" %>
-          </abbr>
-        <% end %>
-        <% if feature.experimental? %>
-          <abbr class="icon status-experimental" title="Experimental. Expect behavior to change in the future.">
-            <%= octicon "beaker", height: 16,  class: "inline right left", "aria-label": "Experimental" %>
-          </abbr>
-        <% end %>
-        <% if feature.deprecated? %>
-          <abbr class="icon status-deprecated" title="Deprecated. Not for use in new websites.">
-            <%= octicon "trashcan", height: 16,  class: "inline right left", "aria-label": "Deprecated" %>
-          </abbr>
-        <% end %>
-      </h5>
+      <div class="card-title feature-card-title mb-2">
+        <h5>
+          <span class="mr-1"><%= feature.name %></span>
+          <% if feature.standard_track? %>
+            <abbr class="icon status-standard" title="Standard. Feature is on a standard track.">
+              <%= octicon "verified", height: 16,  class: "inline right left", "aria-label": "Standard track" %>
+            </abbr>
+          <% end %>
+          <% if !feature.standard_track? && !feature.standard_track.nil? %>
+            <abbr class="icon status-nonstandard" title="Non-standard. Expect poor cross-browser support.">
+              <%= octicon "alert", height: 16,  class: "inline right left", "aria-label": "Non-standard" %>
+            </abbr>
+          <% end %>
+          <% if feature.experimental? %>
+            <abbr class="icon status-experimental" title="Experimental. Expect behavior to change in the future.">
+              <%= octicon "beaker", height: 16,  class: "inline right left", "aria-label": "Experimental" %>
+            </abbr>
+          <% end %>
+          <% if feature.deprecated? %>
+            <abbr class="icon status-deprecated" title="Deprecated. Not for use in new websites.">
+              <%= octicon "trashcan", height: 16,  class: "inline right left", "aria-label": "Deprecated" %>
+            </abbr>
+          <% end %>
+        </h5>
+
+        <p class="card-text feature-github-link">
+          <%= link_to "https://github.com/mdn/browser-compat-data/search?q=#{feature.name}", title: "Search on GitHub" do %>
+            <%= octicon "mark-github", height: 16,  class: "inline right left", "aria-label": "Search on GitHub" %>
+          <% end %>
+        </p>
+      </div>
+
       <% if feature.description %>
         <p class="card-text feature-description"><%= sanitize feature.description %></p>
       <% end %>
