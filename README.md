@@ -2,12 +2,7 @@
 
 [![Build Status](https://travis-ci.org/connorshea/mdn-compat-data-explorer.svg?branch=master)](https://travis-ci.org/connorshea/mdn-compat-data-explorer)
 
-This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `mdn-browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
-
-Some ideas:
-
-- See a list of features supported per-browser.
-- Pie charts showing the status of features per browser, e.g. "40% of features are listed as supported in Chrome, 40% are listed as unsupported, and 20% are unknown".
+This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
 ## Development
 ### Running the application locally
@@ -18,6 +13,7 @@ You'll need:
 - Ruby 2.5.x
 - Node.js 9.x
 - Yarn
+- Graphviz
 
 Run the following commands:
 
