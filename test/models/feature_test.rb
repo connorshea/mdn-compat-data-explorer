@@ -21,12 +21,17 @@
 #  safari                  :jsonb
 #  safari_ios              :jsonb
 #  samsunginternet_android :jsonb
+#  slug                    :string           not null
 #  standard_track          :boolean
 #  uc_android              :jsonb
 #  uc_chinese_android      :jsonb
 #  webview_android         :jsonb
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#
+# Indexes
+#
+#  index_features_on_slug  (slug) UNIQUE
 #
 
 require 'test_helper'

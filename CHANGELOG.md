@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Added
 - Use proper title tags for each page. ([#63])
+- Use `friendly_id` gem for ease of use with slugs in URLs. ([#64])
+- Introduce feature pages for each feature in the dataset. ([#64])
 
 ### Changed
 - Browser pages now have URLs like `/browsers/chrome` rather than `/browsers/1`. ([#62])
@@ -98,6 +100,7 @@ First tagged release, includes some basic functionality.
 [#53]: https://github.com/connorshea/mdn-compat-data-explorer/pull/53
 [#62]: https://github.com/connorshea/mdn-compat-data-explorer/pull/62
 [#63]: https://github.com/connorshea/mdn-compat-data-explorer/pull/63
+[#64]: https://github.com/connorshea/mdn-compat-data-explorer/pull/64
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...HEAD
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0

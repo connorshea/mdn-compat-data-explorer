@@ -66,7 +66,7 @@ class FeaturesController < ApplicationController
       features = features.order(Arel.sql('random()'))
     end
 
-    @browsers = Rails.configuration.browsers
+    @browsers = get_browsers
 
     @browsers.keys.each do |browser|
       if params[browser] == "unknown"
@@ -85,9 +85,22 @@ class FeaturesController < ApplicationController
     @feature_count = features.count
 
     @features = features.page(params[:page])
-    
+  end
+
+  def show
+    @feature = Feature.friendly.find(params[:slug])
+    @browsers = get_browsers
+  end
+
+  private
+  
+  def get_browsers
+    @browsers = Rails.configuration.browsers
+
     [:qq_android, :uc_android, :uc_chinese_android, :samsunginternet_android].each do |browser|
       @browsers.delete(browser)
     end
+
+    return @browsers
   end
 end
