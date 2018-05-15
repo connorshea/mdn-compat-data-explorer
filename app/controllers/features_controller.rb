@@ -92,6 +92,11 @@ class FeaturesController < ApplicationController
     @browsers = get_browsers
 
     @subfeatures = Feature.where("name ~* ?", "^#{@feature.name}.*").where.not(slug: params[:slug])
+
+    parent_feature_name = @feature.name.split(/\./)
+    parent_feature_name.pop
+    parent_feature_name = parent_feature_name.join(".")
+    @parent_feature = Feature.find_by(name: parent_feature_name)
   end
 
   private
