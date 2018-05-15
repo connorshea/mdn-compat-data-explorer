@@ -24,7 +24,7 @@
           <table id="<%= "#{browser.name.downcase.gsub(' ', '_')}" %>" class="table mb-0 browser-table width-full">
             <thead>
               <tr class="text-center bg-light border-transparent rounded-top">
-                <th class="border-top-0" colspan="4"><%= link_to browser.name, browser_path(browser.id) %></th>
+                <th class="border-top-0" colspan="4"><%= link_to browser.name, browser_path(browser.browser_id) %></th>
               </tr>
               <tr>
                 <th>Version</th>

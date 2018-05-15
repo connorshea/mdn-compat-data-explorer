@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   match 'browsers', to: 'browsers#index', via: :get
   match 'graphs', to: 'graphs#index', via: :get
 
-  resources :browsers, only: [:show]
+  # Add browser pages with a URL that uses the browser_id,
+  # e.g. `/browsers/chrome`.
+  resources :browsers, param: :browser_id, only: [:show]
 
   root 'welcome#index'
 end
