@@ -1,4 +1,4 @@
-# MDN Browser Compatability Data Explorer
+# MDN Browser Compatibility Data Explorer
 
 [![Build Status](https://travis-ci.org/connorshea/mdn-compat-data-explorer.svg?branch=master)](https://travis-ci.org/connorshea/mdn-compat-data-explorer)
 
@@ -69,7 +69,7 @@ This project uses:
 
 - [Ruby on Rails 5.2](http://rubyonrails.org/)
 - [Bootstrap 4.1](http://getbootstrap.com/)
-- [Mozilla Developer Network Browser Compatability Data](https://github.com/mdn/browser-compat-data)
+- [Mozilla Developer Network Browser Compatibility Data](https://github.com/mdn/browser-compat-data)
 - [Octicons](https://octicons.github.com/)
 
 To view all dependencies used in this project, see the [`Gemfile`](/Gemfile) and [`package.json`](package.json).
