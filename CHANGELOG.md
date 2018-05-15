@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- Use proper title tags for each page. ([#63])
+
 ### Changed
 - Browser pages now have URLs like `/browsers/chrome` rather than `/browsers/1`. ([#62])
 
@@ -94,6 +97,7 @@ First tagged release, includes some basic functionality.
 [#51]: https://github.com/connorshea/mdn-compat-data-explorer/pull/51
 [#53]: https://github.com/connorshea/mdn-compat-data-explorer/pull/53
 [#62]: https://github.com/connorshea/mdn-compat-data-explorer/pull/62
+[#63]: https://github.com/connorshea/mdn-compat-data-explorer/pull/63
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...HEAD
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0
