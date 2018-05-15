@@ -8,7 +8,7 @@ class BrowsersController < ApplicationController
   end
 
   def show
-    @browser = Browser.find(params[:id])
+    @browser = Browser.find_by(browser_id: params[:browser_id])
     @browser = helpers.browser_releases_sorter(@browser)
   end
 end
