@@ -3,6 +3,9 @@
 <div class="container">
   <div class="row py-4">
     <div class="col-12">
+      <% if @parent_feature %>
+        <p>Parent: <%= link_to @parent_feature.name, feature_path(@parent_feature.slug) %></p>
+      <% end %>
       <h1><%= @feature.name %></h1>
     </div>
   </div>
@@ -23,5 +26,4 @@
       </div>
     </div>
   <% end %>
-
 </div>
