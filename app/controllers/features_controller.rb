@@ -90,6 +90,8 @@ class FeaturesController < ApplicationController
   def show
     @feature = Feature.friendly.find(params[:slug])
     @browsers = get_browsers
+
+    @subfeatures = Feature.where("name ~* ?", "^#{@feature.name}.*").where.not(slug: params[:slug])
   end
 
   private
