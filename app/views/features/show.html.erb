@@ -1,0 +1,15 @@
+<% content_for :title, @feature.name %>
+
+<div class="container">
+  <div class="row py-4">
+    <div class="col-12">
+      <h1><%= @feature.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= render 'feature_card', feature: @feature, browsers: @browsers %>
+    </div>
+  </div>
+</div>

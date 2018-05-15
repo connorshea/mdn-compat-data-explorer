@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   # e.g. `/browsers/chrome`.
   resources :browsers, param: :browser_id, only: [:show]
 
+  resources :features, param: :slug, only: [:show]
+
   root 'welcome#index'
 end
