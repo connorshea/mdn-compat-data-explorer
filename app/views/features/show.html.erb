@@ -12,4 +12,16 @@
       <%= render 'feature_card', feature: @feature, browsers: @browsers %>
     </div>
   </div>
+
+  <% unless @subfeatures.count.zero? %>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3>Subfeatures</h3>
+        <% @subfeatures.each do |subfeature| %>
+          <%= render 'feature_card', feature: subfeature, browsers: @browsers %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
 </div>
