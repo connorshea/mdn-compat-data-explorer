@@ -91,7 +91,7 @@ class FeaturesController < ApplicationController
     @feature = Feature.friendly.find(params[:slug])
     @browsers = get_browsers
 
-    @subfeatures = Feature.where("name ~ ?", "^#{@feature.name}\\..*").where.not(slug: params[:slug])
+    @subfeatures = Feature.where("name ~ ?", "^#{@feature.name}\\..*")
 
     parent_feature_name = @feature.name.split(/\./)
     parent_feature_name.pop
