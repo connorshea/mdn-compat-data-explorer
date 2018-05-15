@@ -73,6 +73,6 @@ module FeaturesHelper
   end
 
   def browser_release_features(browser, version)
-    return Feature.where("#{browser} @> ?", {'version_added': "#{version}"}.to_json).select("name")
+    return Feature.where("#{browser} @> ?", {'version_added': "#{version}"}.to_json).select("name, slug")
   end
 end
