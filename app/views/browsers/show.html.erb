@@ -40,7 +40,7 @@
                   <% end %>
                 </td>
                 <td class="features-column">
-                  <p>Features added (<%= browser_release_features(@browser.browser_id, release['version']).count %>):</p>
+                  <p>Features added (<%= browser_release_features(@browser.browser_id, release['version']).count(:name) %>):</p>
 
                   <a class="btn btn-primary" data-toggle="collapse" href='<%= "#collapseReleaseFeatures#{i}" %>' role="button" aria-expanded="false" aria-controls='<%= "collapseReleaseFeatures#{i}" %>'>
                     Toggle features
@@ -48,7 +48,7 @@
 
                   <div class="collapse" id='<%= "collapseReleaseFeatures#{i}" %>'>
                     <% browser_release_features(@browser.browser_id, release['version']).each do |feature| %>
-                      <p><%= feature.name %></p>
+                      <p><%= link_to feature.name, feature_path(feature.slug) %></p>
                     <% end %>
                   </div>
                 </td>
