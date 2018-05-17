@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [0.5.0] - 2018-05-17
 ### Added
 - Use proper title tags for each page. ([#63])
 - Use `friendly_id` gem for ease of use with slugs in URLs. ([#64])
@@ -110,7 +112,8 @@ First tagged release, includes some basic functionality.
 [#67]: https://github.com/connorshea/mdn-compat-data-explorer/pull/67
 [#72]: https://github.com/connorshea/mdn-compat-data-explorer/pull/72
 
-[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.2.1....v0.3.0
