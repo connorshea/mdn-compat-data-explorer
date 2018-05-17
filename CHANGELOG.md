@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Browser pages now have URLs like `/browsers/chrome` rather than `/browsers/1`. ([#62])
 - The list of features for each release on the browser page now links to the respective feature pages. ([#65])
+- Upgrade the dataset to `0.0.35`. ([#72])
 
 ## [0.4.0] - 2018-05-14
 ### Added
@@ -107,6 +108,7 @@ First tagged release, includes some basic functionality.
 [#65]: https://github.com/connorshea/mdn-compat-data-explorer/pull/65
 [#66]: https://github.com/connorshea/mdn-compat-data-explorer/pull/66
 [#67]: https://github.com/connorshea/mdn-compat-data-explorer/pull/67
+[#72]: https://github.com/connorshea/mdn-compat-data-explorer/pull/72
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...HEAD
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0
