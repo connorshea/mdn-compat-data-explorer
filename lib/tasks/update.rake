@@ -75,7 +75,7 @@ namespace :update do
 
     puts ""
     puts "Open 'CHANGELOG.md', add the PR link and also add the following line:"
-    puts "- Upgrade the dataset to #{latest_version}. ([#000])"
+    puts "- Upgrade the dataset to `#{latest_version}`. ([#000])"
     puts "Do you want to open 'CHANGELOG.md' in VSCode? (y/n)"
 
     case STDIN.gets.slice(0)

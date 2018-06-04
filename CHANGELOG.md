@@ -8,7 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add a Rake task that walks the user through updating the mdn-browser-compat-data package. ([#83])
 
 ### Changed
-- Upgrade the dataset to `0.0.36`. ([#77])
+- Upgrade the dataset to `0.0.37`. ([#77], [#84])
+
+### Fixed
+- Made the `check:check_mdn_bcd_version` task fail only when the local version of the package differed from the version defined in the Rails application config. ([#81])
 
 ## [0.5.0] - 2018-05-17
 ### Added
@@ -117,7 +120,9 @@ First tagged release, includes some basic functionality.
 [#67]: https://github.com/connorshea/mdn-compat-data-explorer/pull/67
 [#72]: https://github.com/connorshea/mdn-compat-data-explorer/pull/72
 [#77]: https://github.com/connorshea/mdn-compat-data-explorer/pull/77
+[#81]: https://github.com/connorshea/mdn-compat-data-explorer/pull/81
 [#83]: https://github.com/connorshea/mdn-compat-data-explorer/pull/83
+[#84]: https://github.com/connorshea/mdn-compat-data-explorer/pull/84
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...HEAD
 [0.5.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...v0.5.0
