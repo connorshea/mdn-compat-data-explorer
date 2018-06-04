@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Upgrade the dataset to `0.0.37`. ([#77], [#84])
 
+### Fixed
+- Made the `check:check_mdn_bcd_version` task fail only when the local version of the package differed from the version defined in the Rails application config. ([#81])
+
 ## [0.5.0] - 2018-05-17
 ### Added
 - Use proper title tags for each page. ([#63])
@@ -117,6 +120,7 @@ First tagged release, includes some basic functionality.
 [#67]: https://github.com/connorshea/mdn-compat-data-explorer/pull/67
 [#72]: https://github.com/connorshea/mdn-compat-data-explorer/pull/72
 [#77]: https://github.com/connorshea/mdn-compat-data-explorer/pull/77
+[#81]: https://github.com/connorshea/mdn-compat-data-explorer/pull/81
 [#83]: https://github.com/connorshea/mdn-compat-data-explorer/pull/83
 [#84]: https://github.com/connorshea/mdn-compat-data-explorer/pull/84
 
