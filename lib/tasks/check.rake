@@ -1,8 +1,19 @@
 namespace :check do
   desc "Checks the BCD npm package version against the Rails config."
   task :check_mdn_bcd_version do
-    version = `yarn info mdn-browser-compat-data version --silent`
-    version = version.strip
+    # Outputs something like the following:
+    # └─ mdn-browser-compat-data@0.0.36
+    # Done in 0.09s.
+    version = `yarn list --pattern mdn-browser-compat-data --depth=0`
+    # Split on the @ in the mdn-compat-data line.
+    # String is now something like this:
+    # 0.0.36
+    # Done in 0.09s.
+    version = version.split("@")[1]
+    # Split on the linebreak so version is now only the actual version number.
+    # String is now something like this:
+    # 0.0.36
+    version = version.split("\n")[0]
     # puts "'#{version}'"
     # puts "'#{Rails.configuration.mdn_bcd_version}'"
     if version != Rails.configuration.mdn_bcd_version
