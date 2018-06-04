@@ -28,7 +28,9 @@ With that, the site should be up at `localhost:3000`.
 
 ### Updating the `mdn-browser-compat-data` package
 
-You can update the `mdn-browser-compat-data` package by doing the following:
+You can update the `mdn-browser-compat-data` package using `bundle exec rake update:update_mdn_package`. This Rake task will walk you through the steps of updating the package. Alternatively, you can update it manually, described below.
+
+You can update the `mdn-browser-compat-data` package manually by doing the following:
 
 1. Edit the `mdn-browser-compat-data` package version in `package.json` and run `yarn install`.
 1. Update the `config.mdn_bcd_version` variable in `config/application.rb` to the current version.
