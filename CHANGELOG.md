@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [0.5.1] - 2018-06-04
 ### Added
 - Add a Rake task that walks the user through updating the mdn-browser-compat-data package. ([#83])
 
@@ -124,7 +126,8 @@ First tagged release, includes some basic functionality.
 [#83]: https://github.com/connorshea/mdn-compat-data-explorer/pull/83
 [#84]: https://github.com/connorshea/mdn-compat-data-explorer/pull/84
 
-[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.0...v0.3.1
