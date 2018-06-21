@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [0.5.2] - 2018-06-21
 ### Changed
 - Upgrade the dataset to `0.0.39`. ([#89])
 - Upgrade sprockets to 3.7.2 for security fixes. ([#87])
@@ -131,7 +133,8 @@ First tagged release, includes some basic functionality.
 [#87]: https://github.com/connorshea/mdn-compat-data-explorer/pull/87
 [#89]: https://github.com/connorshea/mdn-compat-data-explorer/pull/89
 
-[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.3.1...v0.4.0
