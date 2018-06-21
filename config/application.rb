@@ -12,7 +12,7 @@ module MdnCompatDataExplorer
     config.load_defaults 5.2
 
     # Set the version of the MDN BCD Package
-    config.mdn_bcd_version = '0.0.37'
+    config.mdn_bcd_version = '0.0.39'
 
     Rails.application.config.assets.configure do |env|
       AutoprefixerRails.uninstall env

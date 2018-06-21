@@ -3,6 +3,6 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.2",
-    "mdn-browser-compat-data": "0.0.37"
+    "mdn-browser-compat-data": "0.0.39"
   }
 }
