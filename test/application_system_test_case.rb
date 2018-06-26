@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  browser_options = %w[headless disable-dev-shm-usage]
+  browser_options = %w[headless]
   browser_options << 'no-sandbox' if ENV['CI']
 
   driven_by(
@@ -10,7 +10,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     screen_size: [1400, 1400],
     options: {
       desired_capabilities: {
-        chromeOptions: {
+        'goog:chromeOptions': {
           args: browser_options
         }
       }
