@@ -3,6 +3,9 @@ notifications:
 language: ruby
 addons:
   postgresql: '9.6'
+  apt:
+    packages:
+      - google-chrome-stable
 env:
   - TRAVIS_NODE_VERSION="9" CI=true RAILS_ENV=test
 cache:
