@@ -10,7 +10,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     screen_size: [1400, 1400],
     options: {
       desired_capabilities: {
-        chromeOptions: {
+        'goog:chromeOptions': {
           args: browser_options
         }
       }
