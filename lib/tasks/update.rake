@@ -40,7 +40,13 @@ namespace :update do
     puts "Installing packages via 'yarn install'."
     puts "yarn install"
     system('yarn install') or exit
-    
+
+    puts ""
+    puts "Checking that the correct versions of packages are installed via 'yarn check'."
+    puts "If this fails, you may need to delete your node_modules folder and re-run 'yarn install'."
+    puts "yarn check"
+    system('yarn check') or exit
+
     puts ""
     puts "Open 'config/application.rb' and update config.mdn_bcd_version to"\
       " #{latest_version}."

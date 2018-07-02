@@ -14,7 +14,7 @@ install:
   - bundle install
   - nvm install 9
   - nvm use 9
-  - yarn install
+  - yarn install --frozen-lockfile
   - yarn list
 before_script:
   - cp config/database.yml.travis config/database.yml
