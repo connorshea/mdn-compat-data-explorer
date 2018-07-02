@@ -4,5 +4,8 @@
   "dependencies": {
     "chart.js": "^2.7.2",
     "mdn-browser-compat-data": "0.0.39"
+  },
+  "scripts": {
+    "build": "node ./lib/build.js"
   }
 }
