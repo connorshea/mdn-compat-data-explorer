@@ -4,8 +4,12 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [0.6.0] - 2018-07-02
 ### Changed
 - Upgrade the dataset to `0.0.40`. ([#100])
+- Prettify the JSON output by `build.js`. ([#99])
+- Make the build script a yarn task, accessible via `yarn run build`. ([#99])
 
 ## [0.5.2] - 2018-06-21
 ### Changed
@@ -134,9 +138,11 @@ First tagged release, includes some basic functionality.
 [#84]: https://github.com/connorshea/mdn-compat-data-explorer/pull/84
 [#87]: https://github.com/connorshea/mdn-compat-data-explorer/pull/87
 [#89]: https://github.com/connorshea/mdn-compat-data-explorer/pull/89
+[#99]: https://github.com/connorshea/mdn-compat-data-explorer/pull/99
 [#100]: https://github.com/connorshea/mdn-compat-data-explorer/pull/100
 
-[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.4.0...v0.5.0
