@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. Releases ar
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Changed
+- Upgrade the dataset to `0.0.40`. ([#100])
 
 ## [0.5.2] - 2018-06-21
 ### Changed
@@ -132,6 +134,7 @@ First tagged release, includes some basic functionality.
 [#84]: https://github.com/connorshea/mdn-compat-data-explorer/pull/84
 [#87]: https://github.com/connorshea/mdn-compat-data-explorer/pull/87
 [#89]: https://github.com/connorshea/mdn-compat-data-explorer/pull/89
+[#100]: https://github.com/connorshea/mdn-compat-data-explorer/pull/100
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.2...HEAD
 [0.5.2]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...v0.5.2
