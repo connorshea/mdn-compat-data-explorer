@@ -18,7 +18,7 @@ install:
   - bundle install
   - nvm install 9
   - nvm use 9
-  - yarn install
+  - yarn install --frozen-lockfile
   - yarn list
 before_script:
   - cp config/database.yml.travis config/database.yml
@@ -28,7 +28,7 @@ script:
   - bundle exec rake db:seed
   - bundle exec rake test
   - bundle exec rake test:system
-  - node lib/build.js
+  - yarn run build
   - git diff --exit-code --quiet public/data.json
   - bundle exec rake check:check_mdn_bcd_version 
   - bundle exec rake check:check_json 

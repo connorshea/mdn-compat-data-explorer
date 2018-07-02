@@ -62,9 +62,9 @@ namespace :update do
     puts "Continuing..."
 
     puts ""
-    puts "Regenerating 'public/data.json' with 'node lib/build.js'."
-    puts "node lib/build.js"
-    system('node lib/build.js') or exit
+    puts "Regenerating 'public/data.json' with 'yarn run build'."
+    puts "yarn run build"
+    system('yarn run build') or exit
     puts "Continuing..."
 
     puts ""
