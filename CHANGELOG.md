@@ -1,5 +1,5 @@
 # Changelog
-All notable changes to this project will be documented in this file. Releases are created whenever the `master` branch is deployed to Heroku.
+All notable changes to this project will be documented in this file. Releases prior to 0.6.0 were created whenever the `master` branch is deployed to Heroku, now they're somewhat arbitrary.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
