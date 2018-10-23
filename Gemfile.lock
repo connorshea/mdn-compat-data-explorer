@@ -50,7 +50,7 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.2.1)
+    autoprefixer-rails (9.3.0)
       execjs
     better_errors (2.5.0)
       coderay (>= 1.0.0)
