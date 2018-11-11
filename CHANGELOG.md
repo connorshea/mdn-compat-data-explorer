@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ### Changed
-- Upgrade the dataset to `0.0.41`. ([#108])
-- Upgrade the dataset to `0.0.45`. ([#127])
+
+## [0.7.0] - 2018-11-11
+### Changed
+- Upgrade the dataset to `0.0.45`. ([#108], [#127])
+- Dozens of dependency updates via Dependabot, including security fixes.
+- Upgrade Bundler to v1.17.1 and Ruby to v2.5.3. ([#188])
 
 ## [0.6.0] - 2018-07-02
 ### Changed
@@ -145,8 +149,10 @@ First tagged release, includes some basic functionality.
 [#100]: https://github.com/connorshea/mdn-compat-data-explorer/pull/100
 [#108]: https://github.com/connorshea/mdn-compat-data-explorer/pull/108
 [#127]: https://github.com/connorshea/mdn-compat-data-explorer/pull/127
+[#188]: https://github.com/connorshea/mdn-compat-data-explorer/pull/188
 
-[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.5.0...v0.5.1
