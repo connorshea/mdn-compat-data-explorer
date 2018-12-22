@@ -39,35 +39,35 @@ FactoryBot.define do
     sequence(:name) { |n| "feature#{n}" }
 
     factory :has_description do
-      description "Lorem ipsum"
+      description { "Lorem ipsum" }
     end
 
     factory :has_mdn_url do
-      mdn_url "https://developer.mozilla.org/docs/Web/HTML/Element/header"
+      mdn_url { "https://developer.mozilla.org/docs/Web/HTML/Element/header" }
     end
 
     factory :deprecated_true do
-      deprecated true
+      deprecated { true }
     end
 
     factory :deprecated_false do
-      deprecated false
+      deprecated { false }
     end
 
     factory :experimental_true do
-      experimental true
+      experimental { true }
     end
 
     factory :experimental_false do
-      experimental false
+      experimental { false }
     end
 
     factory :standard_track_true do
-      standard_track true
+      standard_track { true }
     end
 
     factory :standard_track_false do
-      standard_track false
+      standard_track { false }
     end
 
     factory :firefox_true_simple_one do
