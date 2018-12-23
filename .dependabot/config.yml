@@ -14,9 +14,6 @@ update_configs:
       - match:
           dependency_group: "runtime"
           kind: "semver:minor"
-    allowed_updates:
-      - match:
-          kind: "security"
 
   - package_manager: "javascript"
     directory: "/"
