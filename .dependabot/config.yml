@@ -16,7 +16,7 @@ update_configs:
           kind: "semver:minor"
     allowed_updates:
       - match:
-          kind: "all"
+          kind: "security"
 
   - package_manager: "javascript"
     directory: "/"
