@@ -27,7 +27,7 @@ gem 'kaminari', '~> 1.1'
 gem 'octicons_helper', '~> 8.2'
 gem 'pg_search', '~> 2.1'
 
-gem 'friendly_id', '~> 5.2.0'
+gem 'friendly_id', '~> 5.2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
