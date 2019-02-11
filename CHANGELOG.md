@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fix deprecation warnings from FactoryBot. ([#222])
 - Upgrade Bundler to v1.17.2. ([#223])
 - Upgrade the dataset to `0.0.61`. ([#224])
+- Upgrade the dataset to `0.0.66`. ([#251])
 
 ## [0.7.0] - 2018-11-11
 ### Changed
@@ -158,6 +159,7 @@ First tagged release, includes some basic functionality.
 [#222]: https://github.com/connorshea/mdn-compat-data-explorer/pull/222
 [#223]: https://github.com/connorshea/mdn-compat-data-explorer/pull/223
 [#224]: https://github.com/connorshea/mdn-compat-data-explorer/pull/224
+[#251]: https://github.com/connorshea/mdn-compat-data-explorer/pull/251
 
 [Unreleased]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.7.0...HEAD
 [0.7.0]: https://github.com/connorshea/mdn-compat-data-explorer/compare/v0.6.0...v0.7.0
