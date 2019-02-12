@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'chartkick', '~> 3.0'
 gem 'database_cleaner', '~> 1.7'
 
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.0'
 gem 'jquery-rails', '~> 4.3'
 
 gem 'version_sorter', '~> 2.2'
