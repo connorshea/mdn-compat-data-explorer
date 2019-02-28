@@ -24,7 +24,7 @@ gem 'version_sorter', '~> 2.2'
 
 gem 'kaminari', '~> 1.1'
 
-gem 'octicons_helper', '~> 8.4'
+gem 'octicons_helper', '~> 8.5'
 gem 'pg_search', '~> 2.1'
 
 gem 'friendly_id', '~> 5.2.5'
