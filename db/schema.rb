@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_15_204532) do
+ActiveRecord::Schema.define(version: 2019_05_02_044010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_05_15_204532) do
     t.jsonb "uc_chinese_android"
     t.jsonb "webview_android"
     t.string "slug", null: false
+    t.jsonb "opera_android"
     t.index ["slug"], name: "index_features_on_slug", unique: true
   end
 

@@ -17,6 +17,7 @@
 #  name                    :string
 #  nodejs                  :jsonb
 #  opera                   :jsonb
+#  opera_android           :jsonb
 #  qq_android              :jsonb
 #  safari                  :jsonb
 #  safari_ios              :jsonb
