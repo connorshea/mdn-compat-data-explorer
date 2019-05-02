@@ -78,6 +78,7 @@ else
     ie: "Internet Explorer",
     nodejs: "NodeJS",
     opera: "Opera",
+    opera_android: "Opera Android",
     qq_android: "QQ Android",
     safari: "Safari",
     safari_ios: "Safari Mobile",
