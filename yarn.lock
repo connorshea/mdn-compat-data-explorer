@@ -36,10 +36,10 @@ extend@3.0.2:
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
-mdn-browser-compat-data@0.0.77:
-  version "0.0.77"
-  resolved "https://registry.yarnpkg.com/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.77.tgz#5ff115fc734887b8417f98f4627ab5ed0c945414"
-  integrity sha512-pfpsUTAnINNKp719Fy1jufXqGrZ1DE1JOS2Rs0Gw6b0VxArku1+N/BnRmSaFz2Dp5yrXXQikMuO65n91Qn329Q==
+mdn-browser-compat-data@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mdn-browser-compat-data/-/mdn-browser-compat-data-1.0.1.tgz#52657b4418e809a49d61877b50e20662cdd0b317"
+  integrity sha512-FxRIu4UYu4rRdFs5JFf6del6J+OpbOq2tYfIEK7N/PtEtz6yGVcWcytmh5L5hZxe58kuxUzjgR8+/0TRyRzRqA==
   dependencies:
     extend "3.0.2"
 
