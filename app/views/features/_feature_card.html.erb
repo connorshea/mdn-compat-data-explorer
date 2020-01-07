@@ -40,6 +40,17 @@
     <% if feature.mdn_url %>
       <%= link_to "MDN", feature.mdn_url, class: "card-link mdn-link" %>
     <% end %>
+    <% if feature.spec_url %>
+      <% if feature.spec_url.start_with?('[') %>
+        <span class="card-link">Spec:</span>
+        <% specURLs = JSON.parse feature.spec_url %>
+        <% specURLs.each_with_index { |specURL, index| %>
+          <%= link_to (index + 1).to_s, specURL.strip, class: "card-link spec-link" %>
+        <% } %>
+      <% else %>
+        <%= link_to "Spec", feature.spec_url, class: "card-link spec-link" %>
+      <% end %>
+    <% end %>
   </div>
   <div class="card-body p-0 card-body-scroll">
     <table class="table table-responsive-lg mb-0 features-table width-full">

@@ -31,6 +31,13 @@ class FeaturesController < ApplicationController
       features = features.has_no_mdn_url
     end
 
+    # Handles filtering based on the presence of an MDN URL.
+    if params["spec_url"] == "true"
+      features = features.has_spec_url
+    elsif params["spec_url"] == "false"
+      features = features.has_no_spec_url
+    end
+
     # Handles filtering based on the presence of a description.
     if params["description"] == "true"
       features = features.has_description

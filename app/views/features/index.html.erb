@@ -65,6 +65,21 @@
             </div>
 
             <div class="form-group">
+              <%= label_tag("spec_url", "Includes a Spec URL?") %>
+              <%= select_tag(
+                "spec_url",
+                options_for_select(
+                  [
+                    ['Has a spec URL', true],
+                    ['Has no spec URL', false]
+                  ],
+                  params["spec_url"]
+                ),
+                { include_blank: true, class: "form-control form-control-sm" }
+              ) %>
+            </div>
+
+            <div class="form-group">
               <%= label_tag("description", "Includes a description?") %>
               <%= select_tag(
                 "description",

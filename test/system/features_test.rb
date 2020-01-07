@@ -31,6 +31,14 @@ class FeaturesTest < ApplicationSystemTestCase
     assert_selector("a.mdn-link")
   end
 
+  test "Spec URL displays" do
+    visit features_url
+    fill_in "query", with: "feature_with_spec_url"
+    click_on "Search"
+
+    assert_selector("a.spec-link")
+  end
+
   test "Nothing displays for bare feature" do
     visit features_url
     fill_in "query", with: "bare_feature"

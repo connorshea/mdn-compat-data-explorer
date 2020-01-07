@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_044010) do
     t.string "name"
     t.string "description"
     t.string "mdn_url"
+    t.string "spec_url"
     t.boolean "deprecated"
     t.boolean "experimental"
     t.boolean "standard_track"

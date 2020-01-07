@@ -3,6 +3,9 @@ class WelcomeController < ApplicationController
     # Query for all features with an MDN URL:
     @features_with_mdn_count = Feature.has_mdn_url.count
 
+    # Query for all features with an Spec URL:
+    @features_with_spec_count = Feature.has_spec_url.count
+
     # Query for all features with a description:
     @features_with_description_count = Feature.has_description.count
 

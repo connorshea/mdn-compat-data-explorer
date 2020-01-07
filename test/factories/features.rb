@@ -23,6 +23,7 @@
 #  safari_ios              :jsonb
 #  samsunginternet_android :jsonb
 #  slug                    :string           not null
+#  spec_url                :string
 #  standard_track          :boolean
 #  uc_android              :jsonb
 #  uc_chinese_android      :jsonb
@@ -45,6 +46,10 @@ FactoryBot.define do
 
     factory :has_mdn_url do
       mdn_url { "https://developer.mozilla.org/docs/Web/HTML/Element/header" }
+    end
+
+    factory :has_spec_url do
+      spec_url { "https://tc39.github.io/ecma262/#sec-array-objects" }
     end
 
     factory :deprecated_true do

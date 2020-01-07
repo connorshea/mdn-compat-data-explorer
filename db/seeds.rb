@@ -136,6 +136,7 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature_path=[])
       feature_path.join("."), #name
       data_object["__compat"]["description"], # description
       data_object["__compat"]["mdn_url"], # mdn_url
+      data_object["__compat"]["spec_url"], # spec_url
       data_object["__compat"]["status"], #status
       data_object["__compat"]["support"] #support object
     )
@@ -168,18 +169,20 @@ def recursive_parse_browser_data_schema(data_object, iteration, feature_path=[])
 end
 
 
-def create_feature(name, description=nil, mdn_url=nil, status=nil, support_object)
+def create_feature(name, description=nil, mdn_url=nil, spec_url=nil, status=nil, support_object)
   # puts "CREATE FEATURE"
   # puts "support_object: #{support_object}"
   # puts "name: #{name}"
   # puts "Description: #{description}"
   # puts "mdn_url: #{mdn_url}"
+  # puts "spec_url: #{spec_url}"
   # puts "Status: #{status}"
 
   hash = {
     name: name,
     description: description,
-    mdn_url: mdn_url
+    mdn_url: mdn_url,
+    spec_url: spec_url
   }
 
   ["deprecated", "experimental", "standard_track"].each do |status_key|

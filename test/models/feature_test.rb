@@ -23,6 +23,7 @@
 #  safari_ios              :jsonb
 #  samsunginternet_android :jsonb
 #  slug                    :string           not null
+#  spec_url                :string
 #  standard_track          :boolean
 #  uc_android              :jsonb
 #  uc_chinese_android      :jsonb
@@ -52,6 +53,14 @@ class FeatureTest < ActiveSupport::TestCase
 
     assert_not_includes(Feature.has_mdn_url, Feature.find_by!(name: feature.name))
     assert_includes(Feature.has_mdn_url, Feature.find_by!(name: feature_with_mdn_url.name))
+  end
+
+  test "has_spec_url scope does not return features without an MDN URL" do
+    feature_with_spec_url = create(:has_spec_url)
+    feature = create(:feature)
+
+    assert_not_includes(Feature.has_spec_url, Feature.find_by!(name: feature.name))
+    assert_includes(Feature.has_spec_url, Feature.find_by!(name: feature_with_spec_url.name))
   end
 
   test "is_deprecated scope returns only deprecated features" do

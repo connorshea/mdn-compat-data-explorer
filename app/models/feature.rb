@@ -23,6 +23,7 @@
 #  safari_ios              :jsonb
 #  samsunginternet_android :jsonb
 #  slug                    :string           not null
+#  spec_url                :string
 #  standard_track          :boolean
 #  uc_android              :jsonb
 #  uc_chinese_android      :jsonb
@@ -48,6 +49,8 @@ class Feature < ApplicationRecord
   # Feature attribute scopes
   scope :has_mdn_url,              -> { where.not(mdn_url: nil) }
   scope :has_no_mdn_url,           -> { where(mdn_url: nil) }
+  scope :has_spec_url,             -> { where.not(spec_url: nil) }
+  scope :has_no_spec_url,          -> { where(spec_url: nil) }
   scope :has_description,          -> { where.not(description: nil) }
   scope :has_no_description,       -> { where(description: nil) }
 

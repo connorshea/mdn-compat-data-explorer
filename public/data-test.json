@@ -264,6 +264,48 @@
         }
       }
     },
+    "feature_with_spec_url": {
+      "__compat": {
+        "spec_url": "https://tc39.github.io/ecma262/#sec-array-objects",
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        }
+      },
+      "subfeature_with_spec_url": {
+        "__compat": {
+          "spec_url": "https://tc39.github.io/ecma262/#sec-array.prototype.concat",
+          "support": {
+            "firefox": {
+              "version_added": "1"
+            }
+          }
+        }
+      }
+    },
+    "feature_with_spec_url_and_description": {
+      "__compat": {
+        "spec_url": "https://tc39.es/ecma262/#sec-object-objects",
+        "description": "Lorem ipsum",
+        "support": {
+          "firefox": {
+            "version_added": "1"
+          }
+        }
+      },
+      "subfeature_with_spec_url_and_description": {
+        "__compat": {
+          "spec_url": "https://tc39.github.io/ecma262/#sec-additional-properties-of-the-object.prototype-object",
+          "description": "Lorem ipsum",
+          "support": {
+            "firefox": {
+              "version_added": "1"
+            }
+          }
+        }
+      }
+    },
     "experimental_feature": {
       "__compat": {
         "support": {
