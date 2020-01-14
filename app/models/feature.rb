@@ -36,7 +36,7 @@
 #
 
 class Feature < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
   include FriendlyId
 
   friendly_id :name, use: :slugged
