@@ -16,6 +16,4 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   Capybara.default_driver = :chrome_headless
   Capybara.javascript_driver = :chrome_headless
-
-  driven_by :selenium, using: :chrome_headless
 end
