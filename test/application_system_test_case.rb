@@ -5,6 +5,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     options = ::Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
     options.add_argument('--no-sandbox') if ENV['CI']
+    options.add_argument('--disable-dev-shm-usage') if ENV['CI']
 
     Capybara::Selenium::Driver.new app,
       browser: :chrome,
