@@ -1,0 +1,38 @@
+image: "registry.gitlab.com/connorshea/mdn-compat-data-explorer:latest"
+
+services:
+  - postgres:11
+
+variables:
+  BUNDLE_PATH: vendor/bundle
+  DB_HOST: postgres
+  POSTGRES_DB: ci_test
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+  RAILS_ENV: test
+  RACK_ENV: test
+  NODE_ENV: test
+  CI: 'true'
+  BUNDLER_VERSION: '2.0.2'
+
+# Cache gems and node_modules in between builds
+cache:
+  key: '$BUNDLER_VERSION'
+  paths:
+    - vendor/bundle
+    - node_modules
+
+before_script:
+  - ruby -v
+  - gem install bundler:$BUNDLER_VERSION
+  - bundle install -j $(nproc)
+  - yarn install --frozen-lockfile
+  - cp config/database.yml.ci config/database.yml
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate --trace
+  - bundle exec rails db:seed
+
+test:
+  script:
+    - bundle exec rake test
+    - bundle exec rake test:system
