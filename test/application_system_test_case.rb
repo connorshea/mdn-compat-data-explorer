@@ -12,5 +12,6 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       service: Selenium::WebDriver::Service.chrome(args: { log_path: 'tmp/chrome.log' })
   end
 
+  Capybara.default_driver = :chrome_headless
   Capybara.javascript_driver = :chrome_headless
 end
