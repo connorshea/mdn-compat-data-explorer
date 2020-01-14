@@ -1,6 +1,6 @@
 # MDN Browser Compatibility Data Explorer
 
-[![Build Status](https://travis-ci.org/connorshea/mdn-compat-data-explorer.svg?branch=master)](https://travis-ci.org/connorshea/mdn-compat-data-explorer)
+[![pipeline status](https://gitlab.com/connorshea/mdn-compat-data-explorer/badges/master/pipeline.svg)](https://gitlab.com/connorshea/mdn-compat-data-explorer/commits/master)
 
 This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
@@ -9,8 +9,8 @@ This is a Rails app that lets the user explore the browser compatibility data th
 
 You'll need:
 
-- Postgres 10 (9.6 should also work)
-- Ruby 2.5.x
+- Postgres 11
+- Ruby 2.6.x
 - Node.js 10.x
 - Yarn
 - Graphviz
