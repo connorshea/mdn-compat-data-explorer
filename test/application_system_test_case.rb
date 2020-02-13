@@ -1,19 +1,19 @@
 require "test_helper"
+require "webdrivers"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  browser_options = %w[headless]
-  browser_options << 'no-sandbox' if ENV['CI']
+  Capybara.register_driver :chrome_headless do |app|
+    options = ::Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox') if ENV['CI']
+    options.add_argument('--disable-dev-shm-usage') if ENV['CI']
 
-  driven_by(
-    :selenium,
-    using: :chrome,
-    screen_size: [1400, 1400],
-    options: {
-      desired_capabilities: {
-        chromeOptions: {
-          args: browser_options
-        }
-      }
-    }
-  )
+    Capybara::Selenium::Driver.new app,
+      browser: :chrome,
+      options: options,
+      service: Selenium::WebDriver::Service.chrome(args: { log_path: 'tmp/chrome.log' })
+  end
+
+  Capybara.default_driver = :chrome_headless
+  Capybara.javascript_driver = :chrome_headless
 end

@@ -1,6 +1,6 @@
 # MDN Browser Compatibility Data Explorer
 
-[![Build Status](https://travis-ci.org/connorshea/mdn-compat-data-explorer.svg?branch=master)](https://travis-ci.org/connorshea/mdn-compat-data-explorer)
+[![pipeline status](https://gitlab.com/connorshea/mdn-compat-data-explorer/badges/master/pipeline.svg)](https://gitlab.com/connorshea/mdn-compat-data-explorer/commits/master)
 
 This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
@@ -9,9 +9,9 @@ This is a Rails app that lets the user explore the browser compatibility data th
 
 You'll need:
 
-- Postgres 10 (9.6 should also work)
-- Ruby 2.5.x
-- Node.js 9.x
+- Postgres 11
+- Ruby 2.6.x
+- Node.js 10.x
 - Yarn
 - Graphviz
 
@@ -53,6 +53,16 @@ You can use data from `public/data-test.json` by running
 `USE_TEST_DATA=true bundle exec rake db:seed`. This is useful for ensuring
 accuracy, since you can manipulate the JSON and will know, e.g. how many
 features should be listed as true.
+
+### CI and Docker
+
+This project uses GitLab CI.
+
+To regenerate and push the Docker container up to the GitLab Container Registry:
+
+- Log into the GitLab CI Docker registry with `docker login registry.gitlab.com` (you'll need to use a Personal Access Token as your password).
+- Build the container with `docker build -f Dockerfile -t registry.gitlab.com/connorshea/mdn-compat-data-explorer .`
+- Then use `docker push registry.gitlab.com/connorshea/mdn-compat-data-explorer` to push the container to the GitLab Container Registry.
 
 ### Deployment
 

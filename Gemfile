@@ -29,6 +29,8 @@ gem 'pg_search', '~> 2.2'
 
 gem 'friendly_id', '~> 5.2.5'
 
+gem 'rake', '~> 12'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -57,5 +59,5 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
