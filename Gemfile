@@ -27,7 +27,7 @@ gem 'kaminari', '~> 1.1'
 gem 'octicons_helper', '~> 8.5'
 gem 'pg_search', '~> 2.2'
 
-gem 'friendly_id', '~> 5.2.5'
+gem 'friendly_id', '~> 5.3.0'
 
 gem 'rake', '~> 12'
 
