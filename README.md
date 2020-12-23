@@ -4,6 +4,10 @@
 
 This is a Rails app that lets the user explore the browser compatibility data that MDN is collecting in [the `browser-compat-data` repo](https://github.com/mdn/browser-compat-data).
 
+## Deprecated
+
+This was hard to update consistently and has been essentially dormant for nearly two years. If you'd like to update it, feel free to fork it :) It is now deprecated and archived, and the Heroku app has been taken offline.
+
 ## Development
 ### Running the application locally
 
