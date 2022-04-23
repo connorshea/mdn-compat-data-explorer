@@ -22,7 +22,7 @@ gem 'jquery-rails', '~> 4.3'
 
 gem 'version_sorter', '~> 2.2'
 
-gem 'kaminari', '~> 1.1'
+gem 'kaminari', '~> 1.2'
 
 gem 'octicons_helper', '~> 8.5'
 gem 'pg_search', '~> 2.2'
