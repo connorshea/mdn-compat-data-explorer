@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-gem 'chartkick', '~> 3.2'
+gem 'chartkick', '~> 3.4'
 gem 'database_cleaner', '~> 1.7'
 
 gem 'bootstrap', '~> 4.4.1'
