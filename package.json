@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.8.0",
-    "mdn-browser-compat-data": "0.0.77"
+    "mdn-browser-compat-data": "1.1.2"
   },
   "scripts": {
     "build": "node ./lib/build.js"
