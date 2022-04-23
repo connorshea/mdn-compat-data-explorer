@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'chartkick', '~> 3.2'
-gem 'database_cleaner', '~> 1.7'
+gem 'database_cleaner', '~> 1.8'
 
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails', '~> 4.3'
